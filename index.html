@@ -104,11 +104,11 @@ h+="<tr><td><b>"+esc(n)+"</b></td><td>"+esc(c)+"</td>"+st.map(s=>p[s]==null?"<td
 $("catT").innerHTML=h+"</table><p>Green = lowest sample price. Sample data, not live.</p>";}
 function addCart(id){const it=db.cart.find(c=>c.id===id);it?it.qty++:db.cart.push({id,qty:1});save();const p=PRODUCTS.find(x=>x.id===id);toast("Added: "+p.name+" ("+p.store+")");}
 function fee(){return (+$("flat").value||0)+(+$("mi").value||0)*1.3;}
-$("flat").oninput=$("mi").oninput=()=>$("feeOut").textContent=money(fee());
+$("flat").oninput=$("mi").oninput=()=>renderCart();
 function renderCart(){$("cSel").innerHTML=db.customers.map(c=>"<option value='"+c.id+"'>#"+esc(c.num||"")+" "+esc(c.name)+" ("+esc(c.loc)+")</option>").join("");
 if(!db.cart.length){$("cartT").innerHTML="<p>Cart is empty. Add items on '1. Shop &amp; Compare'.</p>";}else{let t=0;
-$("cartT").innerHTML="<table><tr><th>Item</th><th>Store</th><th>Your price</th><th>Qty</th><th></th></tr>"+db.cart.map((c,i)=>{const p=PRODUCTS.find(x=>x.id===c.id);const sub=cartSub(),up=custPrice(p,sub);t+=up*c.qty;
-return "<tr><td>"+esc(p.name)+"</td><td>"+esc(p.store)+"</td><td><b>"+money(up)+"</b><br><small>store "+money(p.price)+"</small></td><td><input type='number' min='1' value='"+c.qty+"' style='width:60px' onchange='db.cart["+i+"].qty=+this.value||1;save();renderCart()'></td><td><button class='b r' onclick='db.cart.splice("+i+",1);save();renderCart()'>Remove</button></td></tr>";}).join("")+"</table>"+promoNote()+"<div class='big'>Customer item total: "+money(t)+"</div><div>Store cost: "+money(cartSub())+" | Your markup (profit): "+money(t-cartSub())+"</div>";}
+$("cartT").innerHTML="<table><tr><th>Item</th><th>Store</th><th>Price</th><th>Qty</th><th></th></tr>"+db.cart.map((c,i)=>{const p=PRODUCTS.find(x=>x.id===c.id);const sub=cartSub(),up=custPrice(p,sub);t+=up*c.qty;
+return "<tr><td>"+esc(p.name)+"</td><td>"+esc(p.store)+"</td><td><b>"+money(up)+"</b></td><td><input type='number' min='1' value='"+c.qty+"' style='width:60px' onchange='db.cart["+i+"].qty=+this.value||1;save();renderCart()'></td><td><button class='b r' onclick='db.cart.splice("+i+",1);save();renderCart()'>Remove</button></td></tr>";}).join("")+"</table>"+promoNote()+"<div class='big'>Items: "+money(t)+"</div><div class='big'>Delivery: <span class='cfee'>"+money(fee())+"</span></div><div class='big' style='font-size:26px'>Total: <span class='cgt'>"+money(t+fee())+"</span></div><label class='chip' style='margin-top:8px'><input type='checkbox' id='ownT'"+(window.__own?" checked":"")+" onchange='window.__own=this.checked;renderCart()'> Owner details</label><div"+(window.__own?"":" class='hide'")+" style='background:#eee;padding:8px;border-radius:6px'>Store cost (you pay): "+money(cartSub())+" | Your profit: "+money(t-cartSub())+"</div>";}
 $("feeOut").textContent=money(fee());}
 function addCust(){const n=$("nN").value.trim();if(!n)return alert("Please type a name.");const c={id:Date.now(),name:n,loc:$("nL").value,notes:$("nT").value};db.customers.push(c);save();["nN","nL","nT"].forEach(i=>$(i).value="");tog("newC");renderCart();$("cSel").value=c.id;}
 function placeOrder(){if(!db.cart.length)return alert("Cart is empty.");const cu=db.customers.find(c=>c.id==$("cSel").value);if(!cu)return alert("Pick a customer.");
@@ -169,10 +169,10 @@ $("demoT").onchange=e=>{$("demoB").classList.toggle("hide",!e.target.checked);if
 var F={q:"",stores:Object.keys(STORES),cat:"",min:"",max:"",sort:"name"},fOpen={};
 function CATS(){return [...new Set(RAW.map(r=>r[1]))].sort();}
 function inRange(v){return (F.min===""||v>=+F.min)&&(F.max===""||v<=+F.max);}
-function fRows(){const q=F.q.trim().toLowerCase();let rows=RAW.filter(r=>(!q||(r[0]+" "+r[1]).toLowerCase().includes(q))&&(!F.cat||r[1]===F.cat)).map(r=>{const ps=F.stores.filter(s=>r[2][s]!=null&&inRange(r[2][s])).map(s=>r[2][s]);return{r,ps,min:ps.length?Math.min(...ps):0};}).filter(x=>x.ps.length);
+function fRows(){const q=F.q.trim().toLowerCase();let rows=RAW.filter(r=>(!q||(r[0]+" "+r[1]).toLowerCase().includes(q))&&(!F.cat||r[1]===F.cat)).map(r=>{const ps=F.stores.filter(s=>r[2][s]!=null&&inRange(custPrice({name:r[0],price:r[2][s]},0))).map(s=>custPrice({name:r[0],price:r[2][s]},0));return{r,ps,min:ps.length?Math.min(...ps):0};}).filter(x=>x.ps.length);
 rows.sort(F.sort==="lo"?(a,b)=>a.min-b.min:F.sort==="hi"?(a,b)=>b.min-a.min:(a,b)=>a.r[0].localeCompare(b.r[0]));return rows;}
-function fItems(){const q=F.q.trim().toLowerCase();let it=PRODUCTS.filter(p=>F.stores.includes(p.store)&&(!q||(p.name+" "+p.cat).toLowerCase().includes(q))&&(!F.cat||p.cat===F.cat)&&inRange(p.price));
-it.sort(F.sort==="lo"?(a,b)=>a.price-b.price:F.sort==="hi"?(a,b)=>b.price-a.price:(a,b)=>a.name.localeCompare(b.name)||a.price-b.price);return it;}
+function fItems(){const q=F.q.trim().toLowerCase();let it=PRODUCTS.filter(p=>F.stores.includes(p.store)&&(!q||(p.name+" "+p.cat).toLowerCase().includes(q))&&(!F.cat||p.cat===F.cat)&&inRange(custPrice(p,0)));
+it.sort(F.sort==="lo"?(a,b)=>custPrice(a,0)-custPrice(b,0):F.sort==="hi"?(a,b)=>custPrice(b,0)-custPrice(a,0):(a,b)=>a.name.localeCompare(b.name)||custPrice(a,0)-custPrice(b,0));return it;}
 function renderFilters(){document.querySelectorAll(".fwrap").forEach(w=>{const v=w.dataset.v,act=document.activeElement,aid=act&&act.dataset&&act.dataset.f&&act.closest(".fwrap")===w?act.dataset.f:null;
 w.innerHTML="<button class='b fbtn' onclick='fOpen[\""+v+"\"]=!fOpen[\""+v+"\"];renderFilters()'>"+(fOpen[v]?"Hide filters ▲":"Filters ▼")+"</button><div class='fbar"+(fOpen[v]?" open":"")+"'>"+
 "<div class='row'><input data-f='q' placeholder='Search products (e.g. flour, diapers)' value='"+esc(F.q)+"' style='flex:1;min-width:220px' oninput='F.q=this.value;fChange()'></div>"+
@@ -188,16 +188,16 @@ function fChange(){renderCat();renderStoreCards();fCount();}
 function fStore(s,on){F.stores=on?[...new Set([...F.stores,s])]:F.stores.filter(x=>x!==s);renderFilters();fChange();}
 function fClear(){F={q:"",stores:Object.keys(STORES),cat:"",min:"",max:"",sort:"name"};renderFilters();fChange();}
 function renderCat(){const st=F.stores.length?F.stores:[];
-let h="<table><tr><th>Product</th><th>Type</th><th>Your price<br><small>(cheapest store)</small></th>"+st.map(s=>"<th>"+esc(s)+"</th>").join("")+"</tr>";
-fRows().forEach(({r:[n,c,p],min})=>{h+="<tr><td><b>"+esc(n)+"</b></td><td>"+esc(c)+"</td><td class='yp'><b>"+money(custPrice({name:n,price:min},0))+"</b></td>"+st.map(s=>p[s]==null||!inRange(p[s])?"<td>-</td>":"<td class='"+(p[s]===min?"best":"")+"'>"+money(p[s])+"<br><button class='b' data-id=\""+esc(n+"|"+s)+"\" onclick='addCart(this.dataset.id)'>Add</button></td>").join("")+"</tr>";});
-$("catT").innerHTML=h+"</table><p>Store columns show what you pay the store. Your price = cheapest store price plus your markup. Green = lowest sample price. Sample data, not live.</p>";}
+let h="<table><tr><th>Product</th><th>Type</th>"+st.map(s=>"<th>"+esc(s)+"</th>").join("")+"</tr>";
+fRows().forEach(({r:[n,c,p],min})=>{h+="<tr><td><b>"+esc(n)+"</b></td><td>"+esc(c)+"</td>"+st.map(s=>p[s]==null||!inRange(custPrice({name:n,price:p[s]},0))?"<td>-</td>":"<td class='"+(custPrice({name:n,price:p[s]},0)===min?"best":"")+"'>"+money(custPrice({name:n,price:p[s]},0))+"<br><button class='b' data-id=\""+esc(n+"|"+s)+"\" onclick='addCart(this.dataset.id)'>Add</button></td>").join("")+"</tr>";});
+$("catT").innerHTML=h+"</table><p>Prices include our service. Green = best price. Sample data, not live. Sample data, not live.</p>";}
 function renderStores(){$("stBtns").innerHTML="Quick pick: "+Object.keys(STORES).map(s=>"<button class='b"+(F.stores.length===1&&F.stores[0]===s?"":" g")+"' data-s=\""+esc(s)+"\" onclick='F.stores=[this.dataset.s];renderFilters();fChange();renderStores()'>"+esc(s)+"</button>").join("")+"<button class='b g' onclick='F.stores=Object.keys(STORES);renderFilters();fChange();renderStores()'>All stores</button>";renderStoreCards();}
-function renderStoreCards(){const it=fItems();$("stCards").innerHTML=it.length?it.map(p=>"<div class='pc' data-id=\""+esc(p.id)+"\" onclick='addCart(this.dataset.id)'><b>"+esc(p.name)+"</b><br>"+esc(p.store)+" · "+esc(p.cat)+"<br><span class='big'>"+money(custPrice(p,0))+"</span><br><small>store "+money(p.price)+" · sample price</small></div>").join(""):"<p class='big'>No products match. Try Clear filters.</p>";}
+function renderStoreCards(){const it=fItems();$("stCards").innerHTML=it.length?it.map(p=>"<div class='pc' data-id=\""+esc(p.id)+"\" onclick='addCart(this.dataset.id)'><b>"+esc(p.name)+"</b><br>"+esc(p.store)+" · "+esc(p.cat)+"<br><span class='big'>"+money(custPrice(p,0))+"</span><br><small>sample price</small></div>").join(""):"<p class='big'>No products match. Try Clear filters.</p>";}
 renderFilters();
-var DEFSET={pct:10,minUnder:10,minAmt:1,bulkyPct:15,bigOver:150,bigPct:8};
-var BULKY0=["All-Purpose Flour 25 lb","Granulated Sugar 25 lb","Rolled Oats 10 lb","Chicken Layer Feed 50 lb","Wheelbarrow 6 cu ft","Fencing Wire 100 ft","Laundry Detergent 200 loads","Toilet Paper 30 rolls","Lamp Oil 1 gal"];
-function S(){if(!db.settings)db.settings=Object.assign({},DEFSET);for(const k in DEFSET)if(db.settings[k]==null||isNaN(+db.settings[k]))db.settings[k]=DEFSET[k];return db.settings;}
-function isBulky(n){if(!db.bulky){db.bulky={};BULKY0.forEach(x=>db.bulky[x]=true);}return !!db.bulky[n];}
+function DEFS(){return {pct:10,minUnder:10,minAmt:1,bulkyPct:15,bigOver:150,bigPct:8};}
+function BULKY0L(){return ["All-Purpose Flour 25 lb","Granulated Sugar 25 lb","Rolled Oats 10 lb","Chicken Layer Feed 50 lb","Wheelbarrow 6 cu ft","Fencing Wire 100 ft","Laundry Detergent 200 loads","Toilet Paper 30 rolls","Lamp Oil 1 gal"];}
+function S(){if(!db.settings)db.settings=DEFS();const D=DEFS();for(const k in D)if(db.settings[k]==null||isNaN(+db.settings[k]))db.settings[k]=D[k];return db.settings;}
+function isBulky(n){if(!db.bulky){db.bulky={};BULKY0L().forEach(x=>db.bulky[x]=true);}return !!db.bulky[n];}
 function mkOf(p,sub,noBig){const s=S(),big=!noBig&&sub>=+s.bigOver,rate=big?+s.bigPct:(isBulky(p.name)?+s.bulkyPct:+s.pct);let m=p.price*rate/100;if(p.price<+s.minUnder)m=Math.max(m,+s.minAmt);return Math.round(m*100)/100;}
 function custPrice(p,sub){return Math.round((p.price+mkOf(p,sub))*100)/100;}
 function cartLines(){return db.cart.map(c=>({p:PRODUCTS.find(x=>x.id===c.id),q:c.qty})).filter(x=>x.p);}
@@ -209,7 +209,7 @@ function renderPromo(){document.querySelectorAll(".promo").forEach(e=>e.textCont
 function renderSettings(){const s=S(),f=(k,l)=>"<div class='row'><label style='min-width:260px'>"+l+"</label><input type='number' step='0.01' min='0' value='"+s[k]+"' style='width:120px' onchange='setS(\""+k+"\",this.value)'></div>";
 $("setT").innerHTML="<div class='card'><div class='big'>Markup settings</div><p>Saved on this device. Changes apply to new carts and orders; orders already placed keep their markup.</p>"+
 f("pct","Normal markup (%)")+f("minUnder","Small items: price under ($)")+f("minAmt","Small items: at least this markup ($)")+f("bulkyPct","Bulky/heavy markup (%)")+f("bigOver","Big order: store subtotal of at least ($)")+f("bigPct","Big order markup for every item (%)")+
-"<button class='b g' onclick='db.settings=Object.assign({},DEFSET);save();render()'>Reset to defaults</button></div><div class='card'><div class='big'>Bulky/heavy items</div>"+
+"<button class='b g' onclick='db.settings=DEFS();save();render()'>Reset to defaults</button></div><div class='card'><div class='big'>Bulky/heavy items</div>"+
 RAW.map(r=>"<label class='chip"+(isBulky(r[0])?" on":"")+"'><input type='checkbox'"+(isBulky(r[0])?" checked":"")+" data-n=\""+esc(r[0])+"\" onchange='isBulky(\"\");db.bulky[this.dataset.n]=this.checked;save();render()'>"+esc(r[0])+"</label>").join("")+"</div>";}
 function setS(k,v){S()[k]=Math.max(0,parseFloat(v)||0);save();render();}
 var _render=render;render=function(){S();isBulky("");_render();renderPromo();renderSettings();};
