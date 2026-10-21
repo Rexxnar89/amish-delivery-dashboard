@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner() {
+      return request.auth != null
+        && request.auth.token.email == 'jeffreyblazer@gmail.com';
+    }
+
+    // Customer accounts: only the owner creates or edits them.
+    // A signed-in customer can read only their own record (doc id = their uid).
+    match /customers/{uid} {
+      allow read: if isOwner() || (request.auth != null && request.auth.uid == uid);
+      allow create, update, delete: if isOwner();
+    }
+
+    // Orders: owner can do everything.
+    // A customer can read only orders tagged with their uid, and can create an
+    // order only for themselves, with status "Ordered", and only if the owner
+    // has set up their customer record.
+    match /orders/{orderId} {
+      allow read: if isOwner()
+        || (request.auth != null && resource.data.customerUid == request.auth.uid);
+      allow create: if isOwner()
+        || (request.auth != null
+            && request.resource.data.customerUid == request.auth.uid
+            && request.resource.data.status == 'Ordered'
+            && exists(/databases/$(database)/documents/customers/$(request.auth.uid)));
+      allow update, delete: if isOwner();
+    }
+
+    // Markup settings: anyone can read (so prices show before sign-in); owner writes.
+    match /config/{docId} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+  }
+}

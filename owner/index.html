@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amish Delivery - Owner</title>
+<style>
+body{font-family:Arial,sans-serif;font-size:18px;margin:0;background:#f6f4ef;color:#222}
+header{background:#3b5d3a;color:#fff;padding:12px 20px}header h1{margin:0;font-size:26px}
+nav button{font-size:20px;padding:10px 18px;margin:8px 4px 0 0;border:0;border-radius:8px;background:#e8e2d0;cursor:pointer}
+nav button.on{background:#fff;font-weight:bold}
+main{padding:16px 20px}.warn{background:#fff3b0;border:2px solid #e0c200;padding:8px 12px;border-radius:8px;margin-bottom:12px;font-weight:bold}
+input,select,textarea{font-size:18px;padding:6px;border:1px solid #999;border-radius:6px}
+button.b{font-size:18px;padding:8px 14px;border:0;border-radius:6px;background:#3b5d3a;color:#fff;cursor:pointer;margin:2px}
+button.g{background:#777}button.r{background:#a33}
+table{border-collapse:collapse;width:100%;background:#fff;margin:10px 0}th,td{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:top}
+th{background:#e8e2d0}.best{background:#d8f5d0;font-weight:bold}.card{background:#fff;padding:12px;border-radius:8px;margin:10px 0;border:1px solid #ccc}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0}.hide{display:none}.big{font-size:22px;font-weight:bold}
+.pc{background:#fff;border:2px solid #ccc;border-radius:8px;padding:12px;width:200px;cursor:pointer}.pc:hover{border-color:#3b5d3a}tr.demo td{background:#e6f0ff}.dtag{background:#2a5db0;color:#fff;padding:1px 6px;border-radius:4px;font-size:14px}#demoB{background:#2a5db0;color:#fff;padding:10px;margin-top:8px;border-radius:8px;font-size:20px}button,select,input,label.b,.b{min-height:44px}nav{position:sticky;top:0}
+#badge{position:fixed;right:14px;bottom:14px;z-index:9;font-size:20px;box-shadow:0 2px 8px #0006;display:inline-flex;align-items:center}
+@media(max-width:700px){body{font-size:17px}header{padding:8px}header h1{font-size:21px}nav button{font-size:16px;padding:10px;margin:3px 2px}
+main{padding:8px}.pc{width:100%;box-sizing:border-box}.row{flex-direction:column;align-items:stretch}.row input,.row select{width:100%;box-sizing:border-box}
+#catT,#logT{overflow-x:auto}#logT table,#logT tbody,#logT tr,#logT td{display:block;width:100%;box-sizing:border-box}#logT tr:first-child{display:none}
+#logT tr{border:2px solid #999;margin:10px 0;border-radius:8px;background:#fff}#logT td{border:0;border-bottom:1px solid #eee}
+#logT td:before{content:attr(data-l);display:block;font-size:13px;color:#666;font-weight:bold}#toast{bottom:80px!important}}#catT,#logT,#cartT,.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+#catT td:first-child,#catT th:first-child,#cartT td:first-child,#cartT th:first-child,.tw td:nth-child(4),.tw th:nth-child(4){position:sticky;left:0;z-index:2;background:#fff;box-shadow:2px 0 3px #0002}
+#catT th:first-child,#cartT th:first-child,.tw th:nth-child(4){background:#e8e2d0;z-index:3}
+@media(min-width:701px){#logT td:nth-child(5),#logT th:nth-child(5){position:sticky;left:0;z-index:2;background:#fff;box-shadow:2px 0 3px #0002;min-width:220px}#logT th:nth-child(5){background:#e8e2d0;z-index:3}#logT tr.demo td:nth-child(5){background:#e6f0ff}}#badge{opacity:1!important;background:#3b5d3a!important;color:#fff!important;font-weight:bold;border:2px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.6),0 0 0 2px #3b5d3a;min-height:56px;padding:0 18px;border-radius:30px;font-size:20px;gap:8px;cursor:pointer;z-index:50;isolation:isolate}#badge .cnt{background:#fff;color:#3b5d3a;border-radius:14px;min-width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;font-size:18px}.fbtn{display:none;width:100%;font-size:22px;min-height:56px}.fbar{background:#fff;border:1px solid #ccc;border-radius:8px;padding:10px;margin:8px 0}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 12px;margin:3px;border:2px solid #3b5d3a;border-radius:22px;cursor:pointer;background:#fff}.chip.on{background:#3b5d3a;color:#fff}.chip input{width:22px;height:22px}
+.fcount{font-weight:bold;font-size:20px;margin:6px 0}
+@media(max-width:700px){.fbtn{display:block}.fbar{display:none}.fbar.open{display:block}.fbar input[type=number]{width:100%}}.oid{font-size:22px;font-weight:900;color:#1d3a1c;white-space:nowrap}.promo{background:#b8410e;color:#fff;font-weight:bold;font-size:22px;padding:12px 16px;border-radius:10px;margin-bottom:10px;border:3px solid #ffd27a;box-shadow:0 3px 8px rgba(0,0,0,.3)}.pnote{background:#fff1d6;border:2px solid #b8410e;color:#5a2000;font-weight:bold;font-size:20px;padding:10px;border-radius:8px;margin:8px 0}.pnote.won{background:#d8f5d0;border-color:#2c7a2c;color:#14421a}@media(max-width:700px){.promo{font-size:19px}}</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+</head><body>
+<div id="noJs" style="background:#a33;color:#fff;padding:12px;font-size:20px;font-weight:bold">The app is NOT running (scripts are blocked). Drive and file previews block it. Open the web link in Chrome or Safari instead.</div>
+<div id="gate" style="position:fixed;inset:0;background:#f6f4ef;z-index:100;display:flex;align-items:center;justify-content:center"><div class="card" style="max-width:420px;width:92%"><div class="big">Owner sign-in</div><p>Jeffrey only. Customers use the main page.</p><div class="row"><input id="gE" type="email" value="jeffreyblazer@gmail.com" style="width:100%"><input id="gP" type="password" placeholder="Password" style="width:100%"></div><button class="b" onclick="ownerSignIn()" style="width:100%;min-height:56px;font-size:22px">Sign in</button><p id="gMsg"></p><details><summary style="min-height:44px">First time? Create owner account</summary><p>Uses the email above and the password you type (8+ characters).</p><button class="b g" onclick="ownerCreate()">Create owner account</button></details></div></div>
+<header><h1>Owner Dashboard <span id="okJs" style="display:none;background:#8f8;color:#030;font-size:16px;padding:2px 8px;border-radius:6px">App loaded ✓</span></h1><div>Prototype. Prices are SAMPLE DATA, NOT LIVE. Ordering opens the store website for you to finish by hand.</div>
+<nav><button data-p="cat" class="on">1. Shop &amp; Compare</button><button data-p="stores">Stores</button><button data-p="cart">2. Order for customer</button><button data-p="log">3. Order Log</button><button data-p="cust">4. Customers</button><button data-p="set">Settings</button> <span class="b" id="badge" onclick="show('cart')">Cart: 0</span> <label style="font-size:18px"><input type="checkbox" id="demoT"> Demo mode</label> <span id="whoO" style="font-size:14px"></span> <span class="b r" role="button" style="display:inline-flex;align-items:center" onclick="ownerSignOut()">Sign out</span></nav><div id="demoB" class="hide"></div></header>
+<main><div id="lsWarn" class="warn" style="display:none;background:#fdd">Warning: this browser is blocking saving. Your orders will be lost when you close the page. Export to CSV before closing.</div>
+<section id="cat"><div class="promo"></div><div class="warn">All prices below are sample data, not live. Check the real price on the store website.</div>
+<div class="fwrap" data-v="cat"></div>
+<div id="catT"></div></section>
+<section id="stores" class="hide"><div class="promo"></div><div class="row" id="stBtns"></div><div class="fwrap" data-v="st"></div><div class="warn">Sample data, not live. Click a card to add it to the cart.</div><div id="stCards" style="display:flex;flex-wrap:wrap;gap:10px"></div></section>
+<section id="cart" class="hide"><div class="card"><div class="big">Customer</div>
+<div class="row"><select id="cSel"></select><button class="b g" onclick="tog('newC')">+ Add new customer</button></div>
+<div id="newC" class="hide card"><div class="big">New customer account</div><p>You create every customer. They sign in on the customer page with their number + this PIN. No phone needed.</p><div class="row"><input id="nN" placeholder="Name"><input id="nL" placeholder="Address / drop point"><input id="nM" type="number" min="0" step="0.1" placeholder="Miles from you"><input id="nPh" placeholder="Phone (optional)"><input id="nT" placeholder="Notes"><input id="nPin" inputmode="numeric" maxlength="6" placeholder="6-number PIN"></div><button class="b" id="nGo" onclick="addCust()">Create customer account</button></div></div>
+<div class="card"><div class="big">Cart</div><div class="warn">Sample prices, not live.</div><div id="cartT"></div>
+<div class="row">Delivery fee: flat $<input id="flat" type="number" value="5" step="0.5" style="width:80px"> + miles <input id="mi" type="number" value="0" style="width:80px"> × $1.30 = <b id="feeOut"></b></div>
+<div class="row">Notes: <input id="oNote" size="40"></div>
+<button class="b" onclick="placeOrder()">Place order</button></div><div id="placed"></div></section>
+<section id="log" class="hide"><div class="row"><input id="fQ" placeholder="Search: store order #, name, or item" style="flex:1;min-width:240px;font-size:20px" oninput="renderLog()"></div><div class="row">Customer <select id="fC"></select> Status <select id="fS"></select>
+<button class="b" onclick="exportCSV()">Export CSV</button><label class="b">Import CSV <input type="file" id="imp" accept=".csv" class="hide"></label></div>
+<div id="owed" class="big"></div><div id="logT" style="overflow-x:auto"></div></section>
+<section id="set" class="hide"><div id="setT"></div></section>
+<section id="cust" class="hide"><div class="row"><button class="b" onclick="show('cart');$('newC').classList.remove('hide')">+ Add customer</button><button class="b g" onclick="importLocal()">Import old saved data from this device</button></div><div id="custT"></div></section>
+</main><div id="toast" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 20px;border-radius:8px;font-size:20px;display:none"></div>
+<script>
+const STORES={"Amazon":q=>"https://www.amazon.com/s?k="+q,"Walmart":q=>"https://www.walmart.com/search?q="+q,"Target":q=>"https://www.target.com/s?searchTerm="+q,"Sam's Club":q=>"https://www.samsclub.com/s/"+q,"Lehman's":q=>"https://www.lehmans.com/search?q="+q,"Tractor Supply":q=>"https://www.tractorsupply.com/tsc/search/"+q};
+// [name, category, {store:price}] SAMPLE DATA, NOT LIVE
+const RAW=[["All-Purpose Flour 25 lb","Bulk food",{"Walmart":11.48,"Sam's Club":10.98,"Amazon":15.99}],
+["Granulated Sugar 25 lb","Bulk food",{"Walmart":17.97,"Sam's Club":16.48,"Amazon":21.5}],
+["Rolled Oats 10 lb","Bulk food",{"Amazon":18.99,"Sam's Club":12.98,"Lehman's":19.99}],
+["Canning Jars Quart 12-pack","Household",{"Walmart":14.97,"Target":16.99,"Lehman's":18.99,"Tractor Supply":15.99,"Amazon":17.49}],
+["Canning Lids Regular 24-pack","Household",{"Walmart":5.97,"Amazon":7.99,"Lehman's":6.99}],
+["Lamp Oil 1 gal","Household",{"Amazon":24.99,"Walmart":21.98,"Lehman's":22.99,"Tractor Supply":19.99}],
+["Kerosene Lamp Wick 3-pack","Household",{"Lehman's":5.99,"Amazon":7.49}],
+["Laundry Detergent 200 loads","Household",{"Walmart":19.97,"Target":21.99,"Sam's Club":18.98,"Amazon":22.49}],
+["Paper Towels 12 rolls","Household",{"Walmart":21.97,"Target":22.99,"Sam's Club":20.98,"Amazon":24.99}],
+["Toilet Paper 30 rolls","Household",{"Sam's Club":22.98,"Walmart":24.97,"Target":25.99}],
+["Dish Soap 90 oz","Household",{"Walmart":8.97,"Target":9.49,"Sam's Club":8.48}],
+["D Batteries 12-pack","Household",{"Amazon":17.99,"Walmart":16.47,"Target":18.99,"Sam's Club":15.98}],
+["Propane Cylinder 1 lb 2-pack","Household",{"Walmart":9.97,"Tractor Supply":10.99,"Amazon":14.99}],
+["Cast Iron Skillet 12 in","Household",{"Amazon":29.9,"Walmart":24.97,"Target":29.99,"Lehman's":39.99}],
+["Hand Crank Grain Mill","Tools",{"Lehman's":89.99,"Amazon":74.99}],
+["Claw Hammer 16 oz","Tools",{"Walmart":12.97,"Tractor Supply":14.99,"Amazon":13.49}],
+["Hand Saw 20 in","Tools",{"Walmart":16.97,"Tractor Supply":18.99,"Amazon":15.99}],
+["Work Gloves Leather 3-pair","Tools",{"Tractor Supply":19.99,"Amazon":17.99,"Walmart":15.97}],
+["Wheelbarrow 6 cu ft","Farm & garden",{"Tractor Supply":89.99,"Walmart":84.0}],
+["Chicken Layer Feed 50 lb","Farm & garden",{"Tractor Supply":19.99,"Walmart":22.98}],
+["Garden Seed Variety Pack","Farm & garden",{"Lehman's":24.99,"Amazon":19.99,"Walmart":14.97,"Tractor Supply":16.99}],
+["Fencing Wire 100 ft","Farm & garden",{"Tractor Supply":39.99,"Amazon":44.99}],
+["Garden Hoe","Farm & garden",{"Tractor Supply":24.99,"Walmart":19.97,"Lehman's":34.99}],
+["Fly Spray 1 gal","Farm & garden",{"Tractor Supply":29.99,"Amazon":34.99}],
+["Baby Diapers Size 3 (150)","Kids",{"Walmart":39.97,"Target":41.99,"Sam's Club":37.98,"Amazon":42.99}],
+["Baby Wipes 900 count","Kids",{"Sam's Club":24.98,"Walmart":26.97,"Target":27.99,"Amazon":28.49}],
+["Wooden Building Blocks","Kids",{"Amazon":24.99,"Target":19.99,"Lehman's":29.99}],
+["Crayons 64-pack","Kids",{"Walmart":3.97,"Target":4.29,"Amazon":5.49}],
+["Children's Rubber Boots","Kids",{"Tractor Supply":24.99,"Walmart":17.97,"Target":19.99}],
+["Composition Notebooks 6-pack","Kids",{"Walmart":5.94,"Target":6.49,"Amazon":7.99}]];
+RAW.push(["Ibuprofen 200 mg 300-count","Health",{"Walmart":9.88,"Target":10.99,"Sam's Club":8.98,"Amazon":11.49}],["Adhesive Bandages 100-count","Health",{"Walmart":4.97,"Target":5.49,"Amazon":6.99}],["Vitamin D3 2000 IU 300-count","Health",{"Sam's Club":12.48,"Walmart":13.97,"Amazon":14.99}]);
+const CATMAP={"Bulk food":"Groceries","Kids":"Baby & Kids","Farm & garden":"Farm & Garden"};RAW.forEach(r=>{r[1]=CATMAP[r[1]]||r[1];});
+const PRODUCTS=[];RAW.forEach(([n,c,p])=>Object.entries(p).forEach(([s,v])=>PRODUCTS.push({id:n+"|"+s,name:n,cat:c,store:s,price:v})));
+const $=id=>document.getElementById(id),money=n=>"$"+(+n||0).toFixed(2),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+var LS_OK=true,db={customers:[],orders:[],cart:[],settings:null,bulky:null};try{db.cart=JSON.parse(localStorage.getItem("amishCartOwner")||"[]")||[];}catch(e){LS_OK=false;}
+const save=()=>{ensureIds();try{localStorage.setItem("amishCartOwner",JSON.stringify(db.cart));}catch(e){}if(window.updBadge)updBadge();fbSync();};
+const STATUS=["Ordered","Shipped","Arrived","Ready for delivery","Delivered","Returned"],PAY=["Cash","Check","Card"];
+const tog=id=>$(id).classList.toggle("hide");
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>show(b.dataset.p));
+function show(p){document.querySelectorAll("main section").forEach(s=>s.classList.toggle("hide",s.id!==p));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.p===p));render();}
+function renderCat(){const q=$("q").value.toLowerCase(),sf=$("sf").value,st=Object.keys(STORES);
+let h="<table><tr><th>Product</th><th>Type</th>"+st.map(s=>"<th>"+esc(s)+"</th>").join("")+"</tr>";
+RAW.filter(r=>r[0].toLowerCase().includes(q)||r[1].toLowerCase().includes(q)).filter(r=>!sf||r[2][sf]!=null).forEach(([n,c,p])=>{const min=Math.min(...Object.values(p));
+h+="<tr><td><b>"+esc(n)+"</b></td><td>"+esc(c)+"</td>"+st.map(s=>p[s]==null?"<td>-</td>":"<td class='"+(p[s]===min?"best":"")+"'>"+money(p[s])+"<br><button class='b' onclick=\"addCart('"+esc((n+"|"+s).replace(/'/g,"\\'"))+"')\">Add</button></td>").join("")+"</tr>";});
+$("catT").innerHTML=h+"</table><p>Green = lowest sample price. Sample data, not live.</p>";}
+function addCart(id){const it=db.cart.find(c=>c.id===id);it?it.qty++:db.cart.push({id,qty:1});save();const p=PRODUCTS.find(x=>x.id===id);toast("Added: "+p.name+" ("+p.store+")");}
+function fee(){return (+$("flat").value||0)+(+$("mi").value||0)*1.3;}
+$("flat").oninput=$("mi").oninput=()=>renderCart();
+function pad2(n){return String(n).padStart(2,"0");}
+function ensureIds(){if(!db)return;let mx=0;db.customers.forEach(c=>{if(c.num)mx=Math.max(mx,parseInt(c.num,10)||0);});db.customers.forEach(c=>{if(!c.num)c.num=pad2(++mx);});
+const cnt={},gid={};db.orders.forEach(o=>{if(o.appId&&!/^\d+-\d{3,}$/.test(o.appId))delete o.appId;if(o.appId){const k=o.group||o.appId,m=o.appId.split("-");gid[k]=o.appId;cnt[m[0]]=Math.max(cnt[m[0]]||0,parseInt(m[1],10));}});
+db.orders.forEach(o=>{const k=o.group||o.id;if(!o.group)o.group=k;if(o.appId)return;if(gid[k]){o.appId=gid[k];return;}
+const c=db.customers.find(x=>x.id==o.custId)||db.customers.find(x=>x.name===o.customer);const cc=c?c.num:"00";cnt[cc]=(cnt[cc]||0)+1;o.appId=cc+"-"+String(cnt[cc]).padStart(3,"0");gid[k]=o.appId;});}
+function renderCart(){$("cSel").innerHTML=db.customers.map(c=>"<option value='"+c.id+"'>#"+esc(c.num||"")+" "+esc(c.name)+" ("+esc(c.loc)+")</option>").join("");
+if(!db.cart.length){$("cartT").innerHTML="<p>Cart is empty. Add items on '1. Shop &amp; Compare'.</p>";}else{let t=0;
+$("cartT").innerHTML="<table><tr><th>Item</th><th>Store</th><th>Price</th><th>Qty</th><th></th></tr>"+db.cart.map((c,i)=>{const p=PRODUCTS.find(x=>x.id===c.id);const sub=cartSub(),up=custPrice(p,sub);t+=up*c.qty;
+return "<tr><td>"+esc(p.name)+"</td><td>"+esc(p.store)+"</td><td><b>"+money(up)+"</b></td><td><input type='number' min='1' value='"+c.qty+"' style='width:60px' onchange='db.cart["+i+"].qty=+this.value||1;save();renderCart()'></td><td><button class='b r' onclick='db.cart.splice("+i+",1);save();renderCart()'>Remove</button></td></tr>";}).join("")+"</table>"+promoNote()+"<div class='big'>Items: "+money(t)+"</div><div class='big'>Delivery: <span class='cfee'>"+money(fee())+"</span></div><div class='big' style='font-size:26px'>Total: <span class='cgt'>"+money(t+fee())+"</span></div><label class='chip' style='margin-top:8px'><input type='checkbox' id='ownT'"+(window.__own?" checked":"")+" onchange='window.__own=this.checked;renderCart()'> Owner details</label><div"+(window.__own?"":" class='hide'")+" style='background:#eee;padding:8px;border-radius:6px'>Store cost (you pay): "+money(cartSub())+" | Your profit: "+money(t-cartSub())+"</div>";}
+$("feeOut").textContent=money(fee());}
+function addCust(){const n=$("nN").value.trim();if(!n)return alert("Please type a name.");const c={id:Date.now(),name:n,loc:$("nL").value,notes:$("nT").value};db.customers.push(c);save();["nN","nL","nT"].forEach(i=>$(i).value="");tog("newC");renderCart();$("cSel").value=c.id;}
+function placeOrder(){if(!db.cart.length)return alert("Cart is empty.");const cu=db.customers.find(c=>c.id==$("cSel").value);if(!cu)return alert("Pick a customer.");
+const sub=cartSub();const by={};db.cart.forEach(c=>{const p=PRODUCTS.find(x=>x.id===c.id);(by[p.store]=by[p.store]||[]).push({...p,qty:c.qty});});
+const g=Date.now()+"-"+Math.random().toString(36).slice(2,7),f=fee(),today=new Date().toISOString().slice(0,10);let first=true,h="<div class='card'><div class='big'>Order placed for "+esc(cu.name)+". Now order each part on the store website:</div><div class='warn'>MANUAL STEP: real store connections are not set up yet. Click each button, find the item, and check out on the store site.</div>";
+Object.entries(by).forEach(([s,items])=>{const cost=items.reduce((a,i)=>a+i.price*i.qty,0),mk=items.reduce((a,i)=>a+mkOf(i,sub)*i.qty,0);
+db.orders.push({id:g+"-"+s,group:g,date:today,custId:cu.id,customer:cu.name,loc:cu.loc,items:items.map(i=>i.qty+" x "+i.name).join("; "),store:s,cost:+cost.toFixed(2),mk:+mk.toFixed(2),fee:first?+f.toFixed(2):0,deliv:"",pay:"Cash",paid:"N",status:"Ordered",notes:$("oNote").value,demo:!!cu.demo});first=false;
+h+="<div class='card'><b>"+esc(s)+"</b> <br>Store price you pay at checkout: <b>"+money(cost)+"</b> (sample) | Customer pays for items: "+money(cost+mk)+"<br>"+items.map(i=>esc(i.qty+" x "+i.name)+" <a target='_blank' rel='noopener' href='"+STORES[s](encodeURIComponent(i.name))+"'><button class='b'>Open store to order</button></a>").join("<br>")+"</div>";});
+db.cart=[];save();$("oNote").value="";$("placed").innerHTML=h+"<p>The delivery fee goes on the first store's line in the Order Log.</p></div>";renderCart();}
+function renderLog(){const fc=$("fC").value,fs=$("fS").value;
+$("fC").innerHTML="<option value=''>All</option>"+[...new Set(db.orders.map(o=>o.customer))].map(n=>"<option"+(n===fc?" selected":"")+">"+esc(n)+"</option>").join("");
+$("fS").innerHTML="<option value=''>All</option>"+STATUS.map(s=>"<option"+(s===fs?" selected":"")+">"+s+"</option>").join("");
+const fq=($("fQ").value||"").trim().toLowerCase();const rows=db.orders.filter(o=>(!fc||o.customer===fc)&&(!fs||o.status===fs)&&(!fq||[o.appId,o.sono,o.customer,o.items,o.store].join(" ").toLowerCase().includes(fq)));
+const owed=db.orders.filter(o=>o.paid!=="Y"&&o.status!=="Returned"),cash=owed.filter(o=>o.pay==="Cash").reduce((a,o)=>a+TOT(o),0),all=owed.reduce((a,o)=>a+TOT(o),0);
+$("owed").textContent="Cash still owed to you: "+money(cash)+"   (all unpaid: "+money(all)+")";
+const sel=(i,k,opts,v)=>"<select onchange='upd("+i+",\""+k+"\",this.value)'>"+opts.map(o=>"<option"+(o===v?" selected":"")+">"+o+"</option>").join("")+"</select>";
+$("logT").innerHTML="<table><tr>"+COLS.map(c=>"<th>"+c[0]+"</th>").join("")+"<th></th></tr>"+rows.map(o=>{const i=db.orders.indexOf(o);return "<tr"+(o.demo?" class='demo'":"")+"><td><span class='oid'>"+esc(o.appId||"")+"</span></td><td>"+(o.demo?"<span class='dtag'>DEMO</span> ":"")+o.date+"</td><td>"+esc(o.customer)+"</td><td>"+esc(o.loc)+"</td><td>"+itemsCell(i,o)+"</td><td>"+esc(o.store)+"</td><td><input placeholder='Store order #' value='"+esc(o.sono||"")+"' onchange='upd("+i+",\"sono\",this.value.trim())'><div style='font-size:13px;color:#555'>Use one cart per customer; keep names off shipping labels.</div></td><td>"+money(o.cost)+"</td><td>"+money(o.mk||0)+"</td><td>"+money(o.fee)+"</td><td><b>"+money(TOT(o))+"</b></td><td><input type='date' value='"+o.deliv+"' onchange='upd("+i+",\"deliv\",this.value)'></td><td>"+sel(i,"pay",PAY,o.pay)+"</td><td>"+sel(i,"paid",["N","Y"],o.paid)+"</td><td>"+sel(i,"status",STATUS,o.status)+"</td><td><input value='"+esc(o.notes)+"' onchange='upd("+i+",\"notes\",this.value)'></td><td><button class='b r' onclick='if(confirm(\"Delete this line?\")){db.orders.splice("+i+",1);save();renderLog()}'>X</button></td></tr>";}).join("")+"</table>"+(rows.length?"":"<p>No orders yet.</p>");document.querySelectorAll("#logT tr").forEach(tr=>tr.querySelectorAll("td").forEach((td,j)=>td.setAttribute("data-l",COLS[j]?COLS[j][0]:"")));}
+function iList(o){if(!o.itemList)o.itemList=String(o.items||"").split(";").map(s=>s.trim()).filter(Boolean).map(s=>({t:s,arr:false}));return o.itemList;}
+function itemsCell(i,o){const L=iList(o),n=L.filter(x=>x.arr).length;return L.map((x,j)=>"<label style='display:flex;align-items:center;gap:6px;min-height:44px'><input type='checkbox' style='width:28px;height:28px'"+(x.arr?" checked":"")+" onchange='arrive("+i+","+j+",this.checked)'>"+esc(x.t)+"</label>").join("")+"<b>"+n+" of "+L.length+" arrived</b>";}
+function arrive(i,j,v){const o=db.orders[i],L=iList(o);L[j].arr=v;if(v&&L.every(x=>x.arr)&&STATUS.indexOf(o.status)<STATUS.indexOf("Ready for delivery")&&confirm("All items arrived. Mark this order Ready for delivery?"))o.status="Ready for delivery";save();renderLog();}
+function upd(i,k,v){db.orders[i][k]=v;save();renderLog();}
+$("fC").onchange=$("fS").onchange=renderLog;
+const COLS=[["App Order ID","appId"],["Order Date","date"],["Customer","customer"],["Location/Drop Point","loc"],["Items","items"],["Source Store","store"],["Store Order #","sono"],["Store Cost","cost"],["Markup","mk"],["Delivery Fee","fee"],["Total Due",null],["Delivery Date","deliv"],["Payment Method","pay"],["Paid Y/N","paid"],["Status","status"],["Notes","notes"]];
+const csvq=v=>{v=String(v??"");return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;};
+function exportCSV(){const lines=[COLS.map(c=>c[0]).join(",")].concat(db.orders.map(o=>COLS.map(c=>csvq(c[1]?o[c[1]]:(TOT(o)).toFixed(2))).join(",")));
+const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([lines.join("\n")],{type:"text/csv"}));a.download="Amish Delivery - Order Tracker.csv";a.click();}
+function parseCSV(t){const r=[];let row=[],f="",q=false;for(let i=0;i<t.length;i++){const c=t[i];if(q){if(c=='"'&&t[i+1]=='"'){f+='"';i++;}else if(c=='"')q=false;else f+=c;}else if(c=='"')q=true;else if(c==","){row.push(f);f="";}else if(c=="\n"||c=="\r"){if(c=="\r"&&t[i+1]=="\n")i++;row.push(f);r.push(row);row=[];f="";}else f+=c;}if(f||row.length){row.push(f);r.push(row);}return r.filter(x=>x.join("").trim());}
+$("imp").onchange=e=>{const fl=e.target.files[0];if(!fl)return;fl.text().then(t=>{const r=parseCSV(t),hd=r.shift().map(h=>{h=h.trim().toLowerCase();return h==="item cost"?"store cost":h;});let n=0;
+r.forEach(v=>{const o={id:Date.now()+"-"+n,group:"imp"+Date.now()+"-"+n,pay:"Cash",paid:"N",status:"Ordered"};COLS.forEach(([lab,k])=>{const j=hd.indexOf(lab.toLowerCase());if(k&&j>=0&&v[j]!=null&&v[j]!=="")o[k]=v[j];});
+o.mk=parseFloat(String(o.mk||0).replace(/[$,]/g,""))||0;o.cost=parseFloat(String(o.cost||0).replace(/[$,]/g,""))||0;o.fee=parseFloat(String(o.fee||0).replace(/[$,]/g,""))||0;o.paid=/^y/i.test(o.paid)?"Y":"N";
+let c=db.customers.find(x=>x.name===o.customer);if(!c&&o.customer){c={id:Date.now()+n,name:o.customer,loc:o.loc||"",notes:""};db.customers.push(c);}o.custId=c&&c.id;db.orders.push(o);n++;});
+save();renderLog();alert("Imported "+n+" lines.");e.target.value="";});};
+function renderCust(){$("custT").innerHTML=db.customers.map(c=>{const os=db.orders.filter(o=>o.custId==c.id||o.customer===c.name),tot=os.reduce((a,o)=>a+TOT(o),0),un=os.filter(o=>o.paid!=="Y"&&o.status!=="Returned").reduce((a,o)=>a+TOT(o),0);
+return "<div class='card'"+(c.demo?" style='background:#e6f0ff'":"")+"><div class='big'>"+(c.demo?"<span class='dtag'>DEMO</span> ":"")+"<span class='oid'>#"+esc(c.num||"")+"</span> "+esc(c.name)+"</div>Location: "+esc(c.loc)+"<br>Notes: "+esc(c.notes)+"<br>Orders: "+os.length+" | Total: "+money(tot)+" | <b>Still owes: "+money(un)+"</b>"+(os.length?"<div class='tw'><table><tr><th>Order ID</th><th>Date</th><th>Store</th><th>Items</th><th>Total</th><th>Status</th><th>Paid</th></tr>"+os.map(o=>"<tr><td><span class='oid'>"+esc(o.appId||"")+"</span></td><td>"+o.date+"</td><td>"+esc(o.store)+"</td><td>"+esc(o.items)+"</td><td>"+money(TOT(o))+"</td><td>"+o.status+"</td><td>"+o.paid+"</td></tr>").join("")+"</table></div>":"")+"</div>";}).join("");}
+function render(){renderStores();updBadge();renderCat();renderCart();renderLog();renderCust();}
+var curStore="Amazon",dStep=0;
+function toast(m){const t=$("toast");t.textContent=m;t.style.display="block";clearTimeout(t._h);t._h=setTimeout(()=>t.style.display="none",2000);}
+function updBadge(){const n=db.cart.reduce((a,c)=>a+c.qty,0);$("badge").innerHTML="<span aria-hidden='true' style='font-size:24px'>&#128722;</span> Cart <span class='cnt'>"+n+"</span>";$("badge").setAttribute("aria-label","Cart, "+n+" items");}
+function renderStores(){$("stBtns").innerHTML=Object.keys(STORES).map(s=>"<button class='b"+(s===curStore?"":" g")+"' onclick='curStore=\""+s.replace("'","&#39;")+"\";renderStores()'>"+esc(s)+"</button>").join("");
+$("stCards").innerHTML=PRODUCTS.filter(p=>p.store===curStore).map(p=>"<div class='pc' data-id=\""+esc(p.id)+"\" onclick='addCart(this.dataset.id)'><b>"+esc(p.name)+"</b><br>"+esc(p.cat)+"<br><span class='big'>"+money(p.price)+"</span><br><small>sample price</small></div>").join("");}
+const DSTEPS=["Step 1: A customer calls in a request. (Demo customer Sarah Yoder is now picked.)","Step 2: Add 3 items from 2 stores. (Added for you: 2 from Walmart, 1 from Lehman's.)","Step 3: Set the delivery fee. (Set to $5 + 4 miles x $1.30 = $10.20.)","Step 4: Place the order. (Done: it is split into one line per store.)","Step 5: Click a green 'Open store to order' button below to buy it on the store's website.","Step 6: Change status Ordered -> Shipped -> Arrived -> Delivered. Click Next to move it one step.","Step 7: The customer pays cash. (Marked Paid Y, Cash.) Demo done!"];
+function demoCust(){let c=db.customers.find(x=>x.demo);if(!c){c={id:Date.now(),name:"Demo: Sarah Yoder",loc:"Mt. Hope Bulk Foods",notes:"Demo record",demo:true};db.customers.push(c);save();}return c;}
+function lastDemo(){const d=db.orders.filter(o=>o.demo);if(!d.length)return[];const g=d[d.length-1].group;return d.filter(o=>o.group===g);}
+let st6=0;
+function runStep(){const s=dStep;
+if(s===0){const c=demoCust();show("cart");$("cSel").value=c.id;}
+if(s===1){db.cart=[{id:"All-Purpose Flour 25 lb|Walmart",qty:1},{id:"Canning Jars Quart 12-pack|Walmart",qty:2},{id:"Lamp Oil 1 gal|Lehman's",qty:1}];save();show("cart");$("cSel").value=demoCust().id;}
+if(s===2){show("cart");$("cSel").value=demoCust().id;$("flat").value=5;$("mi").value=4;$("feeOut").textContent=money(fee());}
+if(s===3){if(!lastDemo().length||db.cart.length){show("cart");$("cSel").value=demoCust().id;if(!db.cart.length)return;placeOrder();}}
+if(s===4){show("cart");}
+if(s===5){show("log");}
+if(s===6){lastDemo().forEach(o=>{o.paid="Y";o.pay="Cash";o.status="Delivered";});save();show("log");}
+$("demoB").innerHTML=DSTEPS[s]+"<div class='row'><button class='b g' id='dBack' onclick='demoGo(-1)'>Back</button><button class='b' id='dNext' onclick='demoGo(1)'>Next</button><button class='b r' onclick='resetDemo()'>Reset demo data</button></div>";}
+function demoGo(d){if(dStep===5&&d===1){const o=lastDemo();const D=STATUS.indexOf("Delivered"),i=o.length?STATUS.indexOf(o[0].status):D;if(i<D){o.forEach(x=>x.status=STATUS[i+1]);save();renderLog();toast("Status: "+STATUS[i+1]);return;}}
+dStep=Math.max(0,Math.min(6,dStep+d));if(dStep===3&&d===1&&!db.cart.length&&!lastDemo().length){dStep=1;}runStep();}
+function resetDemo(){const ids=db.customers.filter(c=>c.demo).map(c=>c.id);db.customers=db.customers.filter(c=>!c.demo);db.orders=db.orders.filter(o=>!o.demo&&!ids.includes(o.custId));save();dStep=0;render();toast("Demo data cleared");if($("demoT").checked)runStep();}
+$("demoT").onchange=e=>{$("demoB").classList.toggle("hide",!e.target.checked);if(e.target.checked){dStep=0;runStep();}};
+var F={q:"",stores:Object.keys(STORES),cat:"",min:"",max:"",sort:"name"},fOpen={};
+function CATS(){return [...new Set(RAW.map(r=>r[1]))].sort();}
+function inRange(v){return (F.min===""||v>=+F.min)&&(F.max===""||v<=+F.max);}
+function fRows(){const q=F.q.trim().toLowerCase();let rows=RAW.filter(r=>(!q||(r[0]+" "+r[1]).toLowerCase().includes(q))&&(!F.cat||r[1]===F.cat)).map(r=>{const ps=F.stores.filter(s=>r[2][s]!=null&&inRange(custPrice({name:r[0],price:r[2][s]},0))).map(s=>custPrice({name:r[0],price:r[2][s]},0));return{r,ps,min:ps.length?Math.min(...ps):0};}).filter(x=>x.ps.length);
+rows.sort(F.sort==="lo"?(a,b)=>a.min-b.min:F.sort==="hi"?(a,b)=>b.min-a.min:(a,b)=>a.r[0].localeCompare(b.r[0]));return rows;}
+function fItems(){const q=F.q.trim().toLowerCase();let it=PRODUCTS.filter(p=>F.stores.includes(p.store)&&(!q||(p.name+" "+p.cat).toLowerCase().includes(q))&&(!F.cat||p.cat===F.cat)&&inRange(custPrice(p,0)));
+it.sort(F.sort==="lo"?(a,b)=>custPrice(a,0)-custPrice(b,0):F.sort==="hi"?(a,b)=>custPrice(b,0)-custPrice(a,0):(a,b)=>a.name.localeCompare(b.name)||custPrice(a,0)-custPrice(b,0));return it;}
+function renderFilters(){document.querySelectorAll(".fwrap").forEach(w=>{const v=w.dataset.v,act=document.activeElement,aid=act&&act.dataset&&act.dataset.f&&act.closest(".fwrap")===w?act.dataset.f:null;
+w.innerHTML="<button class='b fbtn' onclick='fOpen[\""+v+"\"]=!fOpen[\""+v+"\"];renderFilters()'>"+(fOpen[v]?"Hide filters ▲":"Filters ▼")+"</button><div class='fbar"+(fOpen[v]?" open":"")+"'>"+
+"<div class='row'><input data-f='q' placeholder='Search products (e.g. flour, diapers)' value='"+esc(F.q)+"' style='flex:1;min-width:220px' oninput='F.q=this.value;fChange()'></div>"+
+"<div>Stores: "+Object.keys(STORES).map(s=>"<label class='chip"+(F.stores.includes(s)?" on":"")+"'><input type='checkbox'"+(F.stores.includes(s)?" checked":"")+" onchange='fStore(this.parentNode.dataset.s,this.checked)'>"+esc(s)+"</label>").join("").replace(/<label class='chip/g,(m,o)=>m)+"</div>"+
+"<div class='row'>Category <select data-f='cat' onchange='F.cat=this.value;fChange()'><option value=''>All categories</option>"+CATS().map(c=>"<option"+(c===F.cat?" selected":"")+">"+esc(c)+"</option>").join("")+"</select>"+
+"Price $<input data-f='min' type='number' min='0' placeholder='Min' value='"+F.min+"' style='width:90px' oninput='F.min=this.value;fChange()'> to $<input data-f='max' type='number' min='0' placeholder='Max' value='"+F.max+"' style='width:90px' oninput='F.max=this.value;fChange()'>"+
+"Sort <select data-f='sort' onchange='F.sort=this.value;fChange()'><option value='name'"+(F.sort==="name"?" selected":"")+">Name A-Z</option><option value='lo'"+(F.sort==="lo"?" selected":"")+">Price: low to high</option><option value='hi'"+(F.sort==="hi"?" selected":"")+">Price: high to low</option></select>"+
+"<button class='b g' onclick='fClear()'>Clear filters</button></div></div><div class='fcount'></div>";
+w.querySelectorAll(".chip").forEach((c,k)=>c.dataset.s=Object.keys(STORES)[k]);
+if(aid){const e=w.querySelector("[data-f='"+aid+"']");if(e){e.focus();if(e.setSelectionRange&&e.type==="text"){const n=e.value.length;e.setSelectionRange(n,n);}}}});fCount();}
+function fCount(){document.querySelectorAll(".fwrap").forEach(w=>{const n=w.dataset.v==="cat"?fRows().length:fItems().length;w.querySelector(".fcount").textContent=n+(w.dataset.v==="cat"?" products found":" items found");});}
+function fChange(){renderCat();renderStoreCards();fCount();}
+function fStore(s,on){F.stores=on?[...new Set([...F.stores,s])]:F.stores.filter(x=>x!==s);renderFilters();fChange();}
+function fClear(){F={q:"",stores:Object.keys(STORES),cat:"",min:"",max:"",sort:"name"};renderFilters();fChange();}
+function renderCat(){const st=F.stores.length?F.stores:[];
+let h="<table><tr><th>Product</th><th>Type</th>"+st.map(s=>"<th>"+esc(s)+"</th>").join("")+"</tr>";
+fRows().forEach(({r:[n,c,p],min})=>{h+="<tr><td><b>"+esc(n)+"</b></td><td>"+esc(c)+"</td>"+st.map(s=>p[s]==null||!inRange(custPrice({name:n,price:p[s]},0))?"<td>-</td>":"<td class='"+(custPrice({name:n,price:p[s]},0)===min?"best":"")+"'>"+money(custPrice({name:n,price:p[s]},0))+"<br><button class='b' data-id=\""+esc(n+"|"+s)+"\" onclick='addCart(this.dataset.id)'>Add</button></td>").join("")+"</tr>";});
+$("catT").innerHTML=h+"</table><p>Prices include our service. Green = best price. Sample data, not live. Sample data, not live.</p>";}
+function renderStores(){$("stBtns").innerHTML="Quick pick: "+Object.keys(STORES).map(s=>"<button class='b"+(F.stores.length===1&&F.stores[0]===s?"":" g")+"' data-s=\""+esc(s)+"\" onclick='F.stores=[this.dataset.s];renderFilters();fChange();renderStores()'>"+esc(s)+"</button>").join("")+"<button class='b g' onclick='F.stores=Object.keys(STORES);renderFilters();fChange();renderStores()'>All stores</button>";renderStoreCards();}
+function renderStoreCards(){const it=fItems();$("stCards").innerHTML=it.length?it.map(p=>"<div class='pc' data-id=\""+esc(p.id)+"\" onclick='addCart(this.dataset.id)'><b>"+esc(p.name)+"</b><br>"+esc(p.store)+" · "+esc(p.cat)+"<br><span class='big'>"+money(custPrice(p,0))+"</span><br><small>sample price</small></div>").join(""):"<p class='big'>No products match. Try Clear filters.</p>";}
+renderFilters();
+function DEFS(){return {pct:10,minUnder:10,minAmt:1,bulkyPct:15,bigOver:150,bigPct:8};}
+function BULKY0L(){return ["All-Purpose Flour 25 lb","Granulated Sugar 25 lb","Rolled Oats 10 lb","Chicken Layer Feed 50 lb","Wheelbarrow 6 cu ft","Fencing Wire 100 ft","Laundry Detergent 200 loads","Toilet Paper 30 rolls","Lamp Oil 1 gal"];}
+function S(){if(!db.settings)db.settings=DEFS();const D=DEFS();for(const k in D)if(db.settings[k]==null||isNaN(+db.settings[k]))db.settings[k]=D[k];return db.settings;}
+function isBulky(n){if(!db.bulky){db.bulky={};BULKY0L().forEach(x=>db.bulky[x]=true);}return !!db.bulky[n];}
+function mkOf(p,sub,noBig){const s=S(),big=!noBig&&sub>=+s.bigOver,rate=big?+s.bigPct:(isBulky(p.name)?+s.bulkyPct:+s.pct);let m=p.price*rate/100;if(p.price<+s.minUnder)m=Math.max(m,+s.minAmt);return Math.round(m*100)/100;}
+function custPrice(p,sub){return Math.round((p.price+mkOf(p,sub))*100)/100;}
+function cartLines(){return db.cart.map(c=>({p:PRODUCTS.find(x=>x.id===c.id),q:c.qty})).filter(x=>x.p);}
+function cartSub(){return Math.round(cartLines().reduce((a,x)=>a+x.p.price*x.q,0)*100)/100;}
+function TOT(o){return (+o.cost||0)+(+o.mk||0)+(+o.fee||0);}
+function promoNote(){const s=S(),sub=cartSub(),L=cartLines();if(!L.length)return"";if(sub<+s.bigOver)return"<div class='pnote'>Add "+money(+s.bigOver-sub)+" more to unlock big-order savings!</div>";
+const saved=L.reduce((a,x)=>a+(mkOf(x.p,sub,true)-mkOf(x.p,sub))*x.q,0);return"<div class='pnote won'>You unlocked big-order savings! You saved "+money(Math.max(0,saved))+".</div>";}
+function renderPromo(){document.querySelectorAll(".promo").forEach(e=>e.textContent="Big order savings! Spend $"+S().bigOver+"+ and pay less on every item.");}
+function renderSettings(){const s=S(),f=(k,l)=>"<div class='row'><label style='min-width:260px'>"+l+"</label><input type='number' step='0.01' min='0' value='"+s[k]+"' style='width:120px' onchange='setS(\""+k+"\",this.value)'></div>";
+$("setT").innerHTML="<div class='card'><div class='big'>Markup settings</div><p>Saved on this device. Changes apply to new carts and orders; orders already placed keep their markup.</p>"+
+f("pct","Normal markup (%)")+f("minUnder","Small items: price under ($)")+f("minAmt","Small items: at least this markup ($)")+f("bulkyPct","Bulky/heavy markup (%)")+f("bigOver","Big order: store subtotal of at least ($)")+f("bigPct","Big order markup for every item (%)")+
+"<button class='b g' onclick='db.settings=DEFS();save();render()'>Reset to defaults</button></div><div class='card'><div class='big'>Bulky/heavy items</div>"+
+RAW.map(r=>"<label class='chip"+(isBulky(r[0])?" on":"")+"'><input type='checkbox'"+(isBulky(r[0])?" checked":"")+" data-n=\""+esc(r[0])+"\" onchange='isBulky(\"\");db.bulky[this.dataset.n]=this.checked;save();render()'>"+esc(r[0])+"</label>").join("")+"</div>";}
+function setS(k,v){S()[k]=Math.max(0,parseFloat(v)||0);save();render();}
+var _render=render;render=function(){S();isBulky("");_render();renderPromo();renderSettings();};
+var FB_CFG={apiKey:"AIzaSyD-PTPSqF1hcyFjqoNdgzMXOg30nGm2F5o",authDomain:"amish-delivery.firebaseapp.com",projectId:"amish-delivery",storageBucket:"amish-delivery.firebasestorage.app",messagingSenderId:"33355773687",appId:"1:33355773687:web:b15e2ce71bd273a70dc5f2"};
+var OWNER_EMAIL="jeffreyblazer@gmail.com",CLIENT_DOMAIN="clients.amish-delivery.app";
+function clientEmail(num){return "c"+num+"@"+CLIENT_DOMAIN;}
+firebase.initializeApp(FB_CFG);var AUTH=firebase.auth(),FS=firebase.firestore();
+function fbErr(e){console.error(e);if(window.toast)toast("Save problem: "+(e&&e.message||e));}
+// ===== Owner Firebase layer =====
+var last={customers:{},orders:{},config:""},unsubs=[],pendRender=false,SEC=null;
+function isOwnerUser(){const u=AUTH.currentUser;return !!(u&&String(u.email||"").toLowerCase()===OWNER_EMAIL);}
+function clean(o){return JSON.parse(JSON.stringify(o));}
+function fbSync(){if(!isOwnerUser())return;
+["customers","orders"].forEach(col=>{const seen={};db[col].forEach(x=>{x.id=String(x.id);if(col==="orders"){x.custId=String(x.custId);x.customerUid=x.custId;}seen[x.id]=1;const j=JSON.stringify(x);if(last[col][x.id]!==j){last[col][x.id]=j;FS.collection(col).doc(x.id).set(clean(x)).catch(fbErr);}});
+Object.keys(last[col]).forEach(id=>{if(!seen[id]){delete last[col][id];FS.collection(col).doc(id).delete().catch(fbErr);}});});
+if(db.settings){const cj=JSON.stringify({settings:db.settings,bulky:db.bulky||{}});if(cj!==last.config){last.config=cj;FS.collection("config").doc("settings").set(clean({settings:db.settings,bulky:db.bulky||{}})).catch(fbErr);}}}
+function busy(){const a=document.activeElement;return a&&(a.tagName==="INPUT"&&a.type!=="checkbox"||a.tagName==="TEXTAREA")&&a.closest("#logT,#setT,#newC");}
+function liveRender(){if(busy()){pendRender=true;return;}pendRender=false;render();}
+document.addEventListener("focusout",()=>setTimeout(()=>{if(pendRender)liveRender();},50));
+function startLive(){stopLive();
+unsubs.push(FS.collection("customers").onSnapshot(s=>{db.customers=s.docs.map(d=>d.data()).sort((a,b)=>(parseInt(a.num,10)||0)-(parseInt(b.num,10)||0));last.customers={};db.customers.forEach(c=>last.customers[c.id]=JSON.stringify(c));liveRender();},fbErr));
+unsubs.push(FS.collection("orders").onSnapshot(s=>{db.orders=s.docs.map(d=>d.data()).sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.id).localeCompare(String(b.id)));last.orders={};db.orders.forEach(o=>last.orders[o.id]=JSON.stringify(o));liveRender();},fbErr));
+unsubs.push(FS.collection("config").doc("settings").onSnapshot(d=>{if(d.exists){const v=d.data();if(v.settings)db.settings=v.settings;if(v.bulky)db.bulky=v.bulky;last.config=JSON.stringify({settings:db.settings,bulky:db.bulky||{}});}liveRender();},fbErr));}
+function stopLive(){unsubs.forEach(u=>u());unsubs=[];db.customers=[];db.orders=[];last={customers:{},orders:{},config:""};}
+function gateMsg(m,bad){$("gMsg").textContent=m;$("gMsg").style.color=bad?"#a33":"#1d3a1c";}
+function ownerSignIn(){const e=$("gE").value.trim(),p=$("gP").value;gateMsg("Signing in...");AUTH.signInWithEmailAndPassword(e,p).catch(x=>gateMsg("Sign-in failed: "+x.message,true));}
+function ownerCreate(){const e=$("gE").value.trim().toLowerCase(),p=$("gP").value;if(e!==OWNER_EMAIL)return gateMsg("The owner account must use "+OWNER_EMAIL,true);if(p.length<8)return gateMsg("Pick a password of at least 8 characters.",true);
+gateMsg("Creating owner account...");AUTH.createUserWithEmailAndPassword(e,p).then(c=>{try{c.user.sendEmailVerification();}catch(_){}}).catch(x=>gateMsg("Could not create: "+x.message,true));}
+function ownerSignOut(){AUTH.signOut();}
+AUTH.onAuthStateChanged(u=>{if(u&&isOwnerUser()){$("gate").style.display="none";$("whoO").textContent=u.email;startLive();}
+else{stopLive();$("gate").style.display="flex";if(u){gateMsg("That account is not the owner. Customers use the main link.",true);AUTH.signOut();}render();}});
+function nextNum(){let mx=0;db.customers.forEach(c=>mx=Math.max(mx,parseInt(c.num,10)||0));return pad2(mx+1);}
+function secAuth(){if(!SEC)SEC=firebase.initializeApp(FB_CFG,"secondary");return SEC.auth();}
+function makeLogin(num,pin){const a=secAuth();return a.createUserWithEmailAndPassword(clientEmail(num),pin).then(c=>{const uid=c.user.uid;return a.signOut().then(()=>uid);});}
+function addCust(){const n=$("nN").value.trim(),pin=$("nPin").value.trim();if(!n)return alert("Please type a name.");if(!/^\d{6}$/.test(pin))return alert("PIN must be exactly 6 numbers.");
+const num=nextNum(),btn=$("nGo");btn.disabled=true;btn.textContent="Creating...";
+makeLogin(num,pin).then(uid=>{const c={id:uid,uid,num,name:n,loc:$("nL").value.trim(),miles:+$("nM").value||0,phone:$("nPh").value.trim(),notes:$("nT").value.trim(),email:clientEmail(num)};db.customers.push(c);save();
+["nN","nL","nM","nPh","nT","nPin"].forEach(i=>$(i).value="");$("newC").classList.add("hide");renderCart();$("cSel").value=uid;setMiles();alert("Customer #"+num+" created.\nSign-in on the customer page: number "+num+" + their PIN.");})
+.catch(x=>alert("Could not create the login: "+x.message)).finally(()=>{btn.disabled=false;btn.textContent="Create customer account";});}
+function giveLogin(id){const c=db.customers.find(x=>x.id==id);if(!c)return;const pin=prompt("Set a 6-number PIN for #"+c.num+" "+c.name);if(pin==null)return;if(!/^\d{6}$/.test(pin.trim()))return alert("PIN must be exactly 6 numbers.");
+makeLogin(c.num,pin.trim()).then(uid=>{const old=String(c.id);const n=Object.assign({},c,{id:uid,uid,email:clientEmail(c.num)});db.customers=db.customers.filter(x=>x!==c);db.customers.push(n);db.orders.forEach(o=>{if(String(o.custId)===old){o.custId=uid;o.customerUid=uid;}});save();render();alert("Login ready: number "+c.num+" + PIN.");}).catch(x=>alert("Could not create the login: "+x.message));}
+function setMiles(){const c=db.customers.find(x=>x.id==$("cSel").value);if(c&&c.miles!=null&&$("mi")){$("mi").value=c.miles;renderCart();}}
+document.addEventListener("change",e=>{if(e.target&&e.target.id==="cSel")setMiles();});
+function importLocal(){let d=null;try{d=JSON.parse(localStorage.getItem("amishDelivery")||"null");}catch(e){}if(!d||!(d.orders||d.customers))return alert("No old saved data found in this browser.");
+let nc=0,no=0;(d.customers||[]).forEach(c=>{if(!db.customers.find(x=>String(x.id)===String(c.id))){c.id=String(c.id);if(db.customers.find(x=>x.num===c.num))delete c.num;db.customers.push(c);nc++;}});
+(d.orders||[]).forEach(o=>{if(!db.orders.find(x=>String(x.id)===String(o.id))){db.orders.push(o);no++;}});if(d.settings&&!db.settings)db.settings=d.settings;if(d.bulky&&!db.bulky)db.bulky=d.bulky;save();render();
+alert("Imported "+nc+" customers and "+no+" order lines. Imported customers have no login yet: use 'Give login' on the Customers page.");}
+var _itemsCell=itemsCell;itemsCell=function(i,o){const st=STORES[o.store];let h=_itemsCell(i,o);if(st)h+="<div>"+iList(o).map(x=>{const nm=x.t.replace(/^\d+\s*x\s*/,"");return "<a target='_blank' rel='noopener' href='"+st(encodeURIComponent(nm))+"'><button class='b' style='font-size:14px'>Open store: "+esc(nm)+"</button></a>";}).join("")+"</div>";return h;};
+var _renderCust=renderCust;renderCust=function(){_renderCust();const cards=document.querySelectorAll("#custT > .card");db.customers.forEach((c,i)=>{const el=cards[i];if(!el)return;const d=document.createElement("div");d.className="row";
+d.innerHTML=(c.uid?"<span>Sign-in: number <b>"+esc(c.num)+"</b> + PIN"+(c.phone?" · Phone "+esc(c.phone):"")+(c.miles!=null?" · "+esc(c.miles)+" miles":"")+"</span>":"<button class='b' onclick='giveLogin(\""+esc(c.id)+"\")'>Give login (set PIN)</button>")+"<button class='b g' onclick='show(\"cart\");$(\"cSel\").value=\""+esc(c.id)+"\";setMiles()'>Order for this customer</button>";el.appendChild(d);});};
+var _renderCart=renderCart;renderCart=function(){const v=$("cSel")?$("cSel").value:"";_renderCart();if(v&&db.customers.find(c=>String(c.id)===v))$("cSel").value=v;};
+ensureIds();render();$("noJs").style.display="none";$("okJs").style.display="inline";if(!LS_OK)$("lsWarn").style.display="block";
+</script></body></html>
