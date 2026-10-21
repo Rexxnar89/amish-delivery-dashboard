@@ -1,0 +1,343 @@
+{
+ "note": "Catalog for the app and the weekly price check. samplePrices are fallbacks only.",
+ "location": "Wooster,Ohio,United States",
+ "zip": "44676",
+ "walmartStoreId": "1812",
+ "products": [
+  {
+   "name": "All-Purpose Flour 25 lb",
+   "cat": "Groceries",
+   "query": "All-Purpose Flour 25 lb",
+   "samplePrices": {
+    "Walmart": 11.48,
+    "Sam's Club": 10.98,
+    "Amazon": 15.99
+   }
+  },
+  {
+   "name": "Granulated Sugar 25 lb",
+   "cat": "Groceries",
+   "query": "Granulated Sugar 25 lb",
+   "samplePrices": {
+    "Walmart": 17.97,
+    "Sam's Club": 16.48,
+    "Amazon": 21.5
+   }
+  },
+  {
+   "name": "Rolled Oats 10 lb",
+   "cat": "Groceries",
+   "query": "Rolled Oats 10 lb",
+   "samplePrices": {
+    "Amazon": 18.99,
+    "Sam's Club": 12.98,
+    "Lehman's": 19.99
+   }
+  },
+  {
+   "name": "Canning Jars Quart 12-pack",
+   "cat": "Household",
+   "query": "Canning Jars Quart 12-pack",
+   "samplePrices": {
+    "Walmart": 14.97,
+    "Target": 16.99,
+    "Lehman's": 18.99,
+    "Tractor Supply": 15.99,
+    "Amazon": 17.49
+   }
+  },
+  {
+   "name": "Canning Lids Regular 24-pack",
+   "cat": "Household",
+   "query": "Canning Lids Regular 24-pack",
+   "samplePrices": {
+    "Walmart": 5.97,
+    "Amazon": 7.99,
+    "Lehman's": 6.99
+   }
+  },
+  {
+   "name": "Lamp Oil 1 gal",
+   "cat": "Household",
+   "query": "Lamp Oil 1 gal",
+   "samplePrices": {
+    "Amazon": 24.99,
+    "Walmart": 21.98,
+    "Lehman's": 22.99,
+    "Tractor Supply": 19.99
+   }
+  },
+  {
+   "name": "Kerosene Lamp Wick 3-pack",
+   "cat": "Household",
+   "query": "Kerosene Lamp Wick 3-pack",
+   "samplePrices": {
+    "Lehman's": 5.99,
+    "Amazon": 7.49
+   }
+  },
+  {
+   "name": "Laundry Detergent 200 loads",
+   "cat": "Household",
+   "query": "Laundry Detergent 200 loads",
+   "samplePrices": {
+    "Walmart": 19.97,
+    "Target": 21.99,
+    "Sam's Club": 18.98,
+    "Amazon": 22.49
+   }
+  },
+  {
+   "name": "Paper Towels 12 rolls",
+   "cat": "Household",
+   "query": "Paper Towels 12 rolls",
+   "samplePrices": {
+    "Walmart": 21.97,
+    "Target": 22.99,
+    "Sam's Club": 20.98,
+    "Amazon": 24.99
+   }
+  },
+  {
+   "name": "Toilet Paper 30 rolls",
+   "cat": "Household",
+   "query": "Toilet Paper 30 rolls",
+   "samplePrices": {
+    "Sam's Club": 22.98,
+    "Walmart": 24.97,
+    "Target": 25.99
+   }
+  },
+  {
+   "name": "Dish Soap 90 oz",
+   "cat": "Household",
+   "query": "Dish Soap 90 oz",
+   "samplePrices": {
+    "Walmart": 8.97,
+    "Target": 9.49,
+    "Sam's Club": 8.48
+   }
+  },
+  {
+   "name": "D Batteries 12-pack",
+   "cat": "Household",
+   "query": "D Batteries 12-pack",
+   "samplePrices": {
+    "Amazon": 17.99,
+    "Walmart": 16.47,
+    "Target": 18.99,
+    "Sam's Club": 15.98
+   }
+  },
+  {
+   "name": "Propane Cylinder 1 lb 2-pack",
+   "cat": "Household",
+   "query": "Propane Cylinder 1 lb 2-pack",
+   "samplePrices": {
+    "Walmart": 9.97,
+    "Tractor Supply": 10.99,
+    "Amazon": 14.99
+   }
+  },
+  {
+   "name": "Cast Iron Skillet 12 in",
+   "cat": "Household",
+   "query": "Cast Iron Skillet 12 in",
+   "samplePrices": {
+    "Amazon": 29.9,
+    "Walmart": 24.97,
+    "Target": 29.99,
+    "Lehman's": 39.99
+   }
+  },
+  {
+   "name": "Hand Crank Grain Mill",
+   "cat": "Tools",
+   "query": "Hand Crank Grain Mill",
+   "samplePrices": {
+    "Lehman's": 89.99,
+    "Amazon": 74.99
+   }
+  },
+  {
+   "name": "Claw Hammer 16 oz",
+   "cat": "Tools",
+   "query": "Claw Hammer 16 oz",
+   "samplePrices": {
+    "Walmart": 12.97,
+    "Tractor Supply": 14.99,
+    "Amazon": 13.49
+   }
+  },
+  {
+   "name": "Hand Saw 20 in",
+   "cat": "Tools",
+   "query": "Hand Saw 20 in",
+   "samplePrices": {
+    "Walmart": 16.97,
+    "Tractor Supply": 18.99,
+    "Amazon": 15.99
+   }
+  },
+  {
+   "name": "Work Gloves Leather 3-pair",
+   "cat": "Tools",
+   "query": "Work Gloves Leather 3-pair",
+   "samplePrices": {
+    "Tractor Supply": 19.99,
+    "Amazon": 17.99,
+    "Walmart": 15.97
+   }
+  },
+  {
+   "name": "Wheelbarrow 6 cu ft",
+   "cat": "Farm & Garden",
+   "query": "Wheelbarrow 6 cu ft",
+   "samplePrices": {
+    "Tractor Supply": 89.99,
+    "Walmart": 84
+   }
+  },
+  {
+   "name": "Chicken Layer Feed 50 lb",
+   "cat": "Farm & Garden",
+   "query": "Chicken Layer Feed 50 lb",
+   "samplePrices": {
+    "Tractor Supply": 19.99,
+    "Walmart": 22.98
+   }
+  },
+  {
+   "name": "Garden Seed Variety Pack",
+   "cat": "Farm & Garden",
+   "query": "Garden Seed Variety Pack",
+   "samplePrices": {
+    "Lehman's": 24.99,
+    "Amazon": 19.99,
+    "Walmart": 14.97,
+    "Tractor Supply": 16.99
+   }
+  },
+  {
+   "name": "Fencing Wire 100 ft",
+   "cat": "Farm & Garden",
+   "query": "Fencing Wire 100 ft",
+   "samplePrices": {
+    "Tractor Supply": 39.99,
+    "Amazon": 44.99
+   }
+  },
+  {
+   "name": "Garden Hoe",
+   "cat": "Farm & Garden",
+   "query": "Garden Hoe",
+   "samplePrices": {
+    "Tractor Supply": 24.99,
+    "Walmart": 19.97,
+    "Lehman's": 34.99
+   }
+  },
+  {
+   "name": "Fly Spray 1 gal",
+   "cat": "Farm & Garden",
+   "query": "Fly Spray 1 gal",
+   "samplePrices": {
+    "Tractor Supply": 29.99,
+    "Amazon": 34.99
+   }
+  },
+  {
+   "name": "Baby Diapers Size 3 (150)",
+   "cat": "Baby & Kids",
+   "query": "Baby Diapers Size 3 (150)",
+   "samplePrices": {
+    "Walmart": 39.97,
+    "Target": 41.99,
+    "Sam's Club": 37.98,
+    "Amazon": 42.99
+   }
+  },
+  {
+   "name": "Baby Wipes 900 count",
+   "cat": "Baby & Kids",
+   "query": "Baby Wipes 900 count",
+   "samplePrices": {
+    "Sam's Club": 24.98,
+    "Walmart": 26.97,
+    "Target": 27.99,
+    "Amazon": 28.49
+   }
+  },
+  {
+   "name": "Wooden Building Blocks",
+   "cat": "Baby & Kids",
+   "query": "Wooden Building Blocks",
+   "samplePrices": {
+    "Amazon": 24.99,
+    "Target": 19.99,
+    "Lehman's": 29.99
+   }
+  },
+  {
+   "name": "Crayons 64-pack",
+   "cat": "Baby & Kids",
+   "query": "Crayons 64-pack",
+   "samplePrices": {
+    "Walmart": 3.97,
+    "Target": 4.29,
+    "Amazon": 5.49
+   }
+  },
+  {
+   "name": "Children's Rubber Boots",
+   "cat": "Baby & Kids",
+   "query": "Children's Rubber Boots",
+   "samplePrices": {
+    "Tractor Supply": 24.99,
+    "Walmart": 17.97,
+    "Target": 19.99
+   }
+  },
+  {
+   "name": "Composition Notebooks 6-pack",
+   "cat": "Baby & Kids",
+   "query": "Composition Notebooks 6-pack",
+   "samplePrices": {
+    "Walmart": 5.94,
+    "Target": 6.49,
+    "Amazon": 7.99
+   }
+  },
+  {
+   "name": "Ibuprofen 200 mg 300-count",
+   "cat": "Health",
+   "query": "Ibuprofen 200 mg 300-count",
+   "samplePrices": {
+    "Walmart": 9.88,
+    "Target": 10.99,
+    "Sam's Club": 8.98,
+    "Amazon": 11.49
+   }
+  },
+  {
+   "name": "Adhesive Bandages 100-count",
+   "cat": "Health",
+   "query": "Adhesive Bandages 100-count",
+   "samplePrices": {
+    "Walmart": 4.97,
+    "Target": 5.49,
+    "Amazon": 6.99
+   }
+  },
+  {
+   "name": "Vitamin D3 2000 IU 300-count",
+   "cat": "Health",
+   "query": "Vitamin D3 2000 IU 300-count",
+   "samplePrices": {
+    "Sam's Club": 12.48,
+    "Walmart": 13.97,
+    "Amazon": 14.99
+   }
+  }
+ ]
+}

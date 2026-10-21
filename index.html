@@ -110,10 +110,10 @@ function fStore(s,on){F.stores=on?[...new Set([...F.stores,s])]:F.stores.filter(
 function fClear(){F={q:"",stores:Object.keys(STORES),cat:"",min:"",max:"",sort:"name"};renderFilters();fChange();}
 function renderCat(){const st=F.stores.length?F.stores:[];
 let h="<table><tr><th>Product</th><th>Type</th>"+st.map(s=>"<th>"+esc(s)+"</th>").join("")+"</tr>";
-fRows().forEach(({r:[n,c,p],min})=>{h+="<tr><td><b>"+esc(n)+"</b></td><td>"+esc(c)+"</td>"+st.map(s=>p[s]==null||!inRange(custPrice({name:n,price:p[s]},0))?"<td>-</td>":"<td class='"+(custPrice({name:n,price:p[s]},0)===min?"best":"")+"'>"+money(custPrice({name:n,price:p[s]},0))+"<br><button class='b' data-id=\""+esc(n+"|"+s)+"\" onclick='addCart(this.dataset.id)'>Add</button></td>").join("")+"</tr>";});
-$("catT").innerHTML=h+"</table><p>Prices include our service. Green = best price. Sample data, not live. Sample data, not live.</p>";}
+fRows().forEach(({r:[n,c,p],min})=>{h+="<tr><td><b>"+esc(n)+"</b></td><td>"+esc(c)+"</td>"+st.map(s=>p[s]==null||!inRange(custPrice({name:n,price:p[s]},0))?"<td>-</td>":"<td class='"+(custPrice({name:n,price:p[s]},0)===min?"best":"")+"'>"+money(custPrice({name:n,price:p[s]},0))+(isLive(n,s)?"":"*")+"<br><button class='b' data-id=\""+esc(n+"|"+s)+"\" onclick='addCart(this.dataset.id)'>Add</button></td>").join("")+"</tr>";});
+$("catT").innerHTML=h+"</table><p>Prices include our service. Green = best price. "+(PRODUCTS.some(p=>p.live)?"* = sample price.":"Sample data, not live.")+" Sample data, not live.</p>";}
 function renderStores(){$("stBtns").innerHTML="Quick pick: "+Object.keys(STORES).map(s=>"<button class='b"+(F.stores.length===1&&F.stores[0]===s?"":" g")+"' data-s=\""+esc(s)+"\" onclick='F.stores=[this.dataset.s];renderFilters();fChange();renderStores()'>"+esc(s)+"</button>").join("")+"<button class='b g' onclick='F.stores=Object.keys(STORES);renderFilters();fChange();renderStores()'>All stores</button>";renderStoreCards();}
-function renderStoreCards(){const it=fItems();$("stCards").innerHTML=it.length?it.map(p=>"<div class='pc' data-id=\""+esc(p.id)+"\" onclick='addCart(this.dataset.id)'><b>"+esc(p.name)+"</b><br>"+esc(p.store)+" · "+esc(p.cat)+"<br><span class='big'>"+money(custPrice(p,0))+"</span><br><small>sample price</small></div>").join(""):"<p class='big'>No products match. Try Clear filters.</p>";}
+function renderStoreCards(){const it=fItems();$("stCards").innerHTML=it.length?it.map(p=>"<div class='pc' data-id=\""+esc(p.id)+"\" onclick='addCart(this.dataset.id)'><b>"+esc(p.name)+"</b><br>"+esc(p.store)+" · "+esc(p.cat)+"<br><span class='big'>"+money(custPrice(p,0))+"</span><br><small>"+priceNote(p)+"</small><small hidden>sample price</small></div>").join(""):"<p class='big'>No products match. Try Clear filters.</p>";}
 renderFilters();
 function DEFS(){return {pct:10,minUnder:10,minAmt:1,bulkyPct:15,bigOver:150,bigPct:8};}
 function BULKY0L(){return ["All-Purpose Flour 25 lb","Granulated Sugar 25 lb","Rolled Oats 10 lb","Chicken Layer Feed 50 lb","Wheelbarrow 6 cu ft","Fencing Wire 100 ft","Laundry Detergent 200 loads","Toilet Paper 30 rolls","Lamp Oil 1 gal"];}
@@ -133,6 +133,20 @@ f("pct","Normal markup (%)")+f("minUnder","Small items: price under ($)")+f("min
 "<button class='b g' onclick='db.settings=DEFS();save();render()'>Reset to defaults</button></div><div class='card'><div class='big'>Bulky/heavy items</div>"+
 RAW.map(r=>"<label class='chip"+(isBulky(r[0])?" on":"")+"'><input type='checkbox'"+(isBulky(r[0])?" checked":"")+" data-n=\""+esc(r[0])+"\" onchange='isBulky(\"\");db.bulky[this.dataset.n]=this.checked;save();render()'>"+esc(r[0])+"</label>").join("")+"</div>";}
 function setS(k,v){S()[k]=Math.max(0,parseFloat(v)||0);save();render();}
+// ===== Live prices (prices.json from the weekly/daily GitHub Action) =====
+var LIVE=null,BASE=JSON.parse(JSON.stringify(RAW)),PRICE_BASE=(location.pathname.indexOf("/owner")>=0?"../":"");
+function liveFlags(){return (db&&db.priceFlags)||{};}
+function liveItem(n,s){const it=LIVE&&LIVE.items&&LIVE.items[n+"|"+s];if(!it||it.stale||liveFlags()[n+"|"+s])return null;return it;}
+function applyLive(){RAW.length=0;BASE.forEach(r=>RAW.push([r[0],r[1],Object.assign({},r[2])]));
+RAW.forEach(r=>{Object.keys(r[2]).forEach(s=>{const it=liveItem(r[0],s);if(it)r[2][s]=it.price;});});
+PRODUCTS.length=0;RAW.forEach(([n,c,p])=>Object.entries(p).forEach(([s,v])=>{const it=liveItem(n,s);PRODUCTS.push({id:n+"|"+s,name:n,cat:c,store:s,price:v,live:!!it,checkedAt:it?it.checkedAt:null});}));}
+function fmtD(iso){try{return new Date(iso).toLocaleDateString("en-US",{month:"short",day:"numeric"});}catch(e){return "";}}
+function priceNote(p){return p.live?"Price checked "+fmtD(p.checkedAt):"sample price";}
+function isLive(n,s){return !!liveItem(n,s);}
+function liveBanner(){const any=PRODUCTS.some(p=>p.live);const t=any?"Prices checked "+fmtD(LIVE.generatedAt)+" near Wooster, OH. Prices can change; Jeffrey confirms at checkout. * = sample price.":"Sample prices, not live.";document.querySelectorAll("#stores .warn,#cat .warn").forEach(e=>e.textContent=t);}
+function loadLive(after){const t="?t="+Math.floor(Date.now()/600000);
+Promise.all([fetch(PRICE_BASE+"products.json"+t).then(r=>r.ok?r.json():null).catch(()=>null),fetch(PRICE_BASE+"prices.json"+t).then(r=>r.ok?r.json():null).catch(()=>null)]).then(([cat,pr])=>{
+if(cat&&cat.products&&cat.products.length)BASE=cat.products.map(p=>[p.name,p.cat,Object.assign({},p.samplePrices)]);LIVE=pr&&pr.items?pr:null;applyLive();if(after)after();liveBanner();});}
 var FB_CFG={apiKey:"AIzaSyD-PTPSqF1hcyFjqoNdgzMXOg30nGm2F5o",authDomain:"amish-delivery.firebaseapp.com",projectId:"amish-delivery",storageBucket:"amish-delivery.firebasestorage.app",messagingSenderId:"33355773687",appId:"1:33355773687:web:b15e2ce71bd273a70dc5f2"};
 var OWNER_EMAIL="jeffreyblazer@gmail.com",CLIENT_DOMAIN="clients.amish-delivery.app";
 function clientEmail(num){return "c"+num+"@"+CLIENT_DOMAIN;}
@@ -170,12 +184,12 @@ function bump(){clearTimeout(idleT);if(ME)idleT=setTimeout(()=>signOutC("Signed 
 ["pointerdown","keydown","touchstart","scroll"].forEach(ev=>document.addEventListener(ev,bump,{passive:true}));
 function signedIn(on){["who","cnav","badge"].forEach(i=>$(i).classList.toggle("hide",!on));if(!on){document.querySelectorAll("main section").forEach(s=>s.classList.toggle("hide",s.id!=="signin"));}}
 try{AUTH.setPersistence(firebase.auth.Auth.Persistence.SESSION);}catch(e){}
-FS.collection("config").doc("settings").onSnapshot(d=>{if(d.exists){const v=d.data();if(v.settings)db.settings=v.settings;if(v.bulky)db.bulky=v.bulky;}renderC();},e=>console.warn(e));
+FS.collection("config").doc("settings").onSnapshot(d=>{if(d.exists){const v=d.data();if(v.settings)db.settings=v.settings;if(v.bulky)db.bulky=v.bulky;db.priceFlags=v.priceFlags||{};}applyLive();renderC();},e=>console.warn(e));
 AUTH.onAuthStateChanged(u=>{unsubC.forEach(f=>f());unsubC=[];db.orders=[];
 if(!u){ME=null;db.cart=[];signedIn(false);renderC();return;}
 FS.collection("customers").doc(u.uid).get().then(d=>{if(!d.exists){sMsg("This account is not set up. Ask Jeffrey.",true);return AUTH.signOut();}
 ME=Object.assign({},d.data(),{id:u.uid});$("whoT").textContent="Hello, #"+ME.num+" "+ME.name;sMsg("");signedIn(true);show("stores");bump();
 unsubC.push(FS.collection("orders").where("customerUid","==",u.uid).onSnapshot(s=>{db.orders=s.docs.map(x=>x.data());renderMine();},e=>console.warn(e)));})
 .catch(e=>{sMsg("Could not load your account: "+e.message,true);AUTH.signOut();});});
-$("noJs").style.display="none";$("okJs").style.display="inline";signedIn(false);renderC();
+$("noJs").style.display="none";$("okJs").style.display="inline";signedIn(false);renderC();loadLive(renderC);
 </script></body></html>

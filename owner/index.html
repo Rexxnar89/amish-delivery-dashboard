@@ -33,7 +33,7 @@ main{padding:8px}.pc{width:100%;box-sizing:border-box}.row{flex-direction:column
 <div id="noJs" style="background:#a33;color:#fff;padding:12px;font-size:20px;font-weight:bold">The app is NOT running (scripts are blocked). Drive and file previews block it. Open the web link in Chrome or Safari instead.</div>
 <div id="gate" style="position:fixed;inset:0;background:#f6f4ef;z-index:100;display:flex;align-items:center;justify-content:center"><div class="card" style="max-width:420px;width:92%"><div class="big">Owner sign-in</div><p>Jeffrey only. Customers use the main page.</p><div class="row"><input id="gE" type="email" value="jeffreyblazer@gmail.com" style="width:100%"><input id="gP" type="password" placeholder="Password" style="width:100%"></div><button class="b" onclick="ownerSignIn()" style="width:100%;min-height:56px;font-size:22px">Sign in</button><p id="gMsg"></p><details><summary style="min-height:44px">First time? Create owner account</summary><p>Uses the email above and the password you type (8+ characters).</p><button class="b g" onclick="ownerCreate()">Create owner account</button></details></div></div>
 <header><h1>Owner Dashboard <span id="okJs" style="display:none;background:#8f8;color:#030;font-size:16px;padding:2px 8px;border-radius:6px">App loaded ✓</span></h1><div>Prototype. Prices are SAMPLE DATA, NOT LIVE. Ordering opens the store website for you to finish by hand.</div>
-<nav><button data-p="cat" class="on">1. Shop &amp; Compare</button><button data-p="stores">Stores</button><button data-p="cart">2. Order for customer</button><button data-p="log">3. Order Log</button><button data-p="cust">4. Customers</button><button data-p="set">Settings</button> <span class="b" id="badge" onclick="show('cart')">Cart: 0</span> <label style="font-size:18px"><input type="checkbox" id="demoT"> Demo mode</label> <span id="whoO" style="font-size:14px"></span> <span class="b r" role="button" style="display:inline-flex;align-items:center" onclick="ownerSignOut()">Sign out</span></nav><div id="demoB" class="hide"></div></header>
+<nav><button data-p="cat" class="on">1. Shop &amp; Compare</button><button data-p="stores">Stores</button><button data-p="cart">2. Order for customer</button><button data-p="log">3. Order Log</button><button data-p="cust">4. Customers</button><button data-p="set">Settings</button><button data-p="pm">Price matches</button> <span class="b" id="badge" onclick="show('cart')">Cart: 0</span> <label style="font-size:18px"><input type="checkbox" id="demoT"> Demo mode</label> <span id="whoO" style="font-size:14px"></span> <span class="b r" role="button" style="display:inline-flex;align-items:center" onclick="ownerSignOut()">Sign out</span></nav><div id="demoB" class="hide"></div></header>
 <main><div id="lsWarn" class="warn" style="display:none;background:#fdd">Warning: this browser is blocking saving. Your orders will be lost when you close the page. Export to CSV before closing.</div>
 <section id="cat"><div class="promo"></div><div class="warn">All prices below are sample data, not live. Check the real price on the store website.</div>
 <div class="fwrap" data-v="cat"></div>
@@ -49,6 +49,7 @@ main{padding:8px}.pc{width:100%;box-sizing:border-box}.row{flex-direction:column
 <section id="log" class="hide"><div class="row"><input id="fQ" placeholder="Search: store order #, name, or item" style="flex:1;min-width:240px;font-size:20px" oninput="renderLog()"></div><div class="row">Customer <select id="fC"></select> Status <select id="fS"></select>
 <button class="b" onclick="exportCSV()">Export CSV</button><label class="b">Import CSV <input type="file" id="imp" accept=".csv" class="hide"></label></div>
 <div id="owed" class="big"></div><div id="logT" style="overflow-x:auto"></div></section>
+<section id="pm" class="hide"><div id="pmT"></div></section>
 <section id="set" class="hide"><div id="setT"></div></section>
 <section id="cust" class="hide"><div class="row"><button class="b" onclick="show('cart');$('newC').classList.remove('hide')">+ Add customer</button><button class="b g" onclick="importLocal()">Import old saved data from this device</button></div><div id="custT"></div></section>
 </main><div id="toast" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 20px;border-radius:8px;font-size:20px;display:none"></div>
@@ -192,10 +193,10 @@ function fStore(s,on){F.stores=on?[...new Set([...F.stores,s])]:F.stores.filter(
 function fClear(){F={q:"",stores:Object.keys(STORES),cat:"",min:"",max:"",sort:"name"};renderFilters();fChange();}
 function renderCat(){const st=F.stores.length?F.stores:[];
 let h="<table><tr><th>Product</th><th>Type</th>"+st.map(s=>"<th>"+esc(s)+"</th>").join("")+"</tr>";
-fRows().forEach(({r:[n,c,p],min})=>{h+="<tr><td><b>"+esc(n)+"</b></td><td>"+esc(c)+"</td>"+st.map(s=>p[s]==null||!inRange(custPrice({name:n,price:p[s]},0))?"<td>-</td>":"<td class='"+(custPrice({name:n,price:p[s]},0)===min?"best":"")+"'>"+money(custPrice({name:n,price:p[s]},0))+"<br><button class='b' data-id=\""+esc(n+"|"+s)+"\" onclick='addCart(this.dataset.id)'>Add</button></td>").join("")+"</tr>";});
-$("catT").innerHTML=h+"</table><p>Prices include our service. Green = best price. Sample data, not live. Sample data, not live.</p>";}
+fRows().forEach(({r:[n,c,p],min})=>{h+="<tr><td><b>"+esc(n)+"</b></td><td>"+esc(c)+"</td>"+st.map(s=>p[s]==null||!inRange(custPrice({name:n,price:p[s]},0))?"<td>-</td>":"<td class='"+(custPrice({name:n,price:p[s]},0)===min?"best":"")+"'>"+money(custPrice({name:n,price:p[s]},0))+(isLive(n,s)?"":"*")+"<br><button class='b' data-id=\""+esc(n+"|"+s)+"\" onclick='addCart(this.dataset.id)'>Add</button></td>").join("")+"</tr>";});
+$("catT").innerHTML=h+"</table><p>Prices include our service. Green = best price. "+(PRODUCTS.some(p=>p.live)?"* = sample price.":"Sample data, not live.")+" Sample data, not live.</p>";}
 function renderStores(){$("stBtns").innerHTML="Quick pick: "+Object.keys(STORES).map(s=>"<button class='b"+(F.stores.length===1&&F.stores[0]===s?"":" g")+"' data-s=\""+esc(s)+"\" onclick='F.stores=[this.dataset.s];renderFilters();fChange();renderStores()'>"+esc(s)+"</button>").join("")+"<button class='b g' onclick='F.stores=Object.keys(STORES);renderFilters();fChange();renderStores()'>All stores</button>";renderStoreCards();}
-function renderStoreCards(){const it=fItems();$("stCards").innerHTML=it.length?it.map(p=>"<div class='pc' data-id=\""+esc(p.id)+"\" onclick='addCart(this.dataset.id)'><b>"+esc(p.name)+"</b><br>"+esc(p.store)+" · "+esc(p.cat)+"<br><span class='big'>"+money(custPrice(p,0))+"</span><br><small>sample price</small></div>").join(""):"<p class='big'>No products match. Try Clear filters.</p>";}
+function renderStoreCards(){const it=fItems();$("stCards").innerHTML=it.length?it.map(p=>"<div class='pc' data-id=\""+esc(p.id)+"\" onclick='addCart(this.dataset.id)'><b>"+esc(p.name)+"</b><br>"+esc(p.store)+" · "+esc(p.cat)+"<br><span class='big'>"+money(custPrice(p,0))+"</span><br><small>"+priceNote(p)+"</small><small hidden>sample price</small></div>").join(""):"<p class='big'>No products match. Try Clear filters.</p>";}
 renderFilters();
 function DEFS(){return {pct:10,minUnder:10,minAmt:1,bulkyPct:15,bigOver:150,bigPct:8};}
 function BULKY0L(){return ["All-Purpose Flour 25 lb","Granulated Sugar 25 lb","Rolled Oats 10 lb","Chicken Layer Feed 50 lb","Wheelbarrow 6 cu ft","Fencing Wire 100 ft","Laundry Detergent 200 loads","Toilet Paper 30 rolls","Lamp Oil 1 gal"];}
@@ -216,6 +217,20 @@ f("pct","Normal markup (%)")+f("minUnder","Small items: price under ($)")+f("min
 RAW.map(r=>"<label class='chip"+(isBulky(r[0])?" on":"")+"'><input type='checkbox'"+(isBulky(r[0])?" checked":"")+" data-n=\""+esc(r[0])+"\" onchange='isBulky(\"\");db.bulky[this.dataset.n]=this.checked;save();render()'>"+esc(r[0])+"</label>").join("")+"</div>";}
 function setS(k,v){S()[k]=Math.max(0,parseFloat(v)||0);save();render();}
 var _render=render;render=function(){S();isBulky("");_render();renderPromo();renderSettings();};
+// ===== Live prices (prices.json from the weekly/daily GitHub Action) =====
+var LIVE=null,BASE=JSON.parse(JSON.stringify(RAW)),PRICE_BASE=(location.pathname.indexOf("/owner")>=0?"../":"");
+function liveFlags(){return (db&&db.priceFlags)||{};}
+function liveItem(n,s){const it=LIVE&&LIVE.items&&LIVE.items[n+"|"+s];if(!it||it.stale||liveFlags()[n+"|"+s])return null;return it;}
+function applyLive(){RAW.length=0;BASE.forEach(r=>RAW.push([r[0],r[1],Object.assign({},r[2])]));
+RAW.forEach(r=>{Object.keys(r[2]).forEach(s=>{const it=liveItem(r[0],s);if(it)r[2][s]=it.price;});});
+PRODUCTS.length=0;RAW.forEach(([n,c,p])=>Object.entries(p).forEach(([s,v])=>{const it=liveItem(n,s);PRODUCTS.push({id:n+"|"+s,name:n,cat:c,store:s,price:v,live:!!it,checkedAt:it?it.checkedAt:null});}));}
+function fmtD(iso){try{return new Date(iso).toLocaleDateString("en-US",{month:"short",day:"numeric"});}catch(e){return "";}}
+function priceNote(p){return p.live?"Price checked "+fmtD(p.checkedAt):"sample price";}
+function isLive(n,s){return !!liveItem(n,s);}
+function liveBanner(){const any=PRODUCTS.some(p=>p.live);const t=any?"Prices checked "+fmtD(LIVE.generatedAt)+" near Wooster, OH. Prices can change; Jeffrey confirms at checkout. * = sample price.":"Sample prices, not live.";document.querySelectorAll("#stores .warn,#cat .warn").forEach(e=>e.textContent=t);}
+function loadLive(after){const t="?t="+Math.floor(Date.now()/600000);
+Promise.all([fetch(PRICE_BASE+"products.json"+t).then(r=>r.ok?r.json():null).catch(()=>null),fetch(PRICE_BASE+"prices.json"+t).then(r=>r.ok?r.json():null).catch(()=>null)]).then(([cat,pr])=>{
+if(cat&&cat.products&&cat.products.length)BASE=cat.products.map(p=>[p.name,p.cat,Object.assign({},p.samplePrices)]);LIVE=pr&&pr.items?pr:null;applyLive();if(after)after();liveBanner();});}
 var FB_CFG={apiKey:"AIzaSyD-PTPSqF1hcyFjqoNdgzMXOg30nGm2F5o",authDomain:"amish-delivery.firebaseapp.com",projectId:"amish-delivery",storageBucket:"amish-delivery.firebasestorage.app",messagingSenderId:"33355773687",appId:"1:33355773687:web:b15e2ce71bd273a70dc5f2"};
 var OWNER_EMAIL="jeffreyblazer@gmail.com",CLIENT_DOMAIN="clients.amish-delivery.app";
 function clientEmail(num){return "c"+num+"@"+CLIENT_DOMAIN;}
@@ -228,14 +243,14 @@ function clean(o){return JSON.parse(JSON.stringify(o));}
 function fbSync(){if(!isOwnerUser())return;
 ["customers","orders"].forEach(col=>{const seen={};db[col].forEach(x=>{x.id=String(x.id);if(col==="orders"){x.custId=String(x.custId);x.customerUid=x.custId;}seen[x.id]=1;const j=JSON.stringify(x);if(last[col][x.id]!==j){last[col][x.id]=j;FS.collection(col).doc(x.id).set(clean(x)).catch(fbErr);}});
 Object.keys(last[col]).forEach(id=>{if(!seen[id]){delete last[col][id];FS.collection(col).doc(id).delete().catch(fbErr);}});});
-if(db.settings){const cj=JSON.stringify({settings:db.settings,bulky:db.bulky||{}});if(cj!==last.config){last.config=cj;FS.collection("config").doc("settings").set(clean({settings:db.settings,bulky:db.bulky||{}})).catch(fbErr);}}}
+if(db.settings){const cv={settings:db.settings,bulky:db.bulky||{},priceFlags:db.priceFlags||{},priceDaily:db.priceDaily||[]};const cj=JSON.stringify(cv);if(cj!==last.config){last.config=cj;FS.collection("config").doc("settings").set(clean(cv)).catch(fbErr);}}}
 function busy(){const a=document.activeElement;return a&&(a.tagName==="INPUT"&&a.type!=="checkbox"||a.tagName==="TEXTAREA")&&a.closest("#logT,#setT,#newC");}
 function liveRender(){if(busy()){pendRender=true;return;}pendRender=false;render();}
 document.addEventListener("focusout",()=>setTimeout(()=>{if(pendRender)liveRender();},50));
 function startLive(){stopLive();
 unsubs.push(FS.collection("customers").onSnapshot(s=>{db.customers=s.docs.map(d=>d.data()).sort((a,b)=>(parseInt(a.num,10)||0)-(parseInt(b.num,10)||0));last.customers={};db.customers.forEach(c=>last.customers[c.id]=JSON.stringify(c));liveRender();},fbErr));
 unsubs.push(FS.collection("orders").onSnapshot(s=>{db.orders=s.docs.map(d=>d.data()).sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.id).localeCompare(String(b.id)));last.orders={};db.orders.forEach(o=>last.orders[o.id]=JSON.stringify(o));liveRender();},fbErr));
-unsubs.push(FS.collection("config").doc("settings").onSnapshot(d=>{if(d.exists){const v=d.data();if(v.settings)db.settings=v.settings;if(v.bulky)db.bulky=v.bulky;last.config=JSON.stringify({settings:db.settings,bulky:db.bulky||{}});}liveRender();},fbErr));}
+unsubs.push(FS.collection("config").doc("settings").onSnapshot(d=>{if(d.exists){const v=d.data();if(v.settings)db.settings=v.settings;if(v.bulky)db.bulky=v.bulky;db.priceFlags=v.priceFlags||{};db.priceDaily=v.priceDaily||[];last.config=JSON.stringify({settings:db.settings,bulky:db.bulky||{},priceFlags:db.priceFlags,priceDaily:db.priceDaily});applyLive();}liveRender();},fbErr));}
 function stopLive(){unsubs.forEach(u=>u());unsubs=[];db.customers=[];db.orders=[];last={customers:{},orders:{},config:""};}
 function gateMsg(m,bad){$("gMsg").textContent=m;$("gMsg").style.color=bad?"#a33":"#1d3a1c";}
 function ownerSignIn(){const e=$("gE").value.trim(),p=$("gP").value;gateMsg("Signing in...");AUTH.signInWithEmailAndPassword(e,p).catch(x=>gateMsg("Sign-in failed: "+x.message,true));}
@@ -264,5 +279,19 @@ var _itemsCell=itemsCell;itemsCell=function(i,o){const st=STORES[o.store];let h=
 var _renderCust=renderCust;renderCust=function(){_renderCust();const cards=document.querySelectorAll("#custT > .card");db.customers.forEach((c,i)=>{const el=cards[i];if(!el)return;const d=document.createElement("div");d.className="row";
 d.innerHTML=(c.uid?"<span>Sign-in: number <b>"+esc(c.num)+"</b> + PIN"+(c.phone?" · Phone "+esc(c.phone):"")+(c.miles!=null?" · "+esc(c.miles)+" miles":"")+"</span>":"<button class='b' onclick='giveLogin(\""+esc(c.id)+"\")'>Give login (set PIN)</button>")+"<button class='b g' onclick='show(\"cart\");$(\"cSel\").value=\""+esc(c.id)+"\";setMiles()'>Order for this customer</button>";el.appendChild(d);});};
 var _renderCart=renderCart;renderCart=function(){const v=$("cSel")?$("cSel").value:"";_renderCart();if(v&&db.customers.find(c=>String(c.id)===v))$("cSel").value=v;};
+var DEF_DAILY=["All-Purpose Flour 25 lb","Granulated Sugar 25 lb","Rolled Oats 10 lb","Chicken Layer Feed 50 lb","Laundry Detergent 200 loads","Toilet Paper 30 rolls","Lamp Oil 1 gal","Dish Soap 90 oz"];
+function dailyList(){return (db.priceDaily&&db.priceDaily.length)?db.priceDaily:DEF_DAILY;}
+function setDaily(n,on){let L=dailyList().slice();if(on){if(L.length>=8)return alert("Daily is limited to 8 items (free price-check plan).");if(!L.includes(n))L.push(n);}else L=L.filter(x=>x!==n);db.priceDaily=L;save();renderPM();}
+function setFlag(k,on){db.priceFlags=Object.assign({},db.priceFlags||{});if(on)db.priceFlags[k]=true;else delete db.priceFlags[k];save();applyLive();render();}
+function renderPM(){if(!$("pmT"))return;const items=(LIVE&&LIVE.items)||{},run=(LIVE&&LIVE.run)||{},flags=db.priceFlags||{},D=dailyList();
+let h="<div class='card'><div class='big'>Price matches</div><p>"+(LIVE?"Last check: "+new Date(LIVE.generatedAt).toLocaleString()+" · "+(run.productsChecked||0)+" products · "+(run.searchesUsedThisRun||0)+" searches this run · month usage "+(run.monthUsageAfter??"?")+" of "+(run.monthBudget||230):"No live prices yet (prices.json not found).")+
+"</p><p>Daily = checked every morning (max 8). Everything else is checked on Mondays. Tick <b>Bad match</b> if the matched product is wrong; that store then goes back to the sample price.</p><p>Daily items: <b>"+D.length+" of 8</b></p></div>";
+h+="<div class='tw'><table><tr><th>Product</th><th>Daily</th><th>Store</th><th>Live price</th><th>Sample</th><th>Matched title (seller)</th><th>Bad match</th></tr>";
+BASE.forEach(([n,c,sp])=>{const stores=[...new Set(Object.keys(sp).concat(Object.values(items).filter(i=>i.item===n).map(i=>i.store)))];
+stores.forEach((s,j)=>{const it=items[n+"|"+s],k=n+"|"+s;h+="<tr>"+(j===0?"<td rowspan='"+stores.length+"'><b>"+esc(n)+"</b></td><td rowspan='"+stores.length+"'><label class='chip"+(D.includes(n)?" on":"")+"'><input type='checkbox'"+(D.includes(n)?" checked":"")+" data-n=\""+esc(n)+"\" onchange='setDaily(this.dataset.n,this.checked)'>Daily</label></td>":"")+
+"<td>"+esc(s)+"</td><td>"+(it?money(it.price)+(it.stale?" <small>(old)</small>":"")+"<br><small>"+fmtD(it.checkedAt)+"</small>":"<span style='color:#a33'>no match</span>")+"</td><td>"+(sp[s]!=null?money(sp[s]):"-")+"</td><td>"+(it?(it.link?"<a target='_blank' rel='noopener' href='"+esc(it.link)+"'>"+esc(it.matchedTitle)+"</a>":esc(it.matchedTitle))+"<br><small>"+esc(it.source)+" · score "+it.score+"</small>":"")+"</td><td>"+(it?"<label class='chip"+(flags[k]?" on":"")+"'><input type='checkbox'"+(flags[k]?" checked":"")+" data-k=\""+esc(k)+"\" onchange='setFlag(this.dataset.k,this.checked)'>Bad</label>":"")+"</td></tr>";});});
+$("pmT").innerHTML=h+"</table></div>";}
+var _renderPMwrap=render;render=function(){_renderPMwrap();renderPM();};
+loadLive(()=>render());
 ensureIds();render();$("noJs").style.display="none";$("okJs").style.display="inline";if(!LS_OK)$("lsWarn").style.display="block";
 </script></body></html>
