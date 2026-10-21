@@ -7,7 +7,7 @@
   {
    "name": "All-Purpose Flour 25 lb",
    "cat": "Groceries",
-   "query": "All-Purpose Flour 25 lb",
+   "query": "Gold Medal All Purpose Flour 25 lb",
    "samplePrices": {
     "Walmart": 11.48,
     "Sam's Club": 10.98,
@@ -17,7 +17,7 @@
   {
    "name": "Granulated Sugar 25 lb",
    "cat": "Groceries",
-   "query": "Granulated Sugar 25 lb",
+   "query": "Great Value Pure Granulated Sugar 25 lb",
    "samplePrices": {
     "Walmart": 17.97,
     "Sam's Club": 16.48,
@@ -27,7 +27,7 @@
   {
    "name": "Rolled Oats 10 lb",
    "cat": "Groceries",
-   "query": "Rolled Oats 10 lb",
+   "query": "Quaker Old Fashioned Oats 10 lb",
    "samplePrices": {
     "Amazon": 18.99,
     "Sam's Club": 12.98,
@@ -37,7 +37,7 @@
   {
    "name": "Canning Jars Quart 12-pack",
    "cat": "Household",
-   "query": "Canning Jars Quart 12-pack",
+   "query": "Ball Regular Mouth Quart Mason Jars 12 count",
    "samplePrices": {
     "Walmart": 14.97,
     "Target": 16.99,
@@ -49,7 +49,7 @@
   {
    "name": "Canning Lids Regular 24-pack",
    "cat": "Household",
-   "query": "Canning Lids Regular 24-pack",
+   "query": "Ball Regular Mouth Canning Lids 24 count",
    "samplePrices": {
     "Walmart": 5.97,
     "Amazon": 7.99,
@@ -59,7 +59,7 @@
   {
    "name": "Lamp Oil 1 gal",
    "cat": "Household",
-   "query": "Lamp Oil 1 gal",
+   "query": "Lamplight Ultra Pure Lamp Oil 1 gallon",
    "samplePrices": {
     "Amazon": 24.99,
     "Walmart": 21.98,
@@ -70,7 +70,7 @@
   {
    "name": "Kerosene Lamp Wick 3-pack",
    "cat": "Household",
-   "query": "Kerosene Lamp Wick 3-pack",
+   "query": "kerosene lamp wick 7/8 inch 3 pack",
    "samplePrices": {
     "Lehman's": 5.99,
     "Amazon": 7.49
@@ -79,7 +79,7 @@
   {
    "name": "Laundry Detergent 200 loads",
    "cat": "Household",
-   "query": "Laundry Detergent 200 loads",
+   "query": "Tide Original Liquid Laundry Detergent 200 loads",
    "samplePrices": {
     "Walmart": 19.97,
     "Target": 21.99,
@@ -90,7 +90,7 @@
   {
    "name": "Paper Towels 12 rolls",
    "cat": "Household",
-   "query": "Paper Towels 12 rolls",
+   "query": "Bounty Select-A-Size Paper Towels 12 Double Rolls",
    "samplePrices": {
     "Walmart": 21.97,
     "Target": 22.99,
@@ -101,7 +101,7 @@
   {
    "name": "Toilet Paper 30 rolls",
    "cat": "Household",
-   "query": "Toilet Paper 30 rolls",
+   "query": "Charmin Ultra Strong Toilet Paper 30 Mega Rolls",
    "samplePrices": {
     "Sam's Club": 22.98,
     "Walmart": 24.97,
@@ -111,7 +111,7 @@
   {
    "name": "Dish Soap 90 oz",
    "cat": "Household",
-   "query": "Dish Soap 90 oz",
+   "query": "Dawn Ultra Dish Soap Original 90 oz",
    "samplePrices": {
     "Walmart": 8.97,
     "Target": 9.49,
@@ -121,7 +121,7 @@
   {
    "name": "D Batteries 12-pack",
    "cat": "Household",
-   "query": "D Batteries 12-pack",
+   "query": "Duracell Coppertop D Batteries 12 pack",
    "samplePrices": {
     "Amazon": 17.99,
     "Walmart": 16.47,
@@ -132,7 +132,7 @@
   {
    "name": "Propane Cylinder 1 lb 2-pack",
    "cat": "Household",
-   "query": "Propane Cylinder 1 lb 2-pack",
+   "query": "Coleman 16 oz Propane Gas Cylinder 2 pack",
    "samplePrices": {
     "Walmart": 9.97,
     "Tractor Supply": 10.99,
@@ -142,7 +142,7 @@
   {
    "name": "Cast Iron Skillet 12 in",
    "cat": "Household",
-   "query": "Cast Iron Skillet 12 in",
+   "query": "Lodge 12 inch Cast Iron Skillet",
    "samplePrices": {
     "Amazon": 29.9,
     "Walmart": 24.97,
@@ -153,7 +153,7 @@
   {
    "name": "Hand Crank Grain Mill",
    "cat": "Tools",
-   "query": "Hand Crank Grain Mill",
+   "query": "Victoria manual grain mill hand crank",
    "samplePrices": {
     "Lehman's": 89.99,
     "Amazon": 74.99
@@ -162,7 +162,7 @@
   {
    "name": "Claw Hammer 16 oz",
    "cat": "Tools",
-   "query": "Claw Hammer 16 oz",
+   "query": "Stanley 16 oz Curved Claw Hammer",
    "samplePrices": {
     "Walmart": 12.97,
     "Tractor Supply": 14.99,
@@ -172,7 +172,7 @@
   {
    "name": "Hand Saw 20 in",
    "cat": "Tools",
-   "query": "Hand Saw 20 in",
+   "query": "Stanley 20 inch Hand Saw",
    "samplePrices": {
     "Walmart": 16.97,
     "Tractor Supply": 18.99,
@@ -182,7 +182,7 @@
   {
    "name": "Work Gloves Leather 3-pair",
    "cat": "Tools",
-   "query": "Work Gloves Leather 3-pair",
+   "query": "Wells Lamont leather work gloves 3 pair",
    "samplePrices": {
     "Tractor Supply": 19.99,
     "Amazon": 17.99,
@@ -192,7 +192,7 @@
   {
    "name": "Wheelbarrow 6 cu ft",
    "cat": "Farm & Garden",
-   "query": "Wheelbarrow 6 cu ft",
+   "query": "True Temper 6 cu ft Steel Wheelbarrow",
    "samplePrices": {
     "Tractor Supply": 89.99,
     "Walmart": 84
@@ -201,7 +201,7 @@
   {
    "name": "Chicken Layer Feed 50 lb",
    "cat": "Farm & Garden",
-   "query": "Chicken Layer Feed 50 lb",
+   "query": "Purina Layena Layer Pellets 50 lb",
    "samplePrices": {
     "Tractor Supply": 19.99,
     "Walmart": 22.98
@@ -210,7 +210,7 @@
   {
    "name": "Garden Seed Variety Pack",
    "cat": "Farm & Garden",
-   "query": "Garden Seed Variety Pack",
+   "query": "Burpee vegetable garden seed variety pack",
    "samplePrices": {
     "Lehman's": 24.99,
     "Amazon": 19.99,
@@ -221,7 +221,7 @@
   {
    "name": "Fencing Wire 100 ft",
    "cat": "Farm & Garden",
-   "query": "Fencing Wire 100 ft",
+   "query": "galvanized fence wire 14 gauge 100 ft",
    "samplePrices": {
     "Tractor Supply": 39.99,
     "Amazon": 44.99
@@ -230,7 +230,7 @@
   {
    "name": "Garden Hoe",
    "cat": "Farm & Garden",
-   "query": "Garden Hoe",
+   "query": "Ames garden hoe",
    "samplePrices": {
     "Tractor Supply": 24.99,
     "Walmart": 19.97,
@@ -240,7 +240,7 @@
   {
    "name": "Fly Spray 1 gal",
    "cat": "Farm & Garden",
-   "query": "Fly Spray 1 gal",
+   "query": "Farnam Endure Fly Spray for Horses 1 gallon",
    "samplePrices": {
     "Tractor Supply": 29.99,
     "Amazon": 34.99
@@ -249,7 +249,7 @@
   {
    "name": "Baby Diapers Size 3 (150)",
    "cat": "Baby & Kids",
-   "query": "Baby Diapers Size 3 (150)",
+   "query": "Pampers Swaddlers Diapers Size 3 150 count",
    "samplePrices": {
     "Walmart": 39.97,
     "Target": 41.99,
@@ -260,7 +260,7 @@
   {
    "name": "Baby Wipes 900 count",
    "cat": "Baby & Kids",
-   "query": "Baby Wipes 900 count",
+   "query": "Huggies Natural Care Baby Wipes 900 count",
    "samplePrices": {
     "Sam's Club": 24.98,
     "Walmart": 26.97,
@@ -271,7 +271,7 @@
   {
    "name": "Wooden Building Blocks",
    "cat": "Baby & Kids",
-   "query": "Wooden Building Blocks",
+   "query": "Melissa & Doug Wooden Building Blocks 100 piece",
    "samplePrices": {
     "Amazon": 24.99,
     "Target": 19.99,
@@ -281,7 +281,7 @@
   {
    "name": "Crayons 64-pack",
    "cat": "Baby & Kids",
-   "query": "Crayons 64-pack",
+   "query": "Crayola Crayons 64 count",
    "samplePrices": {
     "Walmart": 3.97,
     "Target": 4.29,
@@ -291,7 +291,7 @@
   {
    "name": "Children's Rubber Boots",
    "cat": "Baby & Kids",
-   "query": "Children's Rubber Boots",
+   "query": "kids rubber rain boots",
    "samplePrices": {
     "Tractor Supply": 24.99,
     "Walmart": 17.97,
@@ -301,7 +301,7 @@
   {
    "name": "Composition Notebooks 6-pack",
    "cat": "Baby & Kids",
-   "query": "Composition Notebooks 6-pack",
+   "query": "composition notebooks college ruled 6 pack",
    "samplePrices": {
     "Walmart": 5.94,
     "Target": 6.49,
@@ -311,7 +311,7 @@
   {
    "name": "Ibuprofen 200 mg 300-count",
    "cat": "Health",
-   "query": "Ibuprofen 200 mg 300-count",
+   "query": "Advil Ibuprofen 200 mg 300 tablets",
    "samplePrices": {
     "Walmart": 9.88,
     "Target": 10.99,
@@ -322,7 +322,7 @@
   {
    "name": "Adhesive Bandages 100-count",
    "cat": "Health",
-   "query": "Adhesive Bandages 100-count",
+   "query": "Band-Aid Flexible Fabric Adhesive Bandages 100 count",
    "samplePrices": {
     "Walmart": 4.97,
     "Target": 5.49,
@@ -332,7 +332,7 @@
   {
    "name": "Vitamin D3 2000 IU 300-count",
    "cat": "Health",
-   "query": "Vitamin D3 2000 IU 300-count",
+   "query": "Nature Made Vitamin D3 2000 IU 300 softgels",
    "samplePrices": {
     "Sam's Club": 12.48,
     "Walmart": 13.97,

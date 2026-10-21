@@ -64,7 +64,7 @@ for (const p of todo) {
   const best = {};
   for (const r of res.shopping_results || []) {
     const st = sellerOf(r.source); if (!st || r.extracted_price == null) continue;
-    const sc = score(p.name, r.title); if (sc < 0.6) continue;
+    const sc = Math.max(score(p.name, r.title), p.query && p.query !== p.name ? score(p.query, r.title) : 0); if (sc < 0.6) continue;
     if (!best[st] || sc > best[st].score || (sc === best[st].score && r.extracted_price < best[st].price))
       best[st] = { item: p.name, store: st, price: r.extracted_price, inStock: null, link: r.product_link || r.link || "", matchedTitle: r.title, source: r.source, score: +sc.toFixed(2), via: "google_shopping", checkedAt };
   }
