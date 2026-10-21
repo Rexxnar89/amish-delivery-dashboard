@@ -218,7 +218,7 @@ RAW.map(r=>"<label class='chip"+(isBulky(r[0])?" on":"")+"'><input type='checkbo
 function setS(k,v){S()[k]=Math.max(0,parseFloat(v)||0);save();render();}
 var _render=render;render=function(){S();isBulky("");_render();renderPromo();renderSettings();};
 // ===== Live prices (prices.json from the weekly/daily GitHub Action) =====
-var LIVE=null,BASE=JSON.parse(JSON.stringify(RAW)),PRICE_BASE=(location.pathname.indexOf("/owner")>=0?"../":"");
+var QUERIES={},LIVE=null,BASE=JSON.parse(JSON.stringify(RAW)),PRICE_BASE=(location.pathname.indexOf("/owner")>=0?"../":"");
 function liveFlags(){return (db&&db.priceFlags)||{};}
 function liveItem(n,s){const it=LIVE&&LIVE.items&&LIVE.items[n+"|"+s];if(!it||it.stale||liveFlags()[n+"|"+s])return null;return it;}
 function applyLive(){RAW.length=0;BASE.forEach(r=>RAW.push([r[0],r[1],Object.assign({},r[2])]));
@@ -230,7 +230,7 @@ function isLive(n,s){return !!liveItem(n,s);}
 function liveBanner(){if(window.CLIENT_APP)return clientBanner();const any=PRODUCTS.some(p=>p.live);const t=any?"Prices checked "+fmtD(LIVE.generatedAt)+" near Wooster, OH. Prices can change; Jeffrey confirms at checkout. * = sample price.":"Sample prices, not live.";document.querySelectorAll("#stores .warn,#cat .warn").forEach(e=>e.textContent=t);}
 function loadLive(after){const t="?t="+Math.floor(Date.now()/600000);
 Promise.all([fetch(PRICE_BASE+"products.json"+t).then(r=>r.ok?r.json():null).catch(()=>null),fetch(PRICE_BASE+"prices.json"+t).then(r=>r.ok?r.json():null).catch(()=>null)]).then(([cat,pr])=>{
-if(cat&&cat.products&&cat.products.length)BASE=cat.products.map(p=>[p.name,p.cat,Object.assign({},p.samplePrices)]);LIVE=pr&&pr.items?pr:null;applyLive();if(after)after();liveBanner();});}
+if(cat&&cat.products&&cat.products.length)BASE=cat.products.map(p=>[p.name,p.cat,Object.assign({},p.samplePrices)]);if(cat&&cat.products)cat.products.forEach(p=>{QUERIES[p.name]=p.query||p.name;});LIVE=pr&&pr.items?pr:null;applyLive();if(after)after();liveBanner();});}
 function validPrices(n){const r=BASE.find(x=>x[0]===n);if(!r)return[];const st=Object.keys(r[2]);const live=st.map(s=>liveItem(n,s)).filter(Boolean).map(i=>i.price);return live.length?live:st.map(s=>r[2][s]).filter(v=>v!=null);}
 function avgPrice(n){const L=validPrices(n);return L.length?Math.round(L.reduce((a,b)=>a+b,0)/L.length*100)/100:0;}
 function minPrice(n){const L=validPrices(n);return L.length?Math.min(...L):0;}
@@ -308,12 +308,18 @@ function pickStore(i,j,s){const o=db.orders[i];o.lines[j].pick=s;const c=lineCos
 var _itemsCellL=itemsCell;itemsCell=function(i,o){if(!o.lines)return _itemsCellL(i,o);
 return o.lines.map((l,j)=>{const sp=storePrices(l.name),avg=avgPrice(l.name),pk=linePick(l),ch=sp[0],St=pk&&STORES[pk.store];
 const above=sp.filter(x=>x.price>l.price);
-return "<div style='border-bottom:1px solid #ddd;padding:6px 0'><b>"+esc(l.qty+" x "+l.name)+"</b> · customer pays "+money(l.price)+" each<br>"+
+return "<div style='border-bottom:1px solid #ddd;padding:6px 0'><b>"+esc(l.qty+" x "+l.name)+"</b> · customer pays "+money(l.price)+" each<br>"+buyCheapest(l.name)+"<br>"+
 "Buy at <select onchange='pickStore("+i+","+j+",this.value)'>"+sp.map(x=>"<option value=\""+esc(x.store)+"\""+(pk&&x.store===pk.store?" selected":"")+">"+esc(x.store)+" "+money(x.price)+(x.live?"":" (sample)")+(x===ch?" ← cheapest":"")+"</option>").join("")+"</select>"+
 (St?" <a target='_blank' rel='noopener' href='"+St(encodeURIComponent(l.name))+"'><button class='b' style='font-size:14px'>Open "+esc(pk.store)+"</button></a>":"")+
 "<br><small>Average "+money(avg)+" · Profit at cheapest ("+esc(ch?ch.store:"-")+"): <b>"+money(ch?(l.price-ch.price)*l.qty:0)+"</b> · at average: "+money((l.price-avg)*l.qty)+(pk?" · at your pick: <b>"+money((l.price-pk.price)*l.qty)+"</b>":"")+"</small>"+
 (pk&&pk.price>avg?"<div class='pnote' style='font-size:15px'>⚠ "+esc(pk.store)+" is above the average price.</div>":"")+
 (above.length?"<div class='pnote' style='font-size:15px;background:#fdd'>⚠ "+above.map(x=>esc(x.store)+" "+money(x.price)).join(", ")+" is above the customer price. Don't buy there.</div>":"")+"</div>";}).join("")+"<b>Store cost "+money(o.cost)+" · Profit "+money(o.mk)+"</b>";};
 var _renderL=render;render=function(){fixLineCosts();_renderL();};
+// Owner only: "Buy cheapest" opens the exact live product page, else the store search for the item's phrase
+function buyCheapest(n){const sp=storePrices(n);if(!sp.length)return"";const c=sp[0],it=liveItem(n,c.store),q=QUERIES[n]||n;
+const direct=it&&it.link&&!/(^|\.)google\./i.test(new URL(it.link,"https://x").hostname)?it.link:"";const sq=it&&it.matchedTitle?it.matchedTitle:q;const url=direct||(STORES[c.store]?STORES[c.store](encodeURIComponent(sq)):"");if(!url)return"";
+return "<a target='_blank' rel='noopener' href='"+esc(url)+"' style='text-decoration:none'><button class='b buyc' style='min-height:52px;font-size:19px;background:#1d6b2a;margin:4px 0'>Buy cheapest: "+esc(c.store)+" "+money(c.price)+(direct?"":" <small>(store search)</small>")+"</button></a>";}
+var _icB=itemsCell;itemsCell=function(i,o){let h=_icB(i,o);if(o.lines)return h;return h+"<div>"+iList(o).map(x=>buyCheapest(x.t.replace(/^\d+\s*x\s*/,""))).join("")+"</div>";};
+var _rpmB=renderPM;renderPM=function(){_rpmB();document.querySelectorAll("#pmT td[rowspan] b").forEach(b=>{const n=b.textContent;const d=document.createElement("div");d.innerHTML=buyCheapest(n);b.parentNode.appendChild(d);});};
 ensureIds();render();$("noJs").style.display="none";$("okJs").style.display="inline";if(!LS_OK)$("lsWarn").style.display="block";
 </script></body></html>

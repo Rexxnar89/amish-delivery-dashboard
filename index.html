@@ -105,7 +105,7 @@ f("pct","Normal markup (%)")+f("minUnder","Small items: price under ($)")+f("min
 RAW.map(r=>"<label class='chip"+(isBulky(r[0])?" on":"")+"'><input type='checkbox'"+(isBulky(r[0])?" checked":"")+" data-n=\""+esc(r[0])+"\" onchange='isBulky(\"\");db.bulky[this.dataset.n]=this.checked;save();render()'>"+esc(r[0])+"</label>").join("")+"</div>";}
 function setS(k,v){S()[k]=Math.max(0,parseFloat(v)||0);save();render();}
 // ===== Live prices (prices.json from the weekly/daily GitHub Action) =====
-var LIVE=null,BASE=JSON.parse(JSON.stringify(RAW)),PRICE_BASE=(location.pathname.indexOf("/owner")>=0?"../":"");
+var QUERIES={},LIVE=null,BASE=JSON.parse(JSON.stringify(RAW)),PRICE_BASE=(location.pathname.indexOf("/owner")>=0?"../":"");
 function liveFlags(){return (db&&db.priceFlags)||{};}
 function liveItem(n,s){const it=LIVE&&LIVE.items&&LIVE.items[n+"|"+s];if(!it||it.stale||liveFlags()[n+"|"+s])return null;return it;}
 function applyLive(){RAW.length=0;BASE.forEach(r=>RAW.push([r[0],r[1],Object.assign({},r[2])]));
@@ -117,7 +117,7 @@ function isLive(n,s){return !!liveItem(n,s);}
 function liveBanner(){if(window.CLIENT_APP)return clientBanner();const any=PRODUCTS.some(p=>p.live);const t=any?"Prices checked "+fmtD(LIVE.generatedAt)+" near Wooster, OH. Prices can change; Jeffrey confirms at checkout. * = sample price.":"Sample prices, not live.";document.querySelectorAll("#stores .warn,#cat .warn").forEach(e=>e.textContent=t);}
 function loadLive(after){const t="?t="+Math.floor(Date.now()/600000);
 Promise.all([fetch(PRICE_BASE+"products.json"+t).then(r=>r.ok?r.json():null).catch(()=>null),fetch(PRICE_BASE+"prices.json"+t).then(r=>r.ok?r.json():null).catch(()=>null)]).then(([cat,pr])=>{
-if(cat&&cat.products&&cat.products.length)BASE=cat.products.map(p=>[p.name,p.cat,Object.assign({},p.samplePrices)]);LIVE=pr&&pr.items?pr:null;applyLive();if(after)after();liveBanner();});}
+if(cat&&cat.products&&cat.products.length)BASE=cat.products.map(p=>[p.name,p.cat,Object.assign({},p.samplePrices)]);if(cat&&cat.products)cat.products.forEach(p=>{QUERIES[p.name]=p.query||p.name;});LIVE=pr&&pr.items?pr:null;applyLive();if(after)after();liveBanner();});}
 function validPrices(n){const r=BASE.find(x=>x[0]===n);if(!r)return[];const st=Object.keys(r[2]);const live=st.map(s=>liveItem(n,s)).filter(Boolean).map(i=>i.price);return live.length?live:st.map(s=>r[2][s]).filter(v=>v!=null);}
 function avgPrice(n){const L=validPrices(n);return L.length?Math.round(L.reduce((a,b)=>a+b,0)/L.length*100)/100:0;}
 function minPrice(n){const L=validPrices(n);return L.length?Math.min(...L):0;}
