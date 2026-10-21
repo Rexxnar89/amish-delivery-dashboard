@@ -49,10 +49,9 @@ main{padding:8px}.pc{width:100%;box-sizing:border-box}.row{flex-direction:column
 <script>
 function pad2(n){return String(n).padStart(2,"0");}
 function ensureIds(){if(!db)return;let mx=0;db.customers.forEach(c=>{if(c.num)mx=Math.max(mx,parseInt(c.num,10)||0);});db.customers.forEach(c=>{if(!c.num)c.num=pad2(++mx);});
-const used={},gid={};db.orders.forEach(o=>{if(o.appId){const k=o.group||o.appId;gid[k]=o.appId;used[o.appId]=1;}});
-db.orders.forEach(o=>{const k=o.group||o.id;if(o.appId){return;}if(gid[k]){o.appId=gid[k];return;}
-const c=db.customers.find(x=>x.id==o.custId)||db.customers.find(x=>x.name===o.customer);const d=String(o.date||"").replace(/-/g,"");const base=(d.length===8?d.slice(4,8):"0000")+"-"+(c?c.num:"00");
-let id=base,i=0;while(used[id]){i++;id=base+String.fromCharCode(65+i);}used[id]=1;gid[k]=id;o.appId=id;if(!o.group)o.group=k;});}
+const cnt={},gid={};db.orders.forEach(o=>{if(o.appId&&!/^\d+-\d{3,}$/.test(o.appId))delete o.appId;if(o.appId){const k=o.group||o.appId,m=o.appId.split("-");gid[k]=o.appId;cnt[m[0]]=Math.max(cnt[m[0]]||0,parseInt(m[1],10));}});
+db.orders.forEach(o=>{const k=o.group||o.id;if(!o.group)o.group=k;if(o.appId)return;if(gid[k]){o.appId=gid[k];return;}
+const c=db.customers.find(x=>x.id==o.custId)||db.customers.find(x=>x.name===o.customer);const cc=c?c.num:"00";cnt[cc]=(cnt[cc]||0)+1;o.appId=cc+"-"+String(cnt[cc]).padStart(3,"0");gid[k]=o.appId;});}
 const STORES={"Amazon":q=>"https://www.amazon.com/s?k="+q,"Walmart":q=>"https://www.walmart.com/search?q="+q,"Target":q=>"https://www.target.com/s?searchTerm="+q,"Sam's Club":q=>"https://www.samsclub.com/s/"+q,"Lehman's":q=>"https://www.lehmans.com/search?q="+q,"Tractor Supply":q=>"https://www.tractorsupply.com/tsc/search/"+q};
 // [name, category, {store:price}] SAMPLE DATA, NOT LIVE
 const RAW=[["All-Purpose Flour 25 lb","Bulk food",{"Walmart":11.48,"Sam's Club":10.98,"Amazon":15.99}],
