@@ -35,7 +35,7 @@ main{padding:8px}.pc{width:100%;box-sizing:border-box}.row{flex-direction:column
 <div class="row">Delivery fee: flat $<input id="flat" type="number" value="5" step="0.5" style="width:80px"> + miles <input id="mi" type="number" value="0" style="width:80px"> × $1.30 = <b id="feeOut"></b></div>
 <div class="row">Notes: <input id="oNote" size="40"></div>
 <button class="b" onclick="placeOrder()">Place order</button></div><div id="placed"></div></section>
-<section id="log" class="hide"><div class="row">Customer <select id="fC"></select> Status <select id="fS"></select>
+<section id="log" class="hide"><div class="row"><input id="fQ" placeholder="Search: store order #, name, or item" style="flex:1;min-width:240px;font-size:20px" oninput="renderLog()"></div><div class="row">Customer <select id="fC"></select> Status <select id="fS"></select>
 <button class="b" onclick="exportCSV()">Export CSV</button><label class="b">Import CSV <input type="file" id="imp" accept=".csv" class="hide"></label></div>
 <div id="owed" class="big"></div><div id="logT" style="overflow-x:auto"></div></section>
 <section id="cust" class="hide"><div id="custT"></div></section>
@@ -79,7 +79,7 @@ var LS_OK=true,db;try{db=JSON.parse(localStorage.getItem("amishDelivery")||"null
 if(!db||!db.orders)db={customers:[],orders:[],cart:[]};
 if(!db.customers.length)db.customers=[{id:1,name:"Example: Eli Miller",loc:"Mt. Hope, drop at Miller's store",notes:"Calls Tuesdays"}];
 const save=()=>{try{localStorage.setItem("amishDelivery",JSON.stringify(db));}catch(e){LS_OK=false;var w=document.getElementById("lsWarn");if(w)w.style.display="block";}if(window.updBadge)updBadge();};
-const STATUS=["Ordered","Shipped","Arrived","Delivered","Returned"],PAY=["Cash","Check","Card"];
+const STATUS=["Ordered","Shipped","Arrived","Ready for delivery","Delivered","Returned"],PAY=["Cash","Check","Card"];
 const tog=id=>$(id).classList.toggle("hide");
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>show(b.dataset.p));
 function show(p){document.querySelectorAll("main section").forEach(s=>s.classList.toggle("hide",s.id!==p));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.p===p));render();}
@@ -109,14 +109,17 @@ db.cart=[];save();$("oNote").value="";$("placed").innerHTML=h+"<p>The delivery f
 function renderLog(){const fc=$("fC").value,fs=$("fS").value;
 $("fC").innerHTML="<option value=''>All</option>"+[...new Set(db.orders.map(o=>o.customer))].map(n=>"<option"+(n===fc?" selected":"")+">"+esc(n)+"</option>").join("");
 $("fS").innerHTML="<option value=''>All</option>"+STATUS.map(s=>"<option"+(s===fs?" selected":"")+">"+s+"</option>").join("");
-const rows=db.orders.filter(o=>(!fc||o.customer===fc)&&(!fs||o.status===fs));
+const fq=($("fQ").value||"").trim().toLowerCase();const rows=db.orders.filter(o=>(!fc||o.customer===fc)&&(!fs||o.status===fs)&&(!fq||[o.sono,o.customer,o.items,o.store].join(" ").toLowerCase().includes(fq)));
 const owed=db.orders.filter(o=>o.paid!=="Y"&&o.status!=="Returned"),cash=owed.filter(o=>o.pay==="Cash").reduce((a,o)=>a+o.cost+o.fee,0),all=owed.reduce((a,o)=>a+o.cost+o.fee,0);
 $("owed").textContent="Cash still owed to you: "+money(cash)+"   (all unpaid: "+money(all)+")";
 const sel=(i,k,opts,v)=>"<select onchange='upd("+i+",\""+k+"\",this.value)'>"+opts.map(o=>"<option"+(o===v?" selected":"")+">"+o+"</option>").join("")+"</select>";
-$("logT").innerHTML="<table><tr>"+COLS.map(c=>"<th>"+c[0]+"</th>").join("")+"<th></th></tr>"+rows.map(o=>{const i=db.orders.indexOf(o);return "<tr"+(o.demo?" class='demo'":"")+"><td>"+(o.demo?"<span class='dtag'>DEMO</span> ":"")+o.date+"</td><td>"+esc(o.customer)+"</td><td>"+esc(o.loc)+"</td><td>"+esc(o.items)+"</td><td>"+esc(o.store)+"</td><td>"+money(o.cost)+"</td><td>"+money(o.fee)+"</td><td><b>"+money(o.cost+o.fee)+"</b></td><td><input type='date' value='"+o.deliv+"' onchange='upd("+i+",\"deliv\",this.value)'></td><td>"+sel(i,"pay",PAY,o.pay)+"</td><td>"+sel(i,"paid",["N","Y"],o.paid)+"</td><td>"+sel(i,"status",STATUS,o.status)+"</td><td><input value='"+esc(o.notes)+"' onchange='upd("+i+",\"notes\",this.value)'></td><td><button class='b r' onclick='if(confirm(\"Delete this line?\")){db.orders.splice("+i+",1);save();renderLog()}'>X</button></td></tr>";}).join("")+"</table>"+(rows.length?"":"<p>No orders yet.</p>");document.querySelectorAll("#logT tr").forEach(tr=>tr.querySelectorAll("td").forEach((td,j)=>td.setAttribute("data-l",COLS[j]?COLS[j][0]:"")));}
+$("logT").innerHTML="<table><tr>"+COLS.map(c=>"<th>"+c[0]+"</th>").join("")+"<th></th></tr>"+rows.map(o=>{const i=db.orders.indexOf(o);return "<tr"+(o.demo?" class='demo'":"")+"><td>"+(o.demo?"<span class='dtag'>DEMO</span> ":"")+o.date+"</td><td>"+esc(o.customer)+"</td><td>"+esc(o.loc)+"</td><td>"+itemsCell(i,o)+"</td><td>"+esc(o.store)+"</td><td><input placeholder='Store order #' value='"+esc(o.sono||"")+"' onchange='upd("+i+",\"sono\",this.value.trim())'><div style='font-size:13px;color:#555'>Use one cart per customer; keep names off shipping labels.</div></td><td>"+money(o.cost)+"</td><td>"+money(o.fee)+"</td><td><b>"+money(o.cost+o.fee)+"</b></td><td><input type='date' value='"+o.deliv+"' onchange='upd("+i+",\"deliv\",this.value)'></td><td>"+sel(i,"pay",PAY,o.pay)+"</td><td>"+sel(i,"paid",["N","Y"],o.paid)+"</td><td>"+sel(i,"status",STATUS,o.status)+"</td><td><input value='"+esc(o.notes)+"' onchange='upd("+i+",\"notes\",this.value)'></td><td><button class='b r' onclick='if(confirm(\"Delete this line?\")){db.orders.splice("+i+",1);save();renderLog()}'>X</button></td></tr>";}).join("")+"</table>"+(rows.length?"":"<p>No orders yet.</p>");document.querySelectorAll("#logT tr").forEach(tr=>tr.querySelectorAll("td").forEach((td,j)=>td.setAttribute("data-l",COLS[j]?COLS[j][0]:"")));}
+function iList(o){if(!o.itemList)o.itemList=String(o.items||"").split(";").map(s=>s.trim()).filter(Boolean).map(s=>({t:s,arr:false}));return o.itemList;}
+function itemsCell(i,o){const L=iList(o),n=L.filter(x=>x.arr).length;return L.map((x,j)=>"<label style='display:flex;align-items:center;gap:6px;min-height:44px'><input type='checkbox' style='width:28px;height:28px'"+(x.arr?" checked":"")+" onchange='arrive("+i+","+j+",this.checked)'>"+esc(x.t)+"</label>").join("")+"<b>"+n+" of "+L.length+" arrived</b>";}
+function arrive(i,j,v){const o=db.orders[i],L=iList(o);L[j].arr=v;if(v&&L.every(x=>x.arr)&&STATUS.indexOf(o.status)<STATUS.indexOf("Ready for delivery")&&confirm("All items arrived. Mark this order Ready for delivery?"))o.status="Ready for delivery";save();renderLog();}
 function upd(i,k,v){db.orders[i][k]=v;save();renderLog();}
 $("fC").onchange=$("fS").onchange=renderLog;
-const COLS=[["Order Date","date"],["Customer","customer"],["Location/Drop Point","loc"],["Items","items"],["Source Store","store"],["Item Cost","cost"],["Delivery Fee","fee"],["Total Due",null],["Delivery Date","deliv"],["Payment Method","pay"],["Paid Y/N","paid"],["Status","status"],["Notes","notes"]];
+const COLS=[["Order Date","date"],["Customer","customer"],["Location/Drop Point","loc"],["Items","items"],["Source Store","store"],["Store Order #","sono"],["Item Cost","cost"],["Delivery Fee","fee"],["Total Due",null],["Delivery Date","deliv"],["Payment Method","pay"],["Paid Y/N","paid"],["Status","status"],["Notes","notes"]];
 const csvq=v=>{v=String(v??"");return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;};
 function exportCSV(){const lines=[COLS.map(c=>c[0]).join(",")].concat(db.orders.map(o=>COLS.map(c=>csvq(c[1]?o[c[1]]:(o.cost+o.fee).toFixed(2))).join(",")));
 const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([lines.join("\n")],{type:"text/csv"}));a.download="Amish Delivery - Order Tracker.csv";a.click();}
@@ -147,7 +150,7 @@ if(s===4){show("cart");}
 if(s===5){show("log");}
 if(s===6){lastDemo().forEach(o=>{o.paid="Y";o.pay="Cash";o.status="Delivered";});save();show("log");}
 $("demoB").innerHTML=DSTEPS[s]+"<div class='row'><button class='b g' id='dBack' onclick='demoGo(-1)'>Back</button><button class='b' id='dNext' onclick='demoGo(1)'>Next</button><button class='b r' onclick='resetDemo()'>Reset demo data</button></div>";}
-function demoGo(d){if(dStep===5&&d===1){const o=lastDemo();const i=o.length?STATUS.indexOf(o[0].status):3;if(i<3){o.forEach(x=>x.status=STATUS[i+1]);save();renderLog();toast("Status: "+STATUS[i+1]);return;}}
+function demoGo(d){if(dStep===5&&d===1){const o=lastDemo();const D=STATUS.indexOf("Delivered"),i=o.length?STATUS.indexOf(o[0].status):D;if(i<D){o.forEach(x=>x.status=STATUS[i+1]);save();renderLog();toast("Status: "+STATUS[i+1]);return;}}
 dStep=Math.max(0,Math.min(6,dStep+d));if(dStep===3&&d===1&&!db.cart.length&&!lastDemo().length){dStep=1;}runStep();}
 function resetDemo(){const ids=db.customers.filter(c=>c.demo).map(c=>c.id);db.customers=db.customers.filter(c=>!c.demo);db.orders=db.orders.filter(o=>!o.demo&&!ids.includes(o.custId));save();dStep=0;render();toast("Demo data cleared");if($("demoT").checked)runStep();}
 $("demoT").onchange=e=>{$("demoB").classList.toggle("hide",!e.target.checked);if(e.target.checked){dStep=0;runStep();}};
