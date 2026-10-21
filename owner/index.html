@@ -227,10 +227,17 @@ PRODUCTS.length=0;RAW.forEach(([n,c,p])=>Object.entries(p).forEach(([s,v])=>{con
 function fmtD(iso){try{return new Date(iso).toLocaleDateString("en-US",{month:"short",day:"numeric"});}catch(e){return "";}}
 function priceNote(p){return p.live?"Price checked "+fmtD(p.checkedAt):"sample price";}
 function isLive(n,s){return !!liveItem(n,s);}
-function liveBanner(){const any=PRODUCTS.some(p=>p.live);const t=any?"Prices checked "+fmtD(LIVE.generatedAt)+" near Wooster, OH. Prices can change; Jeffrey confirms at checkout. * = sample price.":"Sample prices, not live.";document.querySelectorAll("#stores .warn,#cat .warn").forEach(e=>e.textContent=t);}
+function liveBanner(){if(window.CLIENT_APP)return clientBanner();const any=PRODUCTS.some(p=>p.live);const t=any?"Prices checked "+fmtD(LIVE.generatedAt)+" near Wooster, OH. Prices can change; Jeffrey confirms at checkout. * = sample price.":"Sample prices, not live.";document.querySelectorAll("#stores .warn,#cat .warn").forEach(e=>e.textContent=t);}
 function loadLive(after){const t="?t="+Math.floor(Date.now()/600000);
 Promise.all([fetch(PRICE_BASE+"products.json"+t).then(r=>r.ok?r.json():null).catch(()=>null),fetch(PRICE_BASE+"prices.json"+t).then(r=>r.ok?r.json():null).catch(()=>null)]).then(([cat,pr])=>{
 if(cat&&cat.products&&cat.products.length)BASE=cat.products.map(p=>[p.name,p.cat,Object.assign({},p.samplePrices)]);LIVE=pr&&pr.items?pr:null;applyLive();if(after)after();liveBanner();});}
+function validPrices(n){const r=BASE.find(x=>x[0]===n);if(!r)return[];const st=Object.keys(r[2]);const live=st.map(s=>liveItem(n,s)).filter(Boolean).map(i=>i.price);return live.length?live:st.map(s=>r[2][s]).filter(v=>v!=null);}
+function avgPrice(n){const L=validPrices(n);return L.length?Math.round(L.reduce((a,b)=>a+b,0)/L.length*100)/100:0;}
+function minPrice(n){const L=validPrices(n);return L.length?Math.min(...L):0;}
+function basePrice(n){return avgPrice(n);}
+// break-even guard: never below the cheapest valid store price (avg + markup already is; this is a safety check)
+function custUnit(n,sub){return Math.max(custPrice({name:n,price:basePrice(n)},sub||0),minPrice(n));}
+function storePrices(n){const r=RAW.find(x=>x[0]===n);if(!r)return[];return Object.entries(r[2]).map(([s,v])=>({store:s,price:v,live:!!liveItem(n,s)})).sort((a,b)=>a.price-b.price);}
 var FB_CFG={apiKey:"AIzaSyD-PTPSqF1hcyFjqoNdgzMXOg30nGm2F5o",authDomain:"amish-delivery.firebaseapp.com",projectId:"amish-delivery",storageBucket:"amish-delivery.firebasestorage.app",messagingSenderId:"33355773687",appId:"1:33355773687:web:b15e2ce71bd273a70dc5f2"};
 var OWNER_EMAIL="jeffreyblazer@gmail.com",CLIENT_DOMAIN="clients.amish-delivery.app";
 function clientEmail(num){return "c"+num+"@"+CLIENT_DOMAIN;}
@@ -293,5 +300,20 @@ stores.forEach((s,j)=>{const it=items[n+"|"+s],k=n+"|"+s;h+="<tr>"+(j===0?"<td r
 $("pmT").innerHTML=h+"</table></div>";}
 var _renderPMwrap=render;render=function(){_renderPMwrap();renderPM();};
 loadLive(()=>render());
+// Customer orders (no store): owner picks the store per item; default = cheapest
+function linePick(l){const sp=storePrices(l.name);if(!sp.length)return null;return sp.find(x=>x.store===l.pick)||sp[0];}
+function lineCosts(o){let cost=0;(o.lines||[]).forEach(l=>{const p=linePick(l);if(p)cost+=p.price*l.qty;});cost=Math.round(cost*100)/100;return{cost,mk:Math.round(((+o.custItems||0)-cost)*100)/100};}
+function fixLineCosts(){if(!isOwnerUser())return;let ch=false;db.orders.forEach(o=>{if(!o.lines)return;o.lines.forEach(l=>{if(!l.pick){const p=linePick(l);if(p){l.pick=p.store;ch=true;}}});const c=lineCosts(o);if(c.cost&&(c.cost!==o.cost||c.mk!==o.mk)){o.cost=c.cost;o.mk=c.mk;ch=true;}});if(ch)save();}
+function pickStore(i,j,s){const o=db.orders[i];o.lines[j].pick=s;const c=lineCosts(o);o.cost=c.cost;o.mk=c.mk;save();renderLog();}
+var _itemsCellL=itemsCell;itemsCell=function(i,o){if(!o.lines)return _itemsCellL(i,o);
+return o.lines.map((l,j)=>{const sp=storePrices(l.name),avg=avgPrice(l.name),pk=linePick(l),ch=sp[0],St=pk&&STORES[pk.store];
+const above=sp.filter(x=>x.price>l.price);
+return "<div style='border-bottom:1px solid #ddd;padding:6px 0'><b>"+esc(l.qty+" x "+l.name)+"</b> · customer pays "+money(l.price)+" each<br>"+
+"Buy at <select onchange='pickStore("+i+","+j+",this.value)'>"+sp.map(x=>"<option value=\""+esc(x.store)+"\""+(pk&&x.store===pk.store?" selected":"")+">"+esc(x.store)+" "+money(x.price)+(x.live?"":" (sample)")+(x===ch?" ← cheapest":"")+"</option>").join("")+"</select>"+
+(St?" <a target='_blank' rel='noopener' href='"+St(encodeURIComponent(l.name))+"'><button class='b' style='font-size:14px'>Open "+esc(pk.store)+"</button></a>":"")+
+"<br><small>Average "+money(avg)+" · Profit at cheapest ("+esc(ch?ch.store:"-")+"): <b>"+money(ch?(l.price-ch.price)*l.qty:0)+"</b> · at average: "+money((l.price-avg)*l.qty)+(pk?" · at your pick: <b>"+money((l.price-pk.price)*l.qty)+"</b>":"")+"</small>"+
+(pk&&pk.price>avg?"<div class='pnote' style='font-size:15px'>⚠ "+esc(pk.store)+" is above the average price.</div>":"")+
+(above.length?"<div class='pnote' style='font-size:15px;background:#fdd'>⚠ "+above.map(x=>esc(x.store)+" "+money(x.price)).join(", ")+" is above the customer price. Don't buy there.</div>":"")+"</div>";}).join("")+"<b>Store cost "+money(o.cost)+" · Profit "+money(o.mk)+"</b>";};
+var _renderL=render;render=function(){fixLineCosts();_renderL();};
 ensureIds();render();$("noJs").style.display="none";$("okJs").style.display="inline";if(!LS_OK)$("lsWarn").style.display="block";
 </script></body></html>
