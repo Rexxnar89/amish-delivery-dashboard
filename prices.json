@@ -1,12 +1,12 @@
 {
- "generatedAt": "2026-10-21T19:14:02.758Z",
+ "generatedAt": "2026-10-21T19:21:42.408Z",
  "location": "Wooster,Ohio,United States",
  "zip": "44676",
  "run": {
   "monday": true,
   "productsChecked": 33,
   "searchesUsedThisRun": 33,
-  "monthUsageAfter": 31,
+  "monthUsageAfter": 67,
   "monthBudget": 230,
   "dailyList": [
    "All-Purpose Flour 25 lb",
@@ -36,24 +36,24 @@
    "store": "Walmart",
    "price": 13.73,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Canning Jars Quart 12-pack&prds=catalogid:9885864763837179150,productid:13404534784998116838,headlineOfferDocid:3026187596945920391,imageDocid:6475869418443654483,rds:PC_4033444346210983257|PROD_PC_4033444346210983257,gpcid:4033444346210983257,mid:576462858189070227,pvt:hg&hl=en&gl=us&udm=28",
+   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=catalogid:9885864763837179150,productid:13404534784998116838,headlineOfferDocid:3026187596945920391,imageDocid:6475869418443654483,rds:PC_4033444346210983257|PROD_PC_4033444346210983257,gpcid:4033444346210983257,mid:576462858189070227,pvt:hg&hl=en&gl=us&udm=28",
    "matchedTitle": "Mainstays 32 oz Mason Jars Mouth Quart Canning Jars with Lids and Rings, 12-Pack Large Glass Jars for Home Canning and Fermenting",
    "source": "Walmart",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z"
   },
   "Canning Jars Quart 12-pack|Target": {
    "item": "Canning Jars Quart 12-pack",
    "store": "Target",
-   "price": 91.99,
+   "price": 81.99,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Canning Jars Quart 12-pack&prds=catalogid:16654643406410983243,productid:2093808605795436189,headlineOfferDocid:909447560399804319,imageDocid:3696704731473092455,rds:PC_11605604387710995170|PROD_PC_11605604387710995170,gpcid:11605604387710995170,mid:576462881586372848,pvt:hg&hl=en&gl=us&udm=28",
-   "matchedTitle": "Ball Wide Mouth Glass Mason Jars with Lids and Bands 12 Quart Size 32 Ounce + 12 Pint Size 16 Ounce + 12 Lids/Bands Variety Pack",
+   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=catalogid:15860087293346844870,productid:5437743362375128840,headlineOfferDocid:2130062861510625908,imageDocid:5959115438144210471,rds:PC_10679114394278860435|PROD_PC_10679114394278860435,gpcid:10679114394278860435,mid:576462550872920352,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Ball Glass Mason Jars Regular Mouth 12 Pint Size + 12 Quart",
    "source": "Target",
-   "score": 0.8,
+   "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z"
   },
   "Paper Towels 12 rolls|Target": {
    "item": "Paper Towels 12 rolls",
@@ -65,7 +65,8 @@
    "source": "Target",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z"
+   "checkedAt": "2026-10-21T19:14:02.758Z",
+   "stale": true
   },
   "Claw Hammer 16 oz|Walmart": {
    "item": "Claw Hammer 16 oz",
@@ -77,7 +78,8 @@
    "source": "Walmart",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z"
+   "checkedAt": "2026-10-21T19:14:02.758Z",
+   "stale": true
   },
   "Claw Hammer 16 oz|Target": {
    "item": "Claw Hammer 16 oz",
@@ -97,12 +99,12 @@
    "store": "Walmart",
    "price": 19.97,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Garden Hoe&prds=catalogid:4489762140597587452,productid:11205375236049650313,headlineOfferDocid:13037272771975713746,imageDocid:15830363134180127246,rds:PC_1473113839761027908|PROD_PC_1473113839761027908,gpcid:1473113839761027908,mid:576462693353947331,pvt:hg&hl=en&gl=us&udm=28",
+   "link": "https://www.google.com/search?ibp=oshop&q=Ames garden hoe&prds=catalogid:4489762140597587452,productid:11205375236049650313,headlineOfferDocid:5492602718754095967,imageDocid:15830363134180127246,rds:PC_1473113839761027908|PROD_PC_1473113839761027908,gpcid:1473113839761027908,mid:576462693353947331,pvt:hg&hl=en&gl=us&udm=28",
    "matchedTitle": "Expert Gardener Fiberglass Long Handle Garden Hoe",
    "source": "Walmart",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z"
   },
   "Garden Hoe|Lehman's": {
    "item": "Garden Hoe",
@@ -114,7 +116,8 @@
    "source": "Lehman's",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z"
+   "checkedAt": "2026-10-21T19:14:02.758Z",
+   "stale": true
   },
   "Wooden Building Blocks|Target": {
    "item": "Wooden Building Blocks",
@@ -126,7 +129,8 @@
    "source": "Target",
    "score": 0.67,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z"
+   "checkedAt": "2026-10-21T19:14:02.758Z",
+   "stale": true
   },
   "Crayons 64-pack|Walmart": {
    "item": "Crayons 64-pack",
@@ -138,19 +142,68 @@
    "source": "Walmart",
    "score": 0.67,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z"
+   "checkedAt": "2026-10-21T19:14:02.758Z",
+   "stale": true
   },
   "Crayons 64-pack|Target": {
    "item": "Crayons 64-pack",
    "store": "Target",
-   "price": 9.35,
+   "price": 19.99,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Crayons 64-pack&prds=catalogid:10110386671296584812,productid:18019256299900328153,headlineOfferDocid:16772683492779810245,imageDocid:984892412735916264,gpcid:1124152197916686766,pvt:hg&hl=en&gl=us&udm=28",
-   "matchedTitle": "Crayons 64 Count Assorted Colors 64 Count Built-In Sharpener",
+   "link": "https://www.google.com/search?ibp=oshop&q=Crayola Crayons 64 count&prds=catalogid:12167497031305054399,productid:16140537912606914549,headlineOfferDocid:16830396026991708290,imageDocid:15724280338442613190,rds:PC_14342848212174911759|PROD_PC_14342848212174911759,gpcid:14342848212174911759,mid:576462849360186418,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Crayola Washable Crayons 64 Count Bulk Crayons for Kids",
    "source": "Target",
-   "score": 0.67,
+   "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z"
+  },
+  "Cast Iron Skillet 12 in|Walmart": {
+   "item": "Cast Iron Skillet 12 in",
+   "store": "Walmart",
+   "price": 15.84,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Lodge 12 inch Cast Iron Skillet&prds=catalogid:9810808971484642164,productid:7109491073940111851,headlineOfferDocid:12593440316137352720,imageDocid:3077051373317147468,rds:PC_12542039508332827227|PROD_PC_12542039508332827227,gpcid:12542039508332827227,mid:576462898003716617,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Ms 12`` Cast Iron PA",
+   "source": "Walmart",
+   "score": 0.6,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:21:42.408Z"
+  },
+  "Children's Rubber Boots|Walmart": {
+   "item": "Children's Rubber Boots",
+   "store": "Walmart",
+   "price": 18.98,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=kids rubber rain boots&prds=catalogid:3951042843344279012,productid:15604837027488357144,headlineOfferDocid:8245077859117750537,imageDocid:14771843464423436184,rds:PC_16529052400793174430|PROD_PC_16529052400793174430,gpcid:16529052400793174430,mid:576462893509798134,pvt:a&hl=en&gl=us&udm=28",
+   "matchedTitle": "Ozark Trail Toddler and Little Kids' Pull On Rain Boots",
+   "source": "Walmart",
+   "score": 0.75,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:21:42.408Z"
+  },
+  "Children's Rubber Boots|Target": {
+   "item": "Children's Rubber Boots",
+   "store": "Target",
+   "price": 25,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=kids rubber rain boots&prds=catalogid:2225036257561591988,productid:8709104935526377536,headlineOfferDocid:18191854360462407065,imageDocid:1393766054438835926,rds:PC_11647658025737713584|PROD_PC_11647658025737713584,gpcid:11647658025737713584,mid:576462892677316491,pvt:a&hl=en&gl=us&udm=28",
+   "matchedTitle": "Kids' Cat & Jack Andy Rain Boots",
+   "source": "Target",
+   "score": 0.75,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:21:42.408Z"
+  },
+  "Adhesive Bandages 100-count|Walmart": {
+   "item": "Adhesive Bandages 100-count",
+   "store": "Walmart",
+   "price": 17.49,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Band-Aid Flexible Fabric Adhesive Bandages 100 count&prds=productid:15609448700930421697,headlineOfferDocid:15609448700930421697,imageDocid:17888347644047978239,rds:PC_17770339962541003693|PROD_PC_17770339962541003693,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "(2 pack) Band-Aid Brand Flexible Fabric Adhesive Bandages, Assorted, 100 Count",
+   "source": "Walmart",
+   "score": 1,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:21:42.408Z"
   }
  }
 }

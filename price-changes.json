@@ -1,6 +1,14 @@
 {
- "generatedAt": "2026-10-21T19:14:02.758Z",
- "jumps": [],
+ "generatedAt": "2026-10-21T19:21:42.408Z",
+ "jumps": [
+  {
+   "item": "Crayons 64-pack",
+   "store": "Target",
+   "from": 9.35,
+   "to": 19.99,
+   "pct": 114
+  }
+ ],
  "outOfStock": [],
  "missing": [
   {
@@ -85,6 +93,10 @@
   },
   {
    "item": "Dish Soap 90 oz",
+   "store": "Walmart"
+  },
+  {
+   "item": "Dish Soap 90 oz",
    "store": "Target"
   },
   {
@@ -137,6 +149,10 @@
   },
   {
    "item": "Paper Towels 12 rolls",
+   "store": "Target"
+  },
+  {
+   "item": "Paper Towels 12 rolls",
    "store": "Sam's Club"
   },
   {
@@ -177,10 +193,6 @@
   },
   {
    "item": "Cast Iron Skillet 12 in",
-   "store": "Walmart"
-  },
-  {
-   "item": "Cast Iron Skillet 12 in",
    "store": "Target"
   },
   {
@@ -194,6 +206,10 @@
   {
    "item": "Hand Crank Grain Mill",
    "store": "Amazon"
+  },
+  {
+   "item": "Claw Hammer 16 oz",
+   "store": "Walmart"
   },
   {
    "item": "Claw Hammer 16 oz",
@@ -264,6 +280,10 @@
    "store": "Tractor Supply"
   },
   {
+   "item": "Garden Hoe",
+   "store": "Lehman's"
+  },
+  {
    "item": "Fly Spray 1 gal",
    "store": "Tractor Supply"
   },
@@ -309,7 +329,15 @@
   },
   {
    "item": "Wooden Building Blocks",
+   "store": "Target"
+  },
+  {
+   "item": "Wooden Building Blocks",
    "store": "Lehman's"
+  },
+  {
+   "item": "Crayons 64-pack",
+   "store": "Walmart"
   },
   {
    "item": "Crayons 64-pack",
@@ -320,11 +348,11 @@
    "store": "Tractor Supply"
   },
   {
-   "item": "Children's Rubber Boots",
+   "item": "Composition Notebooks 6-pack",
    "store": "Walmart"
   },
   {
-   "item": "Children's Rubber Boots",
+   "item": "Composition Notebooks 6-pack",
    "store": "Target"
   },
   {
@@ -346,10 +374,6 @@
   {
    "item": "Ibuprofen 200 mg 300-count",
    "store": "Amazon"
-  },
-  {
-   "item": "Adhesive Bandages 100-count",
-   "store": "Walmart"
   },
   {
    "item": "Adhesive Bandages 100-count",
