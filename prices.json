@@ -1,0 +1,156 @@
+{
+ "generatedAt": "2026-10-21T19:14:02.758Z",
+ "location": "Wooster,Ohio,United States",
+ "zip": "44676",
+ "run": {
+  "monday": true,
+  "productsChecked": 33,
+  "searchesUsedThisRun": 33,
+  "monthUsageAfter": 31,
+  "monthBudget": 230,
+  "dailyList": [
+   "All-Purpose Flour 25 lb",
+   "Granulated Sugar 25 lb",
+   "Rolled Oats 10 lb",
+   "Chicken Layer Feed 50 lb",
+   "Laundry Detergent 200 loads",
+   "Toilet Paper 30 rolls",
+   "Lamp Oil 1 gal",
+   "Dish Soap 90 oz"
+  ],
+  "dailyCheckedToday": [
+   "All-Purpose Flour 25 lb",
+   "Granulated Sugar 25 lb",
+   "Rolled Oats 10 lb",
+   "Chicken Layer Feed 50 lb",
+   "Laundry Detergent 200 loads",
+   "Toilet Paper 30 rolls",
+   "Lamp Oil 1 gal",
+   "Dish Soap 90 oz"
+  ]
+ },
+ "flaggedByOwner": [],
+ "items": {
+  "Canning Jars Quart 12-pack|Walmart": {
+   "item": "Canning Jars Quart 12-pack",
+   "store": "Walmart",
+   "price": 13.73,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Canning Jars Quart 12-pack&prds=catalogid:9885864763837179150,productid:13404534784998116838,headlineOfferDocid:3026187596945920391,imageDocid:6475869418443654483,rds:PC_4033444346210983257|PROD_PC_4033444346210983257,gpcid:4033444346210983257,mid:576462858189070227,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Mainstays 32 oz Mason Jars Mouth Quart Canning Jars with Lids and Rings, 12-Pack Large Glass Jars for Home Canning and Fermenting",
+   "source": "Walmart",
+   "score": 1,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z"
+  },
+  "Canning Jars Quart 12-pack|Target": {
+   "item": "Canning Jars Quart 12-pack",
+   "store": "Target",
+   "price": 91.99,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Canning Jars Quart 12-pack&prds=catalogid:16654643406410983243,productid:2093808605795436189,headlineOfferDocid:909447560399804319,imageDocid:3696704731473092455,rds:PC_11605604387710995170|PROD_PC_11605604387710995170,gpcid:11605604387710995170,mid:576462881586372848,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Ball Wide Mouth Glass Mason Jars with Lids and Bands 12 Quart Size 32 Ounce + 12 Pint Size 16 Ounce + 12 Lids/Bands Variety Pack",
+   "source": "Target",
+   "score": 0.8,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z"
+  },
+  "Paper Towels 12 rolls|Target": {
+   "item": "Paper Towels 12 rolls",
+   "store": "Target",
+   "price": 19.99,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Paper Towels 12 rolls&prds=productid:5047653711803971887,headlineOfferDocid:5047653711803971887,imageDocid:2954588253825024334,rds:PC_2756907389491209150|PROD_PC_2756907389491209150,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Make-A-Size Paper Towels - 12 Triple Rolls - 2-Ply - 150 Sheets - up&up",
+   "source": "Target",
+   "score": 1,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z"
+  },
+  "Claw Hammer 16 oz|Walmart": {
+   "item": "Claw Hammer 16 oz",
+   "store": "Walmart",
+   "price": 10.7,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Claw Hammer 16 oz&prds=catalogid:6835373308537316105,productid:11067713146299110489,headlineOfferDocid:11528527466951718593,imageDocid:11618902933710323518,gpcid:2512425637734972493,mid:576462317054661659,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Wilmar 16 oz Wood Handle Claw Hammer 1464",
+   "source": "Walmart",
+   "score": 1,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z"
+  },
+  "Claw Hammer 16 oz|Target": {
+   "item": "Claw Hammer 16 oz",
+   "store": "Target",
+   "price": 21.89,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Claw Hammer 16 oz&prds=catalogid:6089952598502029194,productid:6946492493009468323,headlineOfferDocid:16653850019313493865,imageDocid:5594915380292582778,gpcid:2785811959578247695,mid:576462809782790563,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Do it 16 Oz. Smooth-Face Curved Claw Hammer with Steel Handle 314838",
+   "source": "Target",
+   "score": 0.75,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z",
+   "extraStore": true
+  },
+  "Garden Hoe|Walmart": {
+   "item": "Garden Hoe",
+   "store": "Walmart",
+   "price": 19.97,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Garden Hoe&prds=catalogid:4489762140597587452,productid:11205375236049650313,headlineOfferDocid:13037272771975713746,imageDocid:15830363134180127246,rds:PC_1473113839761027908|PROD_PC_1473113839761027908,gpcid:1473113839761027908,mid:576462693353947331,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Expert Gardener Fiberglass Long Handle Garden Hoe",
+   "source": "Walmart",
+   "score": 1,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z"
+  },
+  "Garden Hoe|Lehman's": {
+   "item": "Garden Hoe",
+   "store": "Lehman's",
+   "price": 64.99,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Garden Hoe&prds=catalogid:15154185148100610527,productid:8586288098768755400,headlineOfferDocid:8333336627372668973,imageDocid:10871128472425409650,rds:PC_232497614387311365|PROD_PC_232497614387311365,gpcid:232497614387311365,mid:576462447433490622,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Lehman's Precision Garden Hoe, Amish Made Dutch, Push-Pull and Traditional Hoe",
+   "source": "Lehman's",
+   "score": 1,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z"
+  },
+  "Wooden Building Blocks|Target": {
+   "item": "Wooden Building Blocks",
+   "store": "Target",
+   "price": 49.99,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Wooden Building Blocks&prds=catalogid:15094869695833440096,productid:13880369515311148225,headlineOfferDocid:18039885951711230994,imageDocid:3273310135570394967,gpcid:18310925567250616606,mid:576462915616424782,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "MindWare Wooden Build & Play Stacking Blocks",
+   "source": "Target",
+   "score": 0.67,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z"
+  },
+  "Crayons 64-pack|Walmart": {
+   "item": "Crayons 64-pack",
+   "store": "Walmart",
+   "price": 15.99,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Crayons 64-pack&prds=catalogid:10264882565309554409,productid:12194158819615937128,headlineOfferDocid:16846508111644931230,imageDocid:12634590528551737966,gpcid:4229692926456429196,mid:576462728226110274,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "RoseArt 64 Crayons CYR96",
+   "source": "Walmart",
+   "score": 0.67,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z"
+  },
+  "Crayons 64-pack|Target": {
+   "item": "Crayons 64-pack",
+   "store": "Target",
+   "price": 9.35,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Crayons 64-pack&prds=catalogid:10110386671296584812,productid:18019256299900328153,headlineOfferDocid:16772683492779810245,imageDocid:984892412735916264,gpcid:1124152197916686766,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Crayons 64 Count Assorted Colors 64 Count Built-In Sharpener",
+   "source": "Target",
+   "score": 0.67,
+   "via": "google_shopping",
+   "checkedAt": "2026-10-21T19:14:02.758Z"
+  }
+ }
+}

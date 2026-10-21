@@ -31,10 +31,12 @@ const nums = s => (String(s).toLowerCase().match(/\d+(\.\d+)?/g) || []);
 function score(name, title) {
   const a = toks(name), b = new Set(toks(title)); const hit = a.filter(t => b.has(t)).length / a.length;
   const tn = nums(title), miss = nums(name).filter(n => !tn.includes(n)).length; // sizes must match
-  const pack = /pack of \d+|\d+\s*-?\s*pack|case of/i.test(title) && !/pack|count/i.test(name) ? 0.3 : 0;
-  return Math.max(0, hit - 0.35 * miss - pack);
+  const pack = /pack of \d+|\(\d+\s*pack\)|\d+\s*-?\s*pack|case of/i.test(title) && !/pack|count/i.test(name) ? 0.5 : 0;
+  const acc = /\b(kit|replacement|refill|parts?|accessor(y|ies)|attachment|motorization|cover|case)\b/i.test(title) && !/\b(kit|refill)\b/i.test(name) ? 0.5 : 0;
+  return Math.max(0, hit - 0.35 * miss - pack - acc);
 }
 function sellerOf(src) { const s = String(src || "").toLowerCase().trim(); return SELLERS[s] || null; } // first-party sellers only (not "Walmart - X" marketplace)
+if (process.env.RESCORE) { const pj = JSON.parse(fs.readFileSync("prices.json","utf8")); for (const [k,v] of Object.entries(pj.items)) { v.score = +score(v.item, v.matchedTitle).toFixed(2); if (v.score < 0.6) delete pj.items[k]; } fs.writeFileSync("prices.json", JSON.stringify(pj,null,1)); console.log("rescored", Object.keys(pj.items).length); process.exit(0); }
 const acct0 = await account();
 const usedThisMonth = +acct0.this_month_usage || 0;
 const dim = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate(), dayOfMonth = +new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",day:"numeric"}).format(now);

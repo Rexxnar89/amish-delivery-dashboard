@@ -1,0 +1,376 @@
+{
+ "generatedAt": "2026-10-21T19:14:02.758Z",
+ "jumps": [],
+ "outOfStock": [],
+ "missing": [
+  {
+   "item": "All-Purpose Flour 25 lb",
+   "store": "Walmart"
+  },
+  {
+   "item": "All-Purpose Flour 25 lb",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "All-Purpose Flour 25 lb",
+   "store": "Amazon"
+  },
+  {
+   "item": "Granulated Sugar 25 lb",
+   "store": "Walmart"
+  },
+  {
+   "item": "Granulated Sugar 25 lb",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Granulated Sugar 25 lb",
+   "store": "Amazon"
+  },
+  {
+   "item": "Rolled Oats 10 lb",
+   "store": "Amazon"
+  },
+  {
+   "item": "Rolled Oats 10 lb",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Rolled Oats 10 lb",
+   "store": "Lehman's"
+  },
+  {
+   "item": "Lamp Oil 1 gal",
+   "store": "Amazon"
+  },
+  {
+   "item": "Lamp Oil 1 gal",
+   "store": "Walmart"
+  },
+  {
+   "item": "Lamp Oil 1 gal",
+   "store": "Lehman's"
+  },
+  {
+   "item": "Lamp Oil 1 gal",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Laundry Detergent 200 loads",
+   "store": "Walmart"
+  },
+  {
+   "item": "Laundry Detergent 200 loads",
+   "store": "Target"
+  },
+  {
+   "item": "Laundry Detergent 200 loads",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Laundry Detergent 200 loads",
+   "store": "Amazon"
+  },
+  {
+   "item": "Toilet Paper 30 rolls",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Toilet Paper 30 rolls",
+   "store": "Walmart"
+  },
+  {
+   "item": "Toilet Paper 30 rolls",
+   "store": "Target"
+  },
+  {
+   "item": "Dish Soap 90 oz",
+   "store": "Target"
+  },
+  {
+   "item": "Dish Soap 90 oz",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Chicken Layer Feed 50 lb",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Chicken Layer Feed 50 lb",
+   "store": "Walmart"
+  },
+  {
+   "item": "Canning Jars Quart 12-pack",
+   "store": "Lehman's"
+  },
+  {
+   "item": "Canning Jars Quart 12-pack",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Canning Jars Quart 12-pack",
+   "store": "Amazon"
+  },
+  {
+   "item": "Canning Lids Regular 24-pack",
+   "store": "Walmart"
+  },
+  {
+   "item": "Canning Lids Regular 24-pack",
+   "store": "Amazon"
+  },
+  {
+   "item": "Canning Lids Regular 24-pack",
+   "store": "Lehman's"
+  },
+  {
+   "item": "Kerosene Lamp Wick 3-pack",
+   "store": "Lehman's"
+  },
+  {
+   "item": "Kerosene Lamp Wick 3-pack",
+   "store": "Amazon"
+  },
+  {
+   "item": "Paper Towels 12 rolls",
+   "store": "Walmart"
+  },
+  {
+   "item": "Paper Towels 12 rolls",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Paper Towels 12 rolls",
+   "store": "Amazon"
+  },
+  {
+   "item": "D Batteries 12-pack",
+   "store": "Amazon"
+  },
+  {
+   "item": "D Batteries 12-pack",
+   "store": "Walmart"
+  },
+  {
+   "item": "D Batteries 12-pack",
+   "store": "Target"
+  },
+  {
+   "item": "D Batteries 12-pack",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Propane Cylinder 1 lb 2-pack",
+   "store": "Walmart"
+  },
+  {
+   "item": "Propane Cylinder 1 lb 2-pack",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Propane Cylinder 1 lb 2-pack",
+   "store": "Amazon"
+  },
+  {
+   "item": "Cast Iron Skillet 12 in",
+   "store": "Amazon"
+  },
+  {
+   "item": "Cast Iron Skillet 12 in",
+   "store": "Walmart"
+  },
+  {
+   "item": "Cast Iron Skillet 12 in",
+   "store": "Target"
+  },
+  {
+   "item": "Cast Iron Skillet 12 in",
+   "store": "Lehman's"
+  },
+  {
+   "item": "Hand Crank Grain Mill",
+   "store": "Lehman's"
+  },
+  {
+   "item": "Hand Crank Grain Mill",
+   "store": "Amazon"
+  },
+  {
+   "item": "Claw Hammer 16 oz",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Claw Hammer 16 oz",
+   "store": "Amazon"
+  },
+  {
+   "item": "Hand Saw 20 in",
+   "store": "Walmart"
+  },
+  {
+   "item": "Hand Saw 20 in",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Hand Saw 20 in",
+   "store": "Amazon"
+  },
+  {
+   "item": "Work Gloves Leather 3-pair",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Work Gloves Leather 3-pair",
+   "store": "Amazon"
+  },
+  {
+   "item": "Work Gloves Leather 3-pair",
+   "store": "Walmart"
+  },
+  {
+   "item": "Wheelbarrow 6 cu ft",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Wheelbarrow 6 cu ft",
+   "store": "Walmart"
+  },
+  {
+   "item": "Garden Seed Variety Pack",
+   "store": "Lehman's"
+  },
+  {
+   "item": "Garden Seed Variety Pack",
+   "store": "Amazon"
+  },
+  {
+   "item": "Garden Seed Variety Pack",
+   "store": "Walmart"
+  },
+  {
+   "item": "Garden Seed Variety Pack",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Fencing Wire 100 ft",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Fencing Wire 100 ft",
+   "store": "Amazon"
+  },
+  {
+   "item": "Garden Hoe",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Fly Spray 1 gal",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Fly Spray 1 gal",
+   "store": "Amazon"
+  },
+  {
+   "item": "Baby Diapers Size 3 (150)",
+   "store": "Walmart"
+  },
+  {
+   "item": "Baby Diapers Size 3 (150)",
+   "store": "Target"
+  },
+  {
+   "item": "Baby Diapers Size 3 (150)",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Baby Diapers Size 3 (150)",
+   "store": "Amazon"
+  },
+  {
+   "item": "Baby Wipes 900 count",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Baby Wipes 900 count",
+   "store": "Walmart"
+  },
+  {
+   "item": "Baby Wipes 900 count",
+   "store": "Target"
+  },
+  {
+   "item": "Baby Wipes 900 count",
+   "store": "Amazon"
+  },
+  {
+   "item": "Wooden Building Blocks",
+   "store": "Amazon"
+  },
+  {
+   "item": "Wooden Building Blocks",
+   "store": "Lehman's"
+  },
+  {
+   "item": "Crayons 64-pack",
+   "store": "Amazon"
+  },
+  {
+   "item": "Children's Rubber Boots",
+   "store": "Tractor Supply"
+  },
+  {
+   "item": "Children's Rubber Boots",
+   "store": "Walmart"
+  },
+  {
+   "item": "Children's Rubber Boots",
+   "store": "Target"
+  },
+  {
+   "item": "Composition Notebooks 6-pack",
+   "store": "Amazon"
+  },
+  {
+   "item": "Ibuprofen 200 mg 300-count",
+   "store": "Walmart"
+  },
+  {
+   "item": "Ibuprofen 200 mg 300-count",
+   "store": "Target"
+  },
+  {
+   "item": "Ibuprofen 200 mg 300-count",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Ibuprofen 200 mg 300-count",
+   "store": "Amazon"
+  },
+  {
+   "item": "Adhesive Bandages 100-count",
+   "store": "Walmart"
+  },
+  {
+   "item": "Adhesive Bandages 100-count",
+   "store": "Target"
+  },
+  {
+   "item": "Adhesive Bandages 100-count",
+   "store": "Amazon"
+  },
+  {
+   "item": "Vitamin D3 2000 IU 300-count",
+   "store": "Sam's Club"
+  },
+  {
+   "item": "Vitamin D3 2000 IU 300-count",
+   "store": "Walmart"
+  },
+  {
+   "item": "Vitamin D3 2000 IU 300-count",
+   "store": "Amazon"
+  }
+ ],
+ "errors": []
+}
