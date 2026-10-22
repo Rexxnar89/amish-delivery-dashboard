@@ -1,12 +1,12 @@
 {
- "generatedAt": "2026-10-21T19:21:42.408Z",
+ "generatedAt": "2026-10-22T14:49:40.941Z",
  "location": "Wooster,Ohio,United States",
  "zip": "44676",
  "run": {
-  "monday": true,
-  "productsChecked": 33,
-  "searchesUsedThisRun": 33,
-  "monthUsageAfter": 67,
+  "monday": false,
+  "productsChecked": 8,
+  "searchesUsedThisRun": 8,
+  "monthUsageAfter": 71,
   "monthBudget": 230,
   "dailyList": [
    "All-Purpose Flour 25 lb",
