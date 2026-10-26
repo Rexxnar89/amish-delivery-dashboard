@@ -1,12 +1,12 @@
 {
- "generatedAt": "2026-10-25T14:03:45.679Z",
+ "generatedAt": "2026-10-26T16:25:33.027Z",
  "location": "Wooster,Ohio,United States",
  "zip": "44676",
  "run": {
-  "monday": false,
-  "productsChecked": 8,
-  "searchesUsedThisRun": 8,
-  "monthUsageAfter": 97,
+  "monday": true,
+  "productsChecked": 33,
+  "searchesUsedThisRun": 33,
+  "monthUsageAfter": 130,
   "monthBudget": 230,
   "dailyList": [
    "All-Purpose Flour 25 lb",
@@ -41,7 +41,8 @@
    "source": "Walmart",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z",
+   "stale": true
   },
   "Canning Jars Quart 12-pack|Target": {
    "item": "Canning Jars Quart 12-pack",
@@ -53,7 +54,8 @@
    "source": "Target",
    "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z",
+   "stale": true
   },
   "Paper Towels 12 rolls|Target": {
    "item": "Paper Towels 12 rolls",
@@ -104,7 +106,8 @@
    "source": "Walmart",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z",
+   "stale": true
   },
   "Garden Hoe|Lehman's": {
    "item": "Garden Hoe",
@@ -155,7 +158,8 @@
    "source": "Target",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z",
+   "stale": true
   },
   "Cast Iron Skillet 12 in|Walmart": {
    "item": "Cast Iron Skillet 12 in",
@@ -167,7 +171,7 @@
    "source": "Walmart",
    "score": 0.6,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z"
+   "checkedAt": "2026-10-26T16:25:33.027Z"
   },
   "Children's Rubber Boots|Walmart": {
    "item": "Children's Rubber Boots",
@@ -179,7 +183,8 @@
    "source": "Walmart",
    "score": 0.75,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z",
+   "stale": true
   },
   "Children's Rubber Boots|Target": {
    "item": "Children's Rubber Boots",
@@ -191,19 +196,20 @@
    "source": "Target",
    "score": 0.75,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z"
+   "checkedAt": "2026-10-21T19:21:42.408Z",
+   "stale": true
   },
   "Adhesive Bandages 100-count|Walmart": {
    "item": "Adhesive Bandages 100-count",
    "store": "Walmart",
-   "price": 17.49,
+   "price": 26.24,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Band-Aid Flexible Fabric Adhesive Bandages 100 count&prds=productid:15609448700930421697,headlineOfferDocid:15609448700930421697,imageDocid:17888347644047978239,rds:PC_17770339962541003693|PROD_PC_17770339962541003693,pvt:hg&hl=en&gl=us&udm=28",
-   "matchedTitle": "(2 pack) Band-Aid Brand Flexible Fabric Adhesive Bandages, Assorted, 100 Count",
+   "link": "https://www.google.com/search?ibp=oshop&q=Band-Aid Flexible Fabric Adhesive Bandages 100 count&prds=productid:9484355200866739630,headlineOfferDocid:9484355200866739630,imageDocid:15507627282640330746,rds:PC_9660896136048820110|PROD_PC_9660896136048820110,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "(3 pack) Band-Aid Brand Flexible Fabric Bandages, 100 Count, Size: All One size",
    "source": "Walmart",
-   "score": 1,
+   "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z"
+   "checkedAt": "2026-10-26T16:25:33.027Z"
   }
  }
 }
