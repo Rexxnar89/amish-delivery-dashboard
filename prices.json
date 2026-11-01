@@ -1,12 +1,12 @@
 {
- "generatedAt": "2026-10-31T15:34:45.545Z",
+ "generatedAt": "2026-11-01T16:33:03.047Z",
  "location": "Wooster,Ohio,United States",
  "zip": "44676",
  "run": {
   "monday": false,
-  "productsChecked": 8,
-  "searchesUsedThisRun": 8,
-  "monthUsageAfter": 167,
+  "productsChecked": 0,
+  "searchesUsedThisRun": 0,
+  "monthUsageAfter": 172,
   "monthBudget": 230,
   "dailyList": [
    "All-Purpose Flour 25 lb",
@@ -18,16 +18,7 @@
    "Lamp Oil 1 gal",
    "Dish Soap 90 oz"
   ],
-  "dailyCheckedToday": [
-   "All-Purpose Flour 25 lb",
-   "Granulated Sugar 25 lb",
-   "Rolled Oats 10 lb",
-   "Chicken Layer Feed 50 lb",
-   "Laundry Detergent 200 loads",
-   "Toilet Paper 30 rolls",
-   "Lamp Oil 1 gal",
-   "Dish Soap 90 oz"
-  ]
+  "dailyCheckedToday": []
  },
  "flaggedByOwner": [],
  "items": {
