@@ -1,12 +1,12 @@
 {
- "generatedAt": "2026-11-01T16:33:03.047Z",
+ "generatedAt": "2026-11-02T19:56:32.535Z",
  "location": "Wooster,Ohio,United States",
  "zip": "44676",
  "run": {
-  "monday": false,
-  "productsChecked": 0,
-  "searchesUsedThisRun": 0,
-  "monthUsageAfter": 172,
+  "monday": true,
+  "productsChecked": 25,
+  "searchesUsedThisRun": 25,
+  "monthUsageAfter": 196,
   "monthBudget": 230,
   "dailyList": [
    "All-Purpose Flour 25 lb",
@@ -25,15 +25,14 @@
   "Canning Jars Quart 12-pack|Walmart": {
    "item": "Canning Jars Quart 12-pack",
    "store": "Walmart",
-   "price": 13.73,
+   "price": 32.88,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=catalogid:9885864763837179150,productid:13404534784998116838,headlineOfferDocid:3026187596945920391,imageDocid:6475869418443654483,rds:PC_4033444346210983257|PROD_PC_4033444346210983257,gpcid:4033444346210983257,mid:576462858189070227,pvt:hg&hl=en&gl=us&udm=28",
-   "matchedTitle": "Mainstays 32 oz Mason Jars Mouth Quart Canning Jars with Lids and Rings, 12-Pack Large Glass Jars for Home Canning and Fermenting",
+   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=productid:3489233250776017849,headlineOfferDocid:3489233250776017849,imageDocid:13594435475610626787,rds:PC_8214850507652777195|PROD_PC_8214850507652777195,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "(2 pack) Ball Wide Mouth Quart 32oz. Glass Mason Jars with Lids and Bands, 12 Count, Size: 32 oz, Clear",
    "source": "Walmart",
-   "score": 1,
+   "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z",
-   "stale": true
+   "checkedAt": "2026-11-02T19:56:32.535Z"
   },
   "Canning Jars Quart 12-pack|Target": {
    "item": "Canning Jars Quart 12-pack",
@@ -45,8 +44,7 @@
    "source": "Target",
    "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z",
-   "stale": true
+   "checkedAt": "2026-11-02T19:56:32.535Z"
   },
   "Paper Towels 12 rolls|Target": {
    "item": "Paper Towels 12 rolls",
@@ -149,33 +147,31 @@
    "source": "Target",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z",
-   "stale": true
+   "checkedAt": "2026-11-02T19:56:32.535Z"
   },
   "Cast Iron Skillet 12 in|Walmart": {
    "item": "Cast Iron Skillet 12 in",
    "store": "Walmart",
-   "price": 15.84,
+   "price": 29.32,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Lodge 12 inch Cast Iron Skillet&prds=catalogid:9810808971484642164,productid:7109491073940111851,headlineOfferDocid:12593440316137352720,imageDocid:3077051373317147468,rds:PC_12542039508332827227|PROD_PC_12542039508332827227,gpcid:12542039508332827227,mid:576462898003716617,pvt:hg&hl=en&gl=us&udm=28",
-   "matchedTitle": "Ms 12`` Cast Iron PA",
+   "link": "https://www.google.com/search?ibp=oshop&q=Lodge 12 inch Cast Iron Skillet&prds=catalogid:4276582058070943322,productid:4810777733264832652,headlineOfferDocid:13123017945715191560,imageDocid:798672422372352178,gpcid:10677189918395559920,mid:576462567126374414,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Lodge American Road Trip New Jersey 12\" Seasoned Cast Iron Skillet",
    "source": "Walmart",
-   "score": 0.6,
+   "score": 0.83,
    "via": "google_shopping",
-   "checkedAt": "2026-10-26T16:25:33.027Z"
+   "checkedAt": "2026-11-02T19:56:32.535Z"
   },
   "Children's Rubber Boots|Walmart": {
    "item": "Children's Rubber Boots",
    "store": "Walmart",
-   "price": 18.98,
+   "price": 22.98,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=kids rubber rain boots&prds=catalogid:3951042843344279012,productid:15604837027488357144,headlineOfferDocid:8245077859117750537,imageDocid:14771843464423436184,rds:PC_16529052400793174430|PROD_PC_16529052400793174430,gpcid:16529052400793174430,mid:576462893509798134,pvt:a&hl=en&gl=us&udm=28",
-   "matchedTitle": "Ozark Trail Toddler and Little Kids' Pull On Rain Boots",
+   "link": "https://www.google.com/search?ibp=oshop&q=kids rubber rain boots&prds=catalogid:12347208751805871135,productid:15840609466652117010,headlineOfferDocid:8058472933691229574,imageDocid:8020895149077069422,rds:PC_444248755777224241|PROD_PC_444248755777224241,gpcid:444248755777224241,mid:576462460915308957,pvt:a&hl=en&gl=us&udm=28",
+   "matchedTitle": "Kids Wonder Nation Shoes Wonder Nation Boots Rain",
    "source": "Walmart",
    "score": 0.75,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z",
-   "stale": true
+   "checkedAt": "2026-11-02T19:56:32.535Z"
   },
   "Children's Rubber Boots|Target": {
    "item": "Children's Rubber Boots",
@@ -187,20 +183,56 @@
    "source": "Target",
    "score": 0.75,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z",
-   "stale": true
+   "checkedAt": "2026-11-02T19:56:32.535Z"
   },
   "Adhesive Bandages 100-count|Walmart": {
    "item": "Adhesive Bandages 100-count",
    "store": "Walmart",
-   "price": 26.24,
+   "price": 26.25,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Band-Aid Flexible Fabric Adhesive Bandages 100 count&prds=productid:9484355200866739630,headlineOfferDocid:9484355200866739630,imageDocid:15507627282640330746,rds:PC_9660896136048820110|PROD_PC_9660896136048820110,pvt:hg&hl=en&gl=us&udm=28",
+   "link": "https://www.google.com/search?ibp=oshop&q=Band-Aid Flexible Fabric Adhesive Bandages 100 count&prds=productid:9484355200866739630,headlineOfferDocid:9484355200866739630,imageDocid:15507627282640330746,rds:PC_17219683449274975128|PROD_PC_17219683449274975128,pvt:hg&hl=en&gl=us&udm=28",
    "matchedTitle": "(3 pack) Band-Aid Brand Flexible Fabric Bandages, 100 Count, Size: All One size",
    "source": "Walmart",
    "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-10-26T16:25:33.027Z"
+   "checkedAt": "2026-11-02T19:56:32.535Z"
+  },
+  "Garden Seed Variety Pack|Walmart": {
+   "item": "Garden Seed Variety Pack",
+   "store": "Walmart",
+   "price": 36.55,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Burpee vegetable garden seed variety pack&prds=catalogid:7419034865528012072,productid:578830915649793635,headlineOfferDocid:7806523265764007832,imageDocid:7759664300730230909,rds:PC_9465081400407520800|PROD_PC_9465081400407520800,gpcid:9465081400407520800,mid:576462689620721275,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Burpee Heirloom Vegetable Seeds Variety Pack with 35 Varieties of Plant Seeds",
+   "source": "Walmart",
+   "score": 0.67,
+   "via": "google_shopping",
+   "checkedAt": "2026-11-02T19:56:32.535Z"
+  },
+  "Garden Hoe|Target": {
+   "item": "Garden Hoe",
+   "store": "Target",
+   "price": 19.99,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Ames garden hoe&prds=catalogid:10046117974602860397,productid:2483688520426848161,headlineOfferDocid:15008064958336361780,imageDocid:12681739666573142233,rds:PC_694177150572500171|PROD_PC_694177150572500171,gpcid:694177150572500171,mid:576462861826870723,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "\"Ames\" 1994800 Hoe/Cultivator Combo with Wood Handle",
+   "source": "Target",
+   "score": 0.67,
+   "via": "google_shopping",
+   "checkedAt": "2026-11-02T19:56:32.535Z",
+   "extraStore": true
+  },
+  "Adhesive Bandages 100-count|Target": {
+   "item": "Adhesive Bandages 100-count",
+   "store": "Target",
+   "price": 11.99,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=Band-Aid Flexible Fabric Adhesive Bandages 100 count&prds=catalogid:18063174879550631218,productid:17152931089291214336,headlineOfferDocid:16696309082583661937,imageDocid:13745204372799483453,gpcid:15900186801334604771,mid:576462763671062408,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Medca Flexible Adhesive Bandages Assorted Sizes for Wound Care 100",
+   "source": "Target",
+   "score": 0.75,
+   "via": "google_shopping",
+   "checkedAt": "2026-11-02T19:56:32.535Z"
   }
  }
 }
