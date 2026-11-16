@@ -1,12 +1,12 @@
 {
- "generatedAt": "2026-11-15T16:44:55.607Z",
+ "generatedAt": "2026-11-16T19:58:05.189Z",
  "location": "Wooster,Ohio,United States",
  "zip": "44676",
  "run": {
-  "monday": false,
-  "productsChecked": 0,
-  "searchesUsedThisRun": 0,
-  "monthUsageAfter": 222,
+  "monday": true,
+  "productsChecked": 8,
+  "searchesUsedThisRun": 8,
+  "monthUsageAfter": 229,
   "monthBudget": 230,
   "dailyList": [
    "All-Purpose Flour 25 lb",
@@ -27,26 +27,24 @@
    "store": "Walmart",
    "price": 32.88,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=productid:3489233250776017849,headlineOfferDocid:3489233250776017849,imageDocid:13594435475610626787,rds:PC_8214850507652777195|PROD_PC_8214850507652777195,pvt:hg&hl=en&gl=us&udm=28",
-   "matchedTitle": "(2 pack) Ball Wide Mouth Quart 32oz. Glass Mason Jars with Lids and Bands, 12 Count, Size: 32 oz, Clear",
+   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=productid:8056836259728092272,headlineOfferDocid:8056836259728092272,imageDocid:13594435475610626787,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "(2 pack) Ball Wide Mouth Quart 32oz. Glass Mason Jars with Lids and Bands, 12 Count, Size: 32 oz",
    "source": "Walmart",
    "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-11-02T19:56:32.535Z",
-   "stale": true
+   "checkedAt": "2026-11-16T19:58:05.189Z"
   },
   "Canning Jars Quart 12-pack|Target": {
    "item": "Canning Jars Quart 12-pack",
    "store": "Target",
-   "price": 81.99,
+   "price": 69.99,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=catalogid:15860087293346844870,productid:5437743362375128840,headlineOfferDocid:2130062861510625908,imageDocid:5959115438144210471,rds:PC_10679114394278860435|PROD_PC_10679114394278860435,gpcid:10679114394278860435,mid:576462550872920352,pvt:hg&hl=en&gl=us&udm=28",
+   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=catalogid:248674260423411525,productid:10813184711497599118,headlineOfferDocid:13560523692302976188,imageDocid:14070876611120459867,rds:PC_5268546531594466999|PROD_PC_5268546531594466999,gpcid:3396924286998230604,pvt:hg&hl=en&gl=us&udm=28",
    "matchedTitle": "Ball Glass Mason Jars Regular Mouth 12 Pint Size + 12 Quart",
    "source": "Target",
    "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-11-02T19:56:32.535Z",
-   "stale": true
+   "checkedAt": "2026-11-16T19:58:05.189Z"
   },
   "Paper Towels 12 rolls|Target": {
    "item": "Paper Towels 12 rolls",
@@ -162,7 +160,8 @@
    "source": "Walmart",
    "score": 0.83,
    "via": "google_shopping",
-   "checkedAt": "2026-11-09T20:21:52.557Z"
+   "checkedAt": "2026-11-09T20:21:52.557Z",
+   "stale": true
   },
   "Children's Rubber Boots|Walmart": {
    "item": "Children's Rubber Boots",
