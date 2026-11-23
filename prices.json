@@ -1,12 +1,12 @@
 {
- "generatedAt": "2026-11-22T17:33:54.616Z",
+ "generatedAt": "2026-11-23T21:52:05.861Z",
  "location": "Wooster,Ohio,United States",
  "zip": "44676",
  "run": {
-  "monday": false,
-  "productsChecked": 8,
-  "searchesUsedThisRun": 8,
-  "monthUsageAfter": 14,
+  "monday": true,
+  "productsChecked": 33,
+  "searchesUsedThisRun": 33,
+  "monthUsageAfter": 48,
   "monthBudget": 230,
   "dailyList": [
    "All-Purpose Flour 25 lb",
@@ -41,19 +41,20 @@
    "source": "Walmart",
    "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-11-16T19:58:05.189Z"
+   "checkedAt": "2026-11-16T19:58:05.189Z",
+   "stale": true
   },
   "Canning Jars Quart 12-pack|Target": {
    "item": "Canning Jars Quart 12-pack",
    "store": "Target",
-   "price": 69.99,
+   "price": 81.99,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=catalogid:248674260423411525,productid:10813184711497599118,headlineOfferDocid:13560523692302976188,imageDocid:14070876611120459867,rds:PC_5268546531594466999|PROD_PC_5268546531594466999,gpcid:3396924286998230604,pvt:hg&hl=en&gl=us&udm=28",
+   "link": "https://www.google.com/search?ibp=oshop&q=Ball Regular Mouth Quart Mason Jars 12 count&prds=catalogid:15860087293346844870,productid:5437743362375128840,headlineOfferDocid:2130062861510625908,imageDocid:5959115438144210471,rds:PC_10679114394278860435|PROD_PC_10679114394278860435,gpcid:10679114394278860435,mid:576462550872920352,pvt:hg&hl=en&gl=us&udm=28",
    "matchedTitle": "Ball Glass Mason Jars Regular Mouth 12 Pint Size + 12 Quart",
    "source": "Target",
    "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-11-16T19:58:05.189Z"
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   },
   "Paper Towels 12 rolls|Target": {
    "item": "Paper Towels 12 rolls",
@@ -97,15 +98,14 @@
   "Garden Hoe|Walmart": {
    "item": "Garden Hoe",
    "store": "Walmart",
-   "price": 19.97,
+   "price": 24.85,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Ames garden hoe&prds=catalogid:4489762140597587452,productid:11205375236049650313,headlineOfferDocid:5492602718754095967,imageDocid:15830363134180127246,rds:PC_1473113839761027908|PROD_PC_1473113839761027908,gpcid:1473113839761027908,mid:576462693353947331,pvt:hg&hl=en&gl=us&udm=28",
-   "matchedTitle": "Expert Gardener Fiberglass Long Handle Garden Hoe",
+   "link": "https://www.google.com/search?ibp=oshop&q=Ames garden hoe&prds=catalogid:5622726638990359726,productid:8799325123688033396,headlineOfferDocid:14479805565396082740,imageDocid:8746407647355781946,gpcid:10848392212824707557,mid:576462666250028942,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Ames 2432300 Fiberglass Garden Hoe",
    "source": "Walmart",
    "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:21:42.408Z",
-   "stale": true
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   },
   "Garden Hoe|Lehman's": {
    "item": "Garden Hoe",
@@ -123,15 +123,14 @@
   "Wooden Building Blocks|Target": {
    "item": "Wooden Building Blocks",
    "store": "Target",
-   "price": 49.99,
+   "price": 29.99,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Wooden Building Blocks&prds=catalogid:15094869695833440096,productid:13880369515311148225,headlineOfferDocid:18039885951711230994,imageDocid:3273310135570394967,gpcid:18310925567250616606,mid:576462915616424782,pvt:hg&hl=en&gl=us&udm=28",
-   "matchedTitle": "MindWare Wooden Build & Play Stacking Blocks",
+   "link": "https://www.google.com/search?ibp=oshop&q=Melissa & Doug Wooden Building Blocks 100 piece&prds=catalogid:3926318159646404357,productid:13695141050897533799,headlineOfferDocid:17914689574478124122,imageDocid:15238587966007444236,rds:PC_4534017719885466909|PROD_PC_4534017719885466909,gpcid:4534017719885466909,mid:576462374561998929,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Wooden Blocks 100 Pc Wood Building Block Set with Carrying Bag and Container",
    "source": "Target",
-   "score": 0.67,
+   "score": 1,
    "via": "google_shopping",
-   "checkedAt": "2026-10-21T19:14:02.758Z",
-   "stale": true
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   },
   "Crayons 64-pack|Walmart": {
    "item": "Crayons 64-pack",
@@ -149,65 +148,62 @@
   "Crayons 64-pack|Target": {
    "item": "Crayons 64-pack",
    "store": "Target",
-   "price": 19.99,
+   "price": 9.35,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Crayola Crayons 64 count&prds=catalogid:12167497031305054399,productid:16140537912606914549,headlineOfferDocid:16830396026991708290,imageDocid:15724280338442613190,rds:PC_14342848212174911759|PROD_PC_14342848212174911759,gpcid:14342848212174911759,mid:576462849360186418,pvt:hg&hl=en&gl=us&udm=28",
-   "matchedTitle": "Crayola Washable Crayons 64 Count Bulk Crayons for Kids",
+   "link": "https://www.google.com/search?ibp=oshop&q=Crayola Crayons 64 count&prds=productid:16772683492779810245,headlineOfferDocid:16772683492779810245,imageDocid:984892412735916264,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "Crayons, 64 Count Assorted Colors 64 Count Built-In Sharpener",
    "source": "Target",
-   "score": 1,
+   "score": 0.75,
    "via": "google_shopping",
-   "checkedAt": "2026-11-02T19:56:32.535Z",
-   "stale": true
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   },
   "Cast Iron Skillet 12 in|Walmart": {
    "item": "Cast Iron Skillet 12 in",
    "store": "Walmart",
    "price": 29.63,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Lodge 12 inch Cast Iron Skillet&prds=catalogid:14751360388737997208,productid:2488869116467108669,headlineOfferDocid:15169369295649908360,imageDocid:7482776333559107560,rds:PC_13540169646036486481|PROD_PC_13540169646036486481,gpcid:13540169646036486481,mid:576462900624820960,pvt:hg&hl=en&gl=us&udm=28",
+   "link": "https://www.google.com/search?ibp=oshop&q=Lodge 12 inch Cast Iron Skillet&prds=catalogid:14751360388737997208,productid:2488869116467108669,headlineOfferDocid:11598032254503390441,imageDocid:7482776333559107560,rds:PC_13540169646036486481|PROD_PC_13540169646036486481,gpcid:13540169646036486481,mid:576462900624820960,pvt:hg&hl=en&gl=us&udm=28",
    "matchedTitle": "Lodge 12 inch Seasoned Cast Iron Dual Handle Pan",
    "source": "Walmart",
    "score": 0.83,
    "via": "google_shopping",
-   "checkedAt": "2026-11-09T20:21:52.557Z",
-   "stale": true
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   },
   "Children's Rubber Boots|Walmart": {
    "item": "Children's Rubber Boots",
    "store": "Walmart",
-   "price": 18.98,
+   "price": 13.75,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=kids rubber rain boots&prds=catalogid:7359598960241961085,productid:2462801829020792355,headlineOfferDocid:13959051033986413257,imageDocid:14771843464423436184,rds:PC_16529052400793174430|PROD_PC_16529052400793174430,gpcid:16529052400793174430,mid:576462893509798134,pvt:a&hl=en&gl=us&udm=28",
-   "matchedTitle": "Ozark Trail Toddler and Little Kids Rain Boots",
+   "link": "https://www.google.com/search?ibp=oshop&q=kids rubber rain boots&prds=catalogid:7359598960241961085,productid:2462801829020792355,headlineOfferDocid:13959051033986413257,imageDocid:4331530692768253814,rds:PC_16529052400793174430|PROD_PC_16529052400793174430,gpcid:16529052400793174430,mid:576462893509798134,pvt:a&hl=en&gl=us&udm=28",
+   "matchedTitle": "Ozark Trail Toddler and Little Kids' Pull On Rain Boots",
    "source": "Walmart",
    "score": 0.75,
    "via": "google_shopping",
-   "checkedAt": "2026-11-09T20:21:52.557Z"
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   },
   "Children's Rubber Boots|Target": {
    "item": "Children's Rubber Boots",
    "store": "Target",
-   "price": 25,
+   "price": 15,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=kids rubber rain boots&prds=catalogid:2225036257561591988,productid:8709104935526377536,headlineOfferDocid:18191854360462407065,imageDocid:1393766054438835926,rds:PC_11647658025737713584|PROD_PC_11647658025737713584,gpcid:11647658025737713584,mid:576462892677316491,pvt:a&hl=en&gl=us&udm=28",
-   "matchedTitle": "Kids' Cat & Jack Andy Rain Boots",
+   "link": "https://www.google.com/search?ibp=oshop&q=kids rubber rain boots&prds=catalogid:14834312831660329827,productid:16942347008086064781,headlineOfferDocid:1617049824157789110,imageDocid:10950418749263717122,rds:PC_17275299405603405835|PROD_PC_17275299405603405835,gpcid:17275299405603405835,mid:576462556061208948,pvt:a&hl=en&gl=us&udm=28",
+   "matchedTitle": "Kids' Cat & Jack Cece Glitter Rain Boots",
    "source": "Target",
    "score": 0.75,
    "via": "google_shopping",
-   "checkedAt": "2026-11-09T20:21:52.557Z"
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   },
   "Adhesive Bandages 100-count|Walmart": {
    "item": "Adhesive Bandages 100-count",
    "store": "Walmart",
-   "price": 26.25,
+   "price": 26.24,
    "inStock": null,
-   "link": "https://www.google.com/search?ibp=oshop&q=Band-Aid Flexible Fabric Adhesive Bandages 100 count&prds=productid:9484355200866739630,headlineOfferDocid:9484355200866739630,imageDocid:15507627282640330746,rds:PC_17219683449274975128|PROD_PC_17219683449274975128,pvt:hg&hl=en&gl=us&udm=28",
+   "link": "https://www.google.com/search?ibp=oshop&q=Band-Aid Flexible Fabric Adhesive Bandages 100 count&prds=productid:9484355200866739630,headlineOfferDocid:9484355200866739630,imageDocid:15507627282640330746,rds:PC_896748774736650229|PROD_PC_896748774736650229,pvt:hg&hl=en&gl=us&udm=28",
    "matchedTitle": "(3 pack) Band-Aid Brand Flexible Fabric Bandages, 100 Count, Size: All One size",
    "source": "Walmart",
    "score": 0.88,
    "via": "google_shopping",
-   "checkedAt": "2026-11-02T19:56:32.535Z",
-   "stale": true
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   },
   "Garden Seed Variety Pack|Walmart": {
    "item": "Garden Seed Variety Pack",
@@ -219,7 +215,7 @@
    "source": "Walmart",
    "score": 0.67,
    "via": "google_shopping",
-   "checkedAt": "2026-11-09T20:21:52.557Z"
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   },
   "Garden Hoe|Target": {
    "item": "Garden Hoe",
@@ -231,7 +227,7 @@
    "source": "Target",
    "score": 0.67,
    "via": "google_shopping",
-   "checkedAt": "2026-11-02T19:56:32.535Z",
+   "checkedAt": "2026-11-23T21:52:05.861Z",
    "extraStore": true
   },
   "Adhesive Bandages 100-count|Target": {
@@ -246,6 +242,18 @@
    "via": "google_shopping",
    "checkedAt": "2026-11-02T19:56:32.535Z",
    "stale": true
+  },
+  "Wheelbarrow 6 cu ft|Walmart": {
+   "item": "Wheelbarrow 6 cu ft",
+   "store": "Walmart",
+   "price": 266.35,
+   "inStock": null,
+   "link": "https://www.google.com/search?ibp=oshop&q=True Temper 6 cu ft Steel Wheelbarrow&prds=catalogid:8549605605860201156,productid:8014975439832220458,headlineOfferDocid:12068189355582005565,imageDocid:18435086821541729832,rds:PC_6621820415072662273|PROD_PC_6621820415072662273,gpcid:6621820415072662273,mid:576462499398299792,pvt:hg&hl=en&gl=us&udm=28",
+   "matchedTitle": "True Temper Steel Wheelbarrow 6 cu ft r6ff25",
+   "source": "Walmart",
+   "score": 1,
+   "via": "google_shopping",
+   "checkedAt": "2026-11-23T21:52:05.861Z"
   }
  }
 }
